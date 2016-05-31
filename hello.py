@@ -1,2 +1,2 @@
-print "123"
+print "hello python"
 print "123"
