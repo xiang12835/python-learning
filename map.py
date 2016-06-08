@@ -22,11 +22,15 @@ print list(map(str, [1,2,3,4,5]))
 # lower() 全转换成小写
 # title()  标题首字大写，如"i love python".title()  "I love python"
 
+# 法一
 def normalize(name):
     return name.capitalize()
 
+print map(normalize, ['baiDu', 'aliBAba', 'TenCent'])
+
+
+# 法二
 def normalize1(name):
     return name[0].upper() + name[1:].lower()
 
-print map(normalize, ['baiDu', 'aliBAba', 'TenCent'])
 print map(normalize1, ['baiDu', 'aliBAba', 'TenCent'])
