@@ -49,7 +49,7 @@ def str2int(s):
 print str2int('1536')
 
 
-# Python提供的sum()函数可以接受一个list并求和，请编写一个prod()函数，可以接受一个list并利用reduce()求积
+# 练习1: Python提供的sum()函数可以接受一个list并求和，请编写一个prod()函数，可以接受一个list并利用reduce()求积
 # from functools import reduce
 def prod(L):
     return reduce(lambda x,y : x*y, L)
@@ -57,7 +57,8 @@ def prod(L):
 print prod([1,2,3,4,5])
 
 
-# 利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456
+# 练习2: 利用map和reduce编写一个str2float函数，把字符串'123.456'转换成浮点数123.456
+# 法一
 # from functools import reduce
 def findpoint(s, index):
     while index:
@@ -73,3 +74,14 @@ def str2float(s):
 
 print str2float('13.45')
 
+
+# 法二
+def str2float0(s):
+    sn = s.split('.')[0] + s.split('.')[1]
+    def char2num(sn):
+        return {'0':0 ,'1':1, '2':2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[sn]
+    def str2int(sn):
+        return reduce(lambda x,y : x*10+y, map(char2num, sn))
+    return float(str2int(sn))/pow(10, len(s)-1-s.index('.'))
+
+print str2float0('123.456')
