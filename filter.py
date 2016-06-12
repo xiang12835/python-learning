@@ -23,35 +23,44 @@ print list(filter(not_empty, ['A', 'B', '', None, '  ']))  # filter()函数返�
 
 # 用filter求素数
 
-# 1) 可以先构造一个从3开始的奇数序列
-def _odd_iter():
-    n = 1
-    while True:
-        n = n+2
-        yield n
-
-# 2) 定义一个筛选函数
-def _not_divisible(n):
-    return lambda x: x % n > 0
-
-# 3) 定义一个生成器，不断返回下一个素数
-def primes():
-    yield 2
-    it = _odd_iter()
-    while True:
-        n = next(it)
-        yield n
-        it = filter(_not_divisible(n), it)
-
-# 4)打印1000以内的素数
-for n in primes():
-    if n < 10:
-        print(n)
-    else:
-        break
+# # 1) 可以先构造一个从3开始的奇数序列
+# def _odd_iter():
+#     n = 1
+#     while True:
+#         n = n + 2
+#         yield n
+#
+# # 2) 定义一个筛选函数
+# def _not_divisible(n):
+#     return lambda x: x % n > 0
+#
+# # 3) 定义一个生成器，不断返回下一个素数
+# def primes():
+#     yield 2
+#     it = _odd_iter()
+#     while True:
+#         n = next(it)
+#         yield n
+#         it = filter(_not_divisible(n), it)  # _not_divisible(n)相当于lambda n: lambda x: x % n > 0
+#
+# # 4)打印1000以内的素数
+# for n in primes():
+#     if n < 20:
+#         print(n)
+#     else:
+#         break
 
 
 # 练习: 回数是指从左向右读和从右向左读都是一样的数，例如12321，909。请利用filter()滤掉非回数
+# 使用递归
 def is_palindrome(n):
-    pass
+    s = str(n)
+    if (len(s) == 0) or (len(s) == 1):
+        return True
+    if s[0] == s[-1]:
+        return is_palindrome(s[1:-1])
+    else:
+        return False
 
+output = filter(is_palindrome, range(1, 1000))
+print(list(output))
