@@ -19,3 +19,20 @@ except NameError:
     print i+j
 except TypeError:
     print "刚刚i与j类型对应不上，我们转换一下类型即可处理异常，处理后：结果是："+str(i)+str(j)
+
+
+try:
+    print('try...')
+    r = 10 / int('2')
+    # r = 10 / 0
+    print('result:', r)
+except ValueError as e:
+    print('ValueError:', e)
+except ZeroDivisionError as e:
+    print('ZeroDivisionError:', e)
+else:
+    print('no error!')
+finally:
+    print('finally...')
+print('END')
+
