@@ -1,21 +1,25 @@
+# coding=utf-8
+
+
 import pickle
 
-#dumps(object)½«¶ÔÏóĞòÁĞ»¯
+
+#dumps(object)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½
 lista=["mingyue","jishi","you"]
 listb=pickle.dumps(lista)
 #print listb
 
-#loads(string)½«¶ÔÏóÔ­Ñù»Ö¸´£¬²¢ÇÒ¶ÔÏóÀàĞÍÒ²»Ö¸´ÎªÔ­À´µÄ¸ñÊ½
+#loads(string)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½Ö¸ï¿½ÎªÔ­ï¿½ï¿½ï¿½Ä¸ï¿½Ê½
 listc=pickle.loads(listb)
 #print listc
 
-#dump(object,file),½«¶ÔÏó´æ´¢µ½ÎÄ¼şÀïÃæĞòÁĞ»¯
+#dump(object,file),ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½
 group1=("bajiu","wen","qingtian")
 f1=file('1.pk1','wb')
 pickle.dump(group1,f1,True)
 f1.close()
 
-#load(object,file)½«dump()´æ´¢ÔÚÎÄ¼şÀïÃæµÄÊı¾İ»Ö¸´
+#load(object,file)ï¿½ï¿½dump()ï¿½æ´¢ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ»Ö¸ï¿½
 f2=file('1.pk1','rb')
 t=pickle.load(f2)
 print t
