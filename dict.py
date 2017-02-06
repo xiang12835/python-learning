@@ -29,3 +29,7 @@ print 'Thomas' in d # key不存在的错误，有两种办法，一是通过in�
 print d.get('Thomas')  # 二是通过dict提供的get方法，如果key不存在，可以返回None，或者自己指定的value：
 print d.get('Thomas', -1)
 
+
+# dict():
+print dict(a=1, b=2)
+
