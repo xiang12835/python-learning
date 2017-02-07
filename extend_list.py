@@ -34,5 +34,7 @@ def add_end(L=None):
 
 print add_end()
 print add_end()
+print add_end([1, 2, 3])
+print add_end(['a', 'b', 'c'])
 
 # 定义默认参数要牢记一点：默认参数必须指向不变对象
