@@ -38,7 +38,8 @@ print [m(2) for m in multipliers()]
 # 一种解决方法就是用Python生成器。
 
 def multipliers():
-  for i in range(4): yield lambda x : i * x
+  for i in range(4):
+      yield lambda x : i * x
 
 print [m(2) for m in multipliers()]
 
