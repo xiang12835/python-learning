@@ -13,8 +13,8 @@
 def f1(a, b, c=0, *args, **kw):
     print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
 
-def f2(a, b, c=0, *, d, **kw):
-    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+# def f2(a, b, c=0, *, d, **kw):
+#     print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
 
 
 # 在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去。
@@ -23,7 +23,7 @@ f1(1, 2)
 f1(1, 2, c=3)
 f1(1, 2, 3, 'a', 'b')
 f1(1, 2, 3, 'a', 'b', x=99)
-f2(1, 2, d=99, ext=None)
+# f2(1, 2, d=99, ext=None)
 
 # 最神奇的是通过一个tuple和dict，你也可以调用上述函数：
 
@@ -33,7 +33,7 @@ f1(*args, **kw)
 
 args = (1, 2, 3)
 kw = {'d': 88, 'x': '#'}
-f2(*args, **kw)
+# f2(*args, **kw)
 # 所以，对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。
 
 
