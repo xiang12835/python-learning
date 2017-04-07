@@ -12,11 +12,11 @@ def insert_sort(lst=[]):
     """
     count = len(lst)
     for i in range(1, count):
-        val = lst[i]  # 带插元素
-        j = i - 1
+        val = lst[i]  # i指向带插元素
+        j = i - 1  # j指向有序元素
         while j >= 0:
             if lst[j] > val:
-                lst[j + 1] = lst[j]
+                lst[j + 1] = lst[j]  # j指向的有序元素后移
                 lst[j] = val
             j -= 1
     return lst
