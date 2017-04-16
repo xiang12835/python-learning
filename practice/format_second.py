@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+
+# 作业：格式化秒数的小工具
+# 提示：使用format和+
+
+
 import random
 
 num = random.randint(100, 10000)
