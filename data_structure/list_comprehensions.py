@@ -24,7 +24,7 @@ print [d for d in os.listdir('.')]
 
 '''for循环其实可以同时使用两个甚至多个变量，比如dict的items()可以同时迭代key和value'''
 d = {'x':'a', 'y':'b', 'z':'c'}
-print [k + '=' + v for k, v in d. items()]
+print [k + '=' + v for k, v in d.items()]
 
 
 '''把一个list中所有的字符串变成小写'''
@@ -34,4 +34,4 @@ print [s.lower() for s in l]
 
 '''练习: 如果list中既包含字符串，又包含整数，由于非字符串类型没有lower()方法，所以列表生成式会报错，请解决'''
 l = ['Hello', 'World', 1, 'abc', None]
-print [s.lower() for s in l if isinstance(s, str) ]
+print [s.lower() for s in l if isinstance(s, str)]
