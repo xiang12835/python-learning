@@ -64,3 +64,11 @@ def is_palindrome(n):
 
 output = filter(is_palindrome, range(1, 1000))
 print(list(output))
+
+
+# 举例：在处理文件的时候，需要把一些空格,回车和空字符去掉
+def is_not_empty(x):
+    return x and len(x.strip()) > 0
+
+res = filter(is_not_empty, ['aaa', None, ' ', 'book', 'End', '\t', '\n'])
+print res
