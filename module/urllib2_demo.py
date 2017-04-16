@@ -14,3 +14,4 @@ data = urllib.urlencode(values)  # 有时候你希望发送一些数据到URL(�
 req = urllib2.Request(url, data, headers)
 response = urllib2.urlopen(req)
 the_page = response.read()
+print the_page
