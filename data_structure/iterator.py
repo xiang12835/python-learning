@@ -117,3 +117,44 @@ except StopIteration:
 
 results = get_a_indexs('this is a test to check a')
 results_list = list(results)
+
+
+# 可迭代对象
+
+# 需要注意的是，普通的迭代器只能迭代一轮，一轮之后重复调用是无效的。解决这种问题的方法是，你可以定义一个可迭代的容器类：
+
+class LoopIter(object):
+    def __init__(self, data):
+        self.data = data
+    # 必须在 __iter__ 中 yield 结果
+    def __iter__(self):
+        for index, letter in enumerate(self.data):
+            if letter == 'a':
+                yield index
+# 这样的话，将类的实例迭代重复多少次都没问题：
+
+string = 'this is a test to find a\' index'
+indexs = LoopIter(string)
+
+print('loop 1')
+for _ in indexs:
+    print(_)
+# loop 1
+# 8
+# 23
+
+print('loop 2')
+for _ in indexs:
+    print(_)
+# loop 2
+# 8
+# 23
+# 但要注意的是，仅仅是实现__iter__方法的迭代器，只能通过for循环来迭代；想要通过next方法迭代的话则需要使用iter方法：
+
+string = 'this is a test to find a\' index'
+indexs = LoopIter(string)
+
+# next(indexs) # TypeError: 'LoopIter' object is not an iterator
+
+iter_indexs = iter(indexs)
+next(iter_indexs) # 8
