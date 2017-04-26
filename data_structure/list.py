@@ -32,3 +32,15 @@ print len(s)
 
 L = []
 print len(L)
+
+
+# 列表切割
+#
+# list[start:end:step]
+# 如果从列表开头开始切割，那么忽略 start 位的 0，例如list[:4]
+# 如果一直切到列表尾部，则忽略 end 位的 0，例如list[3:]
+# 切割列表时，即便 start 或者 end 索引跨界也不会有问题
+# 列表切片不会改变原列表。索引都留空时，会生成一份原列表的拷贝
+a = [1, 2, 3]
+b = a[:]
+assert b == a and b is not a  # true
