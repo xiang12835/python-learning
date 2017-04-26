@@ -40,7 +40,8 @@ print('END')
 ''' 总结
 try/except/else/finally
 
-1) 如果try内没有发生异常，则调用else内的代码
-2) else会在finally之前运行
-3) 最终一定会执行finally，可以在其中进行清理工作
+- 如果 try 内没有发生异常，则调用 else 内的代码
+- except 块用于捕获异常，可以有多个 except 来捕获不同类型的错误
+- else 会在 finally 之前运行，else 块可以用来缩减 try 块中的代码量
+- 最终一定会执行 finally，可以在其中进行清理工作
 '''
