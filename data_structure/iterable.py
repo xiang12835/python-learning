@@ -98,3 +98,70 @@ for i in []:
 else:
     print('loop finish')
 # loop finish
+
+
+# 反向迭代
+
+''' 1
+对于普通的序列（列表），我们可以通过内置的reversed()函数进行反向迭代：
+'''
+
+list_example = [i for i in range(5)]
+iter_example = (i for i in range(5))  # 迭代器
+set_example = {i for i in range(5)}  # 集合
+
+print list_example
+print iter_example
+print set_example
+
+# 普通的正向迭代
+# for i in list_example
+
+# 通过 reversed 进行反向迭代
+for i in reversed(list_example):
+    print(i)
+# 4
+# 3
+# 2
+# 1
+# 0
+
+# 但无法作用于 集合 和 迭代器
+# reversed(iter_example) # TypeError: argument to reversed() must be a sequence
+
+
+''' 2
+除此以外，还可以通过实现类里的__reversed__方法，将类进行反向迭代：
+'''
+
+
+class Countdown:
+    def __init__(self, start):
+        self.start = start
+
+    # 正向迭代
+    def __iter__(self):
+        n = self.start
+        while n > 0:
+            yield n
+            n -= 1
+
+    # 反向迭代
+    def __reversed__(self):
+        n = 1
+        while n <= self.start:
+            yield n
+            n += 1
+
+for i in reversed(Countdown(4)):
+    print(i)
+# 1
+# 2
+# 3
+# 4
+for i in Countdown(4):
+    print(i)
+# 4
+# 3
+# 2
+# 1
