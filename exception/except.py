@@ -36,3 +36,11 @@ finally:
     print('finally...')
 print('END')
 
+
+''' 总结
+try/except/else/finally
+
+1) 如果try内没有发生异常，则调用else内的代码
+2) else会在finally之前运行
+3) 最终一定会执行finally，可以在其中进行清理工作
+'''
