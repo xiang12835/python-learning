@@ -67,3 +67,53 @@ for i, value in enumerate(['A', 'B', 'C']):
 print('iter [(1, 1), (2, 4), (3, 9)]:')
 for x, y in [(1, 1), (2, 4), (3, 9)]:
     print(x, y)
+
+
+# 使用生成器
+
+''' 1
+考虑使用生成器来改写直接返回列表的函数
+'''
+
+# 定义一个函数，其作用是检测字符串里所有 a 的索引位置，最终返回所有 index 组成的数组
+def get_a_indexs(string):
+    result = []
+    for index, letter in enumerate(string):
+        if letter == 'a':
+            result.append(index)
+    return result
+
+# 用这种方法有几个小问题：
+# 1）每次获取到符合条件的结果，都要调用append方法。但实际上我们的关注点根本不在这个方法，它只是我们达成目的的手段，实际上只需要index就好了，
+# 2）返回的result可以继续优化
+# 3）数据都存在result里面，如果数据量很大的话，会比较占用内存
+# 因此，使用生成器generator会更好。生成器是使用yield表达式的函数，调用生成器时，它不会真的执行，而是返回一个迭代器，每次在迭代器上调用内置的next函数时，迭代器会把生成器推进到下一个yield表达式：
+
+def get_a_indexs(string):
+    for index, letter in enumerate(string):
+        if letter == 'a':
+            yield index
+
+# 获取到一个生成器以后，可以正常的遍历它：
+
+string = 'this is a test to find a\' index'
+indexs = get_a_indexs(string)
+
+# 可以这样遍历
+for i in indexs:
+    print(i)
+
+# 或者这样
+try:
+    while True:
+        print(next(indexs))
+except StopIteration:
+    print('finish!')
+
+# 生成器在获取完之后如果继续通过 next() 取值，则会触发 StopIteration 错误
+# 但通过 for 循环遍历时会自动捕获到这个错误
+
+# 如果你还是需要一个列表，那么可以将函数的调用结果作为参数，再调用list方法
+
+results = get_a_indexs('this is a test to check a')
+results_list = list(results)
