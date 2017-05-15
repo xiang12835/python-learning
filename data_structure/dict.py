@@ -33,3 +33,11 @@ print d.get('Thomas', -1)
 # dict():
 print dict(a=1, b=2)
 
+
+# 当key缺失时，执行DefaultDict类，字典的实例将自动实例化这个数列
+class DefaultDict(dict):
+    def __missing__(self, key):
+        return []
+
+d = DefaultDict()
+d['florp'] = 127
