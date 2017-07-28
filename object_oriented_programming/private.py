@@ -55,3 +55,13 @@ bart.set_score(60)
 print('bart.get_score() =', bart.get_score())
 
 print('DO NOT use bart._Student__name:', bart._Student__name)
+
+
+
+""" 区别：访问控制 - public / protected / private
+单下划线、双下划线、头尾双下划线说明：
+__foo__: 定义的是特列方法，类似 __init__() 之类的。
+_foo: 以单下划线开头的表示的是 protected 类型的变量，即保护类型只能允许其本身与子类进行访问，不能用于 from module import *
+__foo: 双下划线的表示的是私有类型(private)的变量, 只能是允许这个类本身进行访问了。
+"""
+
