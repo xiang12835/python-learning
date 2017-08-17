@@ -40,4 +40,8 @@ class DefaultDict(dict):
         return []
 
 d = DefaultDict()
-d['florp'] = 127
+d['a'] = 127
+
+print d
+print d['a']
+print d['b']
