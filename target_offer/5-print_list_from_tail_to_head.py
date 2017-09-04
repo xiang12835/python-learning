@@ -25,6 +25,7 @@ class Solution:
         return l
 
     def printListFromTailToHead2(self, listNode):
+        # 法二：使用l[::-1]反转列表
         if listNode == None:
             return
         l = []
