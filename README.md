@@ -1,5 +1,5 @@
 ### PythonLearn
 
 - Python教程(廖雪峰的官方网站)
-- 《 Effective Python 》
-- 《 Target Python 》
+- 《Effective Python》
+- 《Target Python》
