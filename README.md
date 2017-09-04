@@ -1,2 +1,4 @@
-# PythonLearn
-python语言学习
+### PythonLearn
+- Python 语言学习
+- 《 Effective Python 》
+- 《 Target Offer 》
