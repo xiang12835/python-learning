@@ -135,3 +135,9 @@ def int_last_weeks(d=None):
 def is_legal_date(d):
     time_re = "^(\d{2}|\d{4})-((0([1-9]{1}))|(1[0|1|2]))-(([0-2]([0-9]{1}))|(3[0|1]))$"
     return re.match(time_re, d) != None
+
+
+""" 参考文档
+http://python.usyiyi.cn/documents/python_352/library/time.html#module-time
+http://python.usyiyi.cn/documents/python_352/library/datetime.html#module-datetime
+"""
