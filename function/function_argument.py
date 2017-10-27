@@ -126,7 +126,7 @@ person('Jack', 24, **extra) # **extra表示把extra这个dict的所有key-value�
 # 比如定义一个函数，包含上述若干种参数：
 
 def f1(a, b, c=0, *args, **kw):
-    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+    print('a =', a, 'b = ', b, 'c =', c, 'args =', args, 'kw =', kw)
 
 # def f2(a, b, c=0, *, d, **kw):
 #     print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
