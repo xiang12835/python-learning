@@ -1,18 +1,22 @@
 # coding=utf-8
+import os
+
+file_name = os.path.join(os.path.dirname(__file__), 'test.txt')
+print file_name
 
 # 创建上下文管理器
 #
 # 上下文管理器，通俗的介绍就是：在代码块执行前，先进行准备工作；在代码块执行完成后，做收尾的处理工作。
 # with语句常伴随上下文管理器一起出现，经典场景有：
 
-with open('test.txt', 'r') as file:
+with open(file_name, 'r') as file:
     for line in file.readlines():
         print(line)
 
 # 通过with语句，代码完成了文件打开操作，并在调用结束，或者读取发生异常时自动关闭文件，即完成了文件读写之后的处理工作。
 # 如果不通过上下文管理器的话，则会是这样的代码：
 
-file = open('test.txt', 'r')
+file = open(file_name, 'r')
 try:
     for line in file.readlines():
         print(line)
@@ -39,7 +43,7 @@ class ReadFile(object):
 
 # 然后可以以这样的方式进行调用：
 
-with ReadFile('test.txt') as file_read:
+with ReadFile(file_name) as file_read:
     for line in file_read.readlines():
         print(line)
 
