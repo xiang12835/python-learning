@@ -30,16 +30,16 @@ jd7=(no,no,58)
 '''
 
 
-class Tree():
+class Node(object):
     def __init__(self, left=0, right=0, data=0):
         self.left = left
         self.right = right
         self.data = data
 
 
-class Btree():
-    def __init__(self,base=0):
-        self.base=base
+class Btree(object):
+    def __init__(self, base=0):
+        self.base = base
 
     def empty(self):
         if self.base is 0:
@@ -47,36 +47,36 @@ class Btree():
         else:
             return False
 
-    def preorder(self,jd):
+    def preorder(self, node):
         """前序遍历，NLR，根左右"""
-        if jd==0:
+        if node == 0:
             return
-        print jd.data
-        self.preorder(jd.leftjd)
-        self.preorder(jd.rightjd)
+        print node.data
+        self.preorder(node.left)
+        self.preorder(node.right)
 
-    def inorder(self,jd):
+    def inorder(self, node):
         """中序遍历，LNR，左根右"""
-        if jd==0:
+        if node == 0:
             return
-        self.inorder(jd.leftjd)
-        print jd.data
-        self.inorder(jd.rightjd)
+        self.inorder(node.left)
+        print node.data
+        self.inorder(node.right)
 
-    def postorder(self,jd):
+    def postorder(self,node):
         """后序遍历，LRN，左右根"""
-        if jd==0:
+        if node == 0:
             return
-        self.postorder(jd.leftjd)
-        self.postorder(jd.rightjd)
-        print jd.data
+        self.postorder(node.left)
+        self.postorder(node.right)
+        print node.data
 
 
 if __name__ == "__main__":
-    jd1 = Tree(data=8)
-    jd2 = Tree(data=9)
-    base = Tree(jd1, jd2, 7)
-    x = Btree(base)
+    node1 = Node(data=8)
+    node2 = Node(data=9)
+    root = Node(node1, node2, 7)
+    x = Btree(root)
     print "前序遍历:"
     x.preorder(x.base)
     print "中序遍历:"
