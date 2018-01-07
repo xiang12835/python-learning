@@ -3,8 +3,9 @@
 ### 学习资料
 
 1. Python教程(廖雪峰的官方网站)
-2. 《Effective Python》
-3. 《Target Offer》
+2. 《A Byte of Python》
+3. 《Effective Python》
+4. 《Target Offer》
 
 
 ## python 开发工程师
