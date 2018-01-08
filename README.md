@@ -1,4 +1,4 @@
-##  PythonLearn
+#  PythonLearn
 
 ### 学习资料
 
@@ -8,7 +8,7 @@
 4. 《Target Offer》
 
 
-## python 开发工程师
+# Python 开发工程师 - 职位
 
 ### 工作职责：
 1. 优酷 APP 服务端业务需求开发，性能优化
@@ -29,3 +29,105 @@
 9. 有全栈开发经验或大型在线服务开发经验优先
 10. 掌握操作系统、软件工程、设计模式、数据结构、数据库系统、网络安全等软件知识结构
 11. 熟悉 LVS 等开源负载均衡系统
+
+
+# 后端开发 - 总结
+
+## Python 
+
+### mac 上安装 python 开发环境
+
+- 安装 brew
+```shell
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+- 安装 python
+```shell
+$ brew install python2 python3
+```
+
+- 安装 virtualenv & virtualenvwrapper
+```shell
+$ sudo pip install virtualenv
+$ sudo pip install virtualenvwrapper
+```
+
+- 配置文件
+```shell
+$ touch .bash_login
+$ vi .bash_login
+source /usr/local/bin/virtualenvwrapper.sh
+# 作用就是：wrapper在每次打开shell的时候自动运行
+```
+
+- 常用命令
+```shell
+$ mkvirtualenv env3.5 -p /usr/local/bin/python3
+$ mkvirtualenv env2.7
+$ lsvirtualenv
+$ rmvirtualenv env2.7
+$ workon env3.5
+$ deactivate
+```
+
+### mac 安装 pylibmc
+
+#### pylibmc 是什么
+
+> pylibmc 为 memcached 的 python 客户端，底层为 c 实现的 libmemcached ，效率比较高。安装 libmemcached 需要本机安装了 memcached
+
+#### 安装步骤
+
+- 安装libevent
+```shell
+$ sudo brew install libevent
+```
+
+- 安装memcached
+```shell
+$ sudo brew install memcached
+```
+
+- 安装libmemcached
+```shell
+$ sudo brew install libmemcached
+```
+
+- 安装pylibmc
+
+```shell
+$ sudo pip install pylibmc
+```
+
+### ubuntu 安装 pylibmc 模块
+
+```shell
+$ sudo apt-get install libmemcached-dev zlib1g-dev
+$ sudo pip install pylibmc
+```
+
+### ubuntu 安装 MySQLdb 模块
+
+```shell
+pip install mysql-python
+```
+
+### HTTPServer
+
+> 如果想让身边的同事临时访问你电脑中的文件目录，通常的做法是搭一个共享目录出来供大家访问，不过你要是安装了Python，那么一切都变得简单很多了，只需要打开命令行窗口，切换到指定目录，执行：
+
+``` shell
+$ python -m SimpleHTTPServer  # python2
+$ python -m http.server  # python3
+```
+
+> 这是 Python 内置的一个简单 http server，方便自己、他人用浏览器来访问你的文件目录
+
+### 静态方法／类方法／实例方法
+
+### 全局变量／类变量／实例变量
+
+### 装饰器／@property
+
+### 切片 slice
