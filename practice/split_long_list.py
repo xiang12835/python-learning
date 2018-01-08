@@ -10,3 +10,10 @@ ret = split_long_list(long_list)
 
 for i in ret:
     print "{} -> {}".format(i, len(i))
+
+
+
+
+lst = [3,4,1,6,9,2,7]
+l = [lst[x:x+3] for x in range(0, len(lst), 3)]
+print l
