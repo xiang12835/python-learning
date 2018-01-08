@@ -1,4 +1,5 @@
 # coding=utf-8
+from db_lib import SqlExecute
 
 
 @classmethod
@@ -20,7 +21,7 @@ def get_my_course_by_category(cls, userid, category, pageSize, pageNum):
             LIMIT %s OFFSET %s;
         """ % (userid, limit, offset)
 
-        datas = SqlExcecute.fetch_all(sql)
+        datas = SqlExecute.fetch_all(sql)
 
         for data in datas:
             course_ids.append(data[0])
@@ -34,7 +35,7 @@ def get_my_course_by_category(cls, userid, category, pageSize, pageNum):
             LIMIT %s OFFSET %s;
         """ % (userid, limit, offset)
 
-        datas = SqlExcecute.fetch_all(sql)
+        datas = SqlExecute.fetch_all(sql)
 
         for data in datas:
             course_ids.append(data[0])
