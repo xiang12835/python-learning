@@ -14,17 +14,17 @@ sys.setdefaultencoding('utf8')
 # 测试线
 DB_HOST = "***.sh.cdb.myqcloud.com"
 DB_PORT = 3612
-DB_USER = "api"
-DB_PASSWD = "Win123456"
-DB = "bskgk"
+DB_USER = "user_name"
+DB_PASSWD = "password"
+DB = "db_name"
 
 
 # 正式线
 # DB_HOST = "***.sh.cdb.myqcloud.com"
 # DB_PORT = 7863
-# DB_USER = "cdb_outerroot"
-# DB_PASSWD = "a12345678"
-# DB = "bskgk"
+# DB_USER = "user_name"
+# DB_PASSWD = "password"
+# DB = "db_name"
 
 # 正式线配置 crontab
 # vi /var/spool/cron/root
