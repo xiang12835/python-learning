@@ -131,3 +131,163 @@ $ python -m http.server  # python3
 ### 装饰器／@property
 
 ### 切片 slice
+
+
+
+## Django
+
+### filter | exclude
+
+``` Python
+if has_buy == "1":
+    datas = datas.filter(phone__in=customer_phone_list)
+elif has_buy == "0":
+    datas = datas.exclude(phone__in=customer_phone_list)
+```
+
+### Q
+
+- Q()对象的前面使用字符“~”来代表意义“非”
+
+``` Python
+datas = OrderInfo.objects.filter(status="2", amount__gt=0).filter(~Q(express_code=""))
+```
+
+- 使用 “&”或者“|”还有括号来对条件进行分组从而组合成更加复杂的查询逻辑
+``` Python
+users = BskUser.objects.filter(Q(user_name__contains=search_key)|Q(nickname__contains=search_key))
+```
+
+### 注意点
+> 不能拖库
+
+### queryset
+
+``` shell
+$ python manage.py shell
+
+>>> questions = QuestionInfo.objects.using("bskgk_slave").filter(status='1').values('custom_id').annotate(count=Count('custom_id')).filter(count__gte=5).order_by('-comment_time')
+>>> questions.query.__str__()
+```
+
+上面这句话的SQL语句是：
+``` sql
+select customId, count(customId) as count
+from bskgk.custom_review_info
+where status="1"
+group by customId
+having count >= 5
+order by commentTime desc;
+```
+
+### 进入 python 命令行模式
+
+``` shell
+python manage.py shell
+```
+
+### 进入 数据库 命令行模式
+
+``` shell
+python manage.py dbshell
+```
+
+
+### django ORM 中大于等于、小于等于
+``` python
+__gt  # 大于
+__gte  # 大于等于
+__lt  # 小于
+__lte  # 小于等于
+```
+
+### 取出 django 注册的用户
+
+``` python
+admin_user = request.user
+```
+
+### default_if_none
+``` python
+@register.filter(is_safe=False)
+def default_if_none(value, arg):
+    """If value is None, use given default."""
+    if value is None:
+        return arg
+    return value
+```
+使用：
+{{video.live_url|default_if_none:""}} - 如果值有可能为none 加上这个 templatetags 就可以把None装换成空字符串了
+
+
+### 项目目录结构分析
+ - app
+ - api
+ - background
+ - base
+
+### db router
+
+### 查找指定数据库“bsk_db”的对象
+
+``` python
+lessons = LessonInfo.objects.using('bsk_db').filter(status=1).order_by('lesson_name', "-id")
+```
+
+### 创建admin帐号
+
+```shell
+$ python manage.py createsuperuser --username=yu.xiang --email=yu.xiang@alibaba-inc.com
+```
+
+### 创建数据库
+
+```shell
+$ python manage.py sqlindexes content  # 显示出所有的索引
+$ python manage.py sql content  # 若不是默认数据库，显示出所有的表格
+$ python manage.py syncdb  # 若是默认数据库
+```
+
+### south
+- 第一次使用
+
+```shell
+python manage.py syncdb # 用来创建south_migrationhistory表，用来记录数据表更改(Migration)的历史纪录
+python manage.py migrate
+python manage.py schemamigration youappname --initial # youappname目录下面创建一个migrations的子目录 0001_initial.py
+python manage.py migrate youappname #将更改反应到数据库（如果出现表已存在的错误，后面加 --fake）
+```
+
+- 以后每次对models更改后，可以运行以下两条命令同步到数据库
+
+```shell
+python manage.py schemamigration youappname --auto #检测对models的更改
+python manage.py migrate youappname #将更改反应到数据库（如果出现表已存在的错误，后面加 --fake）
+```
+
+### Django CharField 中的 max_length 是指字符的个数或字节数
+
+
+### 模板中的变量／标签／过滤器
+- https://my.oschina.net/u/240562/blog/50393
+
+### ForeignKey.db_constraint
+> 数据库是否设置外键关系，对于外键关系，添加一条数据时，对应外键没有相应字段将会出错，但是设置为false，数据库不存在外键关系，不会检察外键约束，默认true
+
+### django auto_now与auto_now_add的区别
+
+- auto_now无论是你添加还是修改对象，时间为你添加或者修改的时间
+- auto_now_add为添加时的时间，更新对象时不会有变动
+
+
+## Tornado
+
+### 并行与并发
+
+### 同步与异步
+
+### 阻塞与非阻塞
+
+### 总结
+
+> 每个接口<=100ms * 10个并发 * 40个进程
