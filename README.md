@@ -330,12 +330,12 @@ python manage.py migrate youappname #将更改反应到数据库（如果出现�
 
 ``` json 
 {
-    "username": "lgz",                 // 必填, 用户名称, max 10
-    "realname": "your_name",           // 必填, 用户名称, max 10
-    "password": "123456",              // 必填, 用户密码, max 32
-    "email": "lianggzone@163.com",     // 选填, 电子邮箱, max 32
-    "weixin": "LiangGzone",            // 选填，微信账号, max 32
-    "sex": 1                           // 必填, 用户性别[1-男 2-女 99-未知]
+    "username": "lgz",                 # 必填, 用户名称, max 10
+    "realname": "your_name",           # 必填, 用户名称, max 10
+    "password": "123456",              # 必填, 用户密码, max 32
+    "email": "lianggzone@163.com",     # 选填, 电子邮箱, max 32
+    "weixin": "LiangGzone",            # 选填，微信账号, max 32
+    "sex": 1                           # 必填, 用户性别[1-男 2-女 99-未知]
 }
 
 ```
@@ -358,12 +358,15 @@ end = start + pageSize
 ```
 
 ### 使用小驼峰命名法
+
 > 使用小驼峰命名法作为属性标识符。
 
+```json
 { "yearOfBirth": 1982 }
-
+```
 
 ### 请求方式
+
 > 可以通过 GET、 POST、 PUT、 PATCH、 DELETE 等方式对服务端的资源进行操作。其中，
 
 - GET 用于查询资源，
@@ -374,8 +377,6 @@ end = start + pageSize
 
 
 ### 状态码
-
-
 
  状态码  | 描述
 ------- | ---------
