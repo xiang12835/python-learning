@@ -328,7 +328,7 @@ python manage.py migrate youappname #将更改反应到数据库（如果出现�
 
 请求内容
 
-``` json 
+``` python 
 {
     "username": "lgz",                 # 必填, 用户名称, max 10
     "realname": "your_name",           # 必填, 用户名称, max 10
