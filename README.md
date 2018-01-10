@@ -291,3 +291,99 @@ python manage.py migrate youappname #将更改反应到数据库（如果出现�
 ### 总结
 
 > 每个接口<=100ms * 10个并发 * 40个进程
+
+
+
+
+## RESTfull API
+
+### 资源路径命名规则
+
+- URI – 统一资源标识符，用来唯一的标识一个资源
+- URL – 统一资源定位器，用来定位某个特定的资源，如一个网址
+
+> RESTful API 的设计以资源为核心，每一个 URI 代表一种资源。因此，URI 不能包含动词，只能是名词。注意的是，形容词也是可以使用的，但是尽量少用。一般来说，不论资源是单个还是多个，API 的名词要以复数进行命名。此外，命名名词的时候，要使用小写、数字及下划线来区分多个单词。这样的设计是为了与 json 对象及属性的命名方案保持一致。
+
+> 一般地，/项目/模块/v1/视图名称
+
+例如：
+- /api/user_info/v5/product_count GET 获取产品的数量
+- /api/user_info/v5/product_list GET 获取产品列表
+- /api/user_info/v5/product_detail?id=100 GET 获取id为100的产品详情
+- /api/user_info/v5/product_post?item_id=100 POST 创建产品信息
+- /api/user_info/v5/product_put?item_id=100 PUT 更新产品的全部信息
+- /api/user_info/v5/product_patch?item_id=100 PATCH 更新产品的部分信息
+- /api/user_info/v5/product_delete?id=100 DELETE 删除id为100的产品信息
+
+
+
+### 请求参数
+
+在设计服务端的 RESTful API 的时候，我们还需要对请求参数进行限制说明。例如一个支持批量查询的接口，我们要考虑最大支持查询的数量。
+【GET】     /v1/users/batch?user_ids=1001,1002      // 批量查询用户信息
+参数说明
+- user_ids: 用户ID串，最多允许 20 个。此外，在设计新增或修改接口时，我们还需要在文档中明确告诉调用者哪些参数是必填项，哪些是选填项，以及它们的边界值的限制。
+
+【POST】    /v1/users                              // 创建用户信息
+
+请求内容
+
+``` json 
+{
+    "username": "lgz",                 // 必填, 用户名称, max 10
+    "realname": "your_name",           // 必填, 用户名称, max 10
+    "password": "123456",              // 必填, 用户密码, max 32
+    "email": "lianggzone@163.com",     // 选填, 电子邮箱, max 32
+    "weixin": "LiangGzone",            // 选填，微信账号, max 32
+    "sex": 1                           // 必填, 用户性别[1-男 2-女 99-未知]
+}
+
+```
+
+### 分页信息 （pageNum;pageSize）
+
+- 若是 SQL
+
+```python
+limit = pageSize
+offset = (pageNum - 1) * pageSize
+
+```
+    
+- 若是 列表[]
+
+```python
+start = (pageNum - 1) * pageSize
+end = start + pageSize
+```
+
+### 使用小驼峰命名法
+> 使用小驼峰命名法作为属性标识符。
+
+{ "yearOfBirth": 1982 }
+
+
+### 请求方式
+> 可以通过 GET、 POST、 PUT、 PATCH、 DELETE 等方式对服务端的资源进行操作。其中，
+
+- GET 用于查询资源，
+- POST 用于创建资源，
+- PUT 用于更新服务端的资源的全部信息，
+- PATCH 用于更新服务端的资源的部分信息，
+- DELETE 用于删除服务端的资源。
+
+
+### 状态码
+
+
+
+ 状态码  | 描述
+------- | ---------
+ 200    | 请求成功
+ 201    | 创建成功
+ 400    | 错误的请求
+ 401    | 未验证
+ 403    | 被拒绝
+ 404    | 无法找到
+ 409    | 资源冲突
+ 500    | 服务器内部错误
