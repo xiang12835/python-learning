@@ -388,3 +388,19 @@ end = start + pageSize
  404    | 无法找到
  409    | 资源冲突
  500    | 服务器内部错误
+ 
+ 
+ ## JSON数据返回格式
+```python
+{
+    "msg": "请求成功",
+    "status": "success",
+    "code": "200",
+    "result": {
+        "balance": 8001,  # 余额（数据结构：Float）
+        "voucher_count": 1,  # 卡券数量
+        "order_count": 178  # 订单数量
+    }
+}
+
+```
