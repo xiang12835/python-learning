@@ -731,9 +731,9 @@ for id_items in id_group:
     
 - 减少循环中sql的查询次数
 
-  a) 1+n -> 1+1 问题: 通过建立 where in []
+> a) 1+n -> 1+1 问题: 通过建立 where in []
 
-示例<1+n>:
+问题<1+n>:
     
 ```python
 user_vouchers = UserVoucher.objects.filter(user_id=user_id).order_by("-create_time")  # 第一次
@@ -745,7 +745,7 @@ for each in user_vouchers:
 ```
         
         
-<1+1>:
+解决<1+1>:
 ```python
 user_vouchers = UserVoucher.objects.filter(user_id=user_id).order_by("-create_time")  # 第一次
 voucher_id_list = []
@@ -755,7 +755,7 @@ vouchers = VoucherEntity.objects.filter(id__in=voucher_id_list).order_by("-creat
 
 ```
 
-  b) n+1 -> 1+1 问题: 通过建立外键
+> b n+1 -> 1+1 问题: 通过建立外键
 
 
 - 少用 count(*) 效率问题，因为当数据多时，页面会加载慢
