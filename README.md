@@ -404,3 +404,500 @@ end = start + pageSize
 }
 
 ```
+
+
+## MySQL
+
+
+### limit
+```sql
+SELECT * FROM table  LIMIT [offset,] rows | rows OFFSET offset
+```
+在我们使用查询语句的时候，经常要返回前几条或者中间某几行数据，这个时候怎么办呢？不用担心，mysql已经为我们提供了上面这样一个功能。
+
+LIMIT 子句可以被用于强制 SELECT 语句返回指定的记录数。LIMIT 接受一个或两个数字参数。参数必须是一个整数常量。如果给定两个参数，第一个参数指定第一个返回记录行的偏移量，第二个参数指定返回记录行的最大数目。初始记录行的偏移量是 0(而不是 1)： 为了与 PostgreSQL 兼容，MySQL 也支持句法： LIMIT # OFFSET #。
+
+```sql
+-- 检索记录行6-15
+mysql> SELECT * FROM table LIMIT 5,10;  
+
+-- 为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
+-- 检索记录行 96-last.
+mysql> SELECT * FROM table LIMIT 95,-1; 
+
+-- 如果只给定一个参数，它表示返回最大的记录行数目：
+-- 检索前 5 个记录行 
+mysql> SELECT * FROM table LIMIT 5;     
+-- 换句话说，LIMIT n 等价于 LIMIT 0,n。
+
+```
+
+示例：
+```sql
+-- pageNum = 1, pageSize = 5
+SELECT * FROM bskgk.`course_user_info` WHERE `course_user_info`.`userId` = '201702071511512892383865'  ORDER BY `course_user_info`.`purchaseTime` DESC LIMIT 5;
+-- pageNum = 2, pageSize = 5
+SELECT * FROM bskgk.`course_user_info` WHERE `course_user_info`.`userId` = '201702071511512892383865'  ORDER BY `course_user_info`.`purchaseTime` DESC LIMIT 5 OFFSET 5;
+-- pageNum = 3, pageSize = 5
+SELECT * FROM bskgk.`course_user_info` WHERE `course_user_info`.`userId` = '201702071511512892383865'  ORDER BY `course_user_info`.`purchaseTime` DESC LIMIT 5 OFFSET 10;
+-- pageNum = 4, pageSize = 5
+SELECT * FROM bskgk.`course_user_info` WHERE `course_user_info`.`userId` = '201702071511512892383865'  ORDER BY `course_user_info`.`purchaseTime` DESC LIMIT 5 OFFSET 15;
+
+```
+
+
+总结：
+
+已知 pageNum = 1, pageSize = 5
+
+1) 若是列表
+```python
+start = (pageNum - 1) * pageSize
+end = start + pageSize
+
+```
+
+2）若是SQL
+```python
+limit = pageSize
+offset = (pageNum - 1) * pageSize
+
+```
+
+
+### explain
+
+```sql
+explain select tb1.orderId
+from bskgk.order_info as tb1 
+inner join bskgk.order_info_detail as tb2 on tb1.orderId=tb2.orderId 
+where tb1.PayJe>0 and tb1.status=2 and tb2.productId=201801051723328662664953
+ORDER BY tb1.createTime DESC;
+
+```
+
+修改：
+
+```sql
+explain select tb1.orderId
+from bskgk.order_info as tb1 
+inner join bskgk.order_info_detail as tb2 on tb1.orderId=tb2.orderId 
+where tb1.PayJe>0 and tb1.status=2 and tb2.productId="201801051723328662664953"
+ORDER BY tb1.createTime DESC;
+
+```
+
+
+### 数据库优化
+
+表A，表B，A.b_id = B.id
+
+1> o(1+n)
+
+```python
+a_list = A.objects.all()
+b_list = []
+for a in a_list:
+  b = B.objects.filter(id=a.b_id)
+  b_list.append(b)
+
+```
+
+缺点：时间复杂都高
+
+2> o(1)
+```sql
+select * from A 
+inner join B on B.item_id=A.item_id
+
+```
+
+缺点：空间复杂都高，占用大量内存，内存不够用时用磁盘
+
+3> o(1+1)
+
+```python
+a_list = A.objects.all()
+b_ids = []
+for a in a_list:
+  b_ids.append(a.b_id)
+b_list = B.objects.filter(id__in=b_ids)
+
+```
+
+
+### 数据库原理
+
+二叉排序树 - B树 - B+树
+
+
+
+### 不同的 SQL JOIN
+
+除了我们在上面的例子中使用的 INNER JOIN（内连接），我们还可以使用其他几种连接。
+
+下面列出了您可以使用的 JOIN 类型，以及它们之间的差异。
+
+- INNER JOIN: 如果表中有至少一个匹配，则返回行
+- LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行
+- RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行
+- FULL JOIN: 只要其中一个表中存在匹配，就返回行
+
+
+### 数据库的增删查
+```sql
+CREATE SCHEMA `cms_platform_test` DEFAULT CHARACTER SET utf8 ;
+DROP DATABASE `cms_platform`;
+show databases;
+```
+
+### 删除外键
+
+```sql
+show create table cms_platform.content_iphonebigdatavideo;
+alter table content_iphonebigdatavideo drop foreign key box_id_refs_id_913ba4c50663220;
+
+```
+
+
+### SQL语句增加列、修改列、删除列
+
+- 增加列：
+
+```sql
+alter table tableName add columnName varchar(30)
+
+```
+
+- 修改列类型：
+```sql
+alter table tableName alter column columnName varchar(100)
+
+```
+
+- 修改列的名称：
+```sql
+EXEC sp_rename 'tableName.column1', 'column2'  (把表名为tableName的column1列名修改为column2)
+
+```
+
+- 删除列：
+```sql
+alter table tableName drop column columnName1[, drop column columnName2]
+
+```
+ 
+
+
+### mysql中数据迁移
+法一：
+```bash
+mysqldump -u root -h hostname -p --databases cms_platform > cms_platform.sql
+mysql -u root -p
+```
+
+输入密码进入 MySQL 命令行
+```bash
+source /path/to/cms_platform.sql;
+```
+
+法二：
+数据库导入：
+```bash
+mysqldump -uroot -pxxxx -h xxxx db_name > db_name_dump.SQL
+mysql -uxxxx -pxxxx -h xxxx -e "CREATE DATABASE new_db_name"
+mysql -uxxxx -pxxxx -h xxxx new_db_name < db_name_dump.SQL
+```
+
+法三：
+```bash
+use db_name
+show create table tab_name  # 确认character
+mysqldump --default-character-set=utf8  db_name > db_name.dump
+gzip dumpname
+```
+
+
+
+### 在online线上如何生成sql语句
+［法一］
+```bash
+git log # 记录版本号
+git reset --hard [commit] # 提交之前的commit_id号
+python manage.py schemamigration youappname --auto
+python manage.py migrate youappname
+
+git reset --hard [commit] # 提交之后的commit_id号
+python manage.py schemamigration youappname --auto
+python manage.py migrate youappname
+
+```
+
+［法二］
+```bash
+python manage.py schemamigration content --auto
+python manage.py migrate content --db-dry-run --verbosity=2
+
+```
+
+
+### 添加非本地的SQL，手动添加
+```bash
+$ ssh 10.100.27.174
+$ mysql -uwireless-admin -h10.100.56.81 -p1LytSCuf5tFZ
+```
+
+```sql
+mysql> show databases;
+mysql> use cms_platform;
+mysql> ALTER TABLE `content_synclog` ADD COLUMN `subtitles` varchar(255) NOT NULL;
+```
+
+
+### mysql 定义存储过程
+
+```sql
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `get_top_n_androidboxvideo` $$
+CREATE PROCEDURE `get_top_n_androidboxvideo` ()
+BEGIN
+
+          SET @row=0;
+          SET @box_id='';
+          SELECT a.*,b.rownum FROM foreign_cms_2.content_androidboxvideo a
+          LEFT JOIN (
+          SELECT id,box_id,position, CASE WHEN @box_id = box_id THEN @row:=@row+1 ELSE @row:=1 END rownum, @box_id:=box_id MID
+          FROM foreign_cms_2.content_androidboxvideo
+          ORDER BY box_id,position DESC
+          ) b ON b.box_id=a.box_id AND b.id=a.id  WHERE b.rownum<11;
+
+END $$
+
+DELIMITER ;
+
+call get_top_n_androidboxvideo();
+
+```
+
+
+
+### mysql优化
+- mysql - where执行顺序
+
+where执行顺序是从左往右执行的，在数据量小的时候不用考虑，但数据量多的时候要考虑条件的先后顺序，此时应遵守一个原则：排除越多的条件放在第一个
+
+sql语句：
+```sql
+select 考生姓名, max(总成绩) as max总成绩
+from tb_Grade
+where 考生姓名 is not null
+group by 考生姓名
+having max(总成绩) > 600
+order by max总成绩
+
+```
+
+在上面的示例中 SQL 语句的执行顺序如下:
+
+1. 首先执行 FROM 子句, 从 tb_Grade 表组装数据源的数据
+2. 执行 WHERE 子句, 筛选 tb_Grade 表中所有数据不为 NULL 的数据
+3. 执行 GROUP BY 子句, 把 tb_Grade 表按 "学生姓名" 列进行分组(注：这一步的时候它会只用select中的别名，这是唯一一个使用select别名的地方，他返回的是一个游标，而不是一个表，所以在where中不可以使用select中的别名，而having却可以使用)
+4. 计算 max() 聚集函数, 按 "总成绩" 求出总成绩中最大的一些数值
+5. 执行 HAVING 子句, 筛选课程的总成绩大于 600 分的.
+6. 执行 ORDER BY 子句, 把最后的结果按 "Max 成绩" 进行排序.
+
+
+
+- 加索引，使用联合索引
+
+- 死锁问题
+
+因为sql中in查询中有太多id的话，连续执行容易造成死锁，所以将大sql化成多个小sql
+
+```python
+
+step = 8
+ids = id_list
+id_group = [ids[x:x + step] for x in range(0, len(ids), step)]
+for id_items in id_group:
+    try:
+        IphoneSubChannel.objects.filter(id__in=id_items).update(state=int(value))
+        response = {'status': 'success', 'channel_ids': channel_ids.split(",")}
+    except:
+        response = {'status': 'error', 'msg': u"视频不存在!"}
+
+```
+    
+- 减少循环中sql的查询次数
+
+  a) 1+n -> 1+1 问题: 通过建立 where in []
+
+示例<1+n>:
+    
+```python
+user_vouchers = UserVoucher.objects.filter(user_id=user_id).order_by("-create_time")  # 第一次
+vouchers = []
+for each in user_vouchers:
+    voucher = VoucherEntity.objects.get(id=each.voucher_id)  # n次
+    vouchers.append(voucher)
+
+```
+        
+        
+<1+1>:
+```python
+user_vouchers = UserVoucher.objects.filter(user_id=user_id).order_by("-create_time")  # 第一次
+voucher_id_list = []
+for each in user_vouchers:
+    voucher_id_list.append(each.voucher_id)
+vouchers = VoucherEntity.objects.filter(id__in=voucher_id_list).order_by("-create_time")  # 第二次
+
+```
+
+  b) n+1 -> 1+1 问题: 通过建立外键
+
+
+- 少用 count(*) 效率问题，因为当数据多时，页面会加载慢
+
+
+- 少用many_to_many，因为会有三张表做笛卡尔积，然后再查询，效率极低
+   正确的做法是：用两个Foreigin_Key做关联
+
+示例：
+```python
+subject_id_list = []
+# 按照试卷取题
+current_paper_id = qd.get('paper_id', '')
+if current_paper_id:
+    objs = PaperSubjectInfo.objects.filter(paper_id=current_paper_id)
+    for i in objs:
+        subject_id_list.append(i.subject_id)
+
+datas = SubjectInfo.objects.filter(subject_id__in=subject_id_list)
+
+```
+
+- 检查是否重复
+```python
+phone = qd.get("phone", '')
+customer = Customer.objects.filter(phone=phone).first()
+if customer:
+    if _id and customer.id == int(_id):
+        exists = False
+    else:
+        exists = True
+else:
+    exists = False
+
+if exists:
+    msg = "有重复的手机号码"
+
+    context = {
+        "msg": msg,
+        "item": item,
+        "user_id": request.user.id,
+        "menu_id": "100",
+    }
+
+    return render(request, 'customer/customer_new.html', context)
+
+```
+        
+- 一个示例
+
+优化前
+```python
+def get(self):
+    page = self.arg_int('page', 1)
+    page_count = self.arg_int('page_count', 20)
+    result = {}
+
+    topics = Topic.objects.filter(status=Topic.STATUS_NORMAL)[(page-1)*page_count:((page-1)*page_count+page_count)]  # 1次，假设有10个话题
+    details_of_topics = []
+    for t in topics:
+        comments = TopicComment.objects.filter(topic_id=t.id, status=TopicComment.STATUS_NORMAL).order_by("-admire_count")[:3] # 10个话题*1次，每次假设有10个评论
+        details_of_comments = []
+        for c in comments:
+            reply_count = TopicComment.objects.filter(reply_comment_id=c.id).count() # 10个话题*10个评论*1次
+            details_of_comments.append({
+                "id": c.id,
+                "user_detail": c.to_user.to_json(),  # 10个话题*10个评论*1次
+                "content": c.content,
+                "topic_id": c.topic_id,
+                "reply_comment_id": c.reply_comment_id,
+                "admire_count": c.admire_count,
+                "reply_count": reply_count,
+                "created_at": c.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            })
+
+        details_of_topics.append({
+            "id": t.id,
+            "title": t.title,
+            "icon": t.topic,
+            "topic_image": t.image,
+            "background_image": t.bg_image,
+            "participant_count": t.participant_count,
+            "activity_title": t.activity_title,
+            "activity_desc": t.activity_desc,
+            "activity_content": t.activity_content,
+            "comment_list": details_of_comments,
+        })
+
+    result["topics"] = details_of_topics
+    result["status"] = "success"
+    result["code"] = 200
+    result["msg"] = ""
+
+    return self.write(result)
+
+```
+    
+总共 1+10+100+100=211次
+
+
+# 优化后
+
+```python
+
+def get(self):
+    page = self.arg_int('page', 1)
+    page_count = self.arg_int('page_count', 20)
+    result = {}
+
+    topics = Topic.objects.filter(status=Topic.STATUS_NORMAL).order_by("-created_at")[(page-1)*page_count:((page-1)*page_count+page_count)]  # 查询1次，假设有10个话题
+    topic_list = []
+    user_ids = []
+    for t in topics:
+        comments = TopicComment.objects.filter(topic_id=t.id, status=TopicComment.STATUS_NORMAL).order_by("-admire_count")[:3]  # 10个话题*1次，每次假设有10个评论
+
+        comment_list = []
+        for c in comments:
+            comment_list.append(c.to_json())
+            user_ids.append(c.user_id)
+
+        data = t.to_json()
+        data["comment_list"] = comment_list
+        topic_list.append(data)
+
+    users = BskUser.objects.filter(user_id__in=user_ids)  # 1次
+    users_dict = queryset_to_dict(users, "user_id")
+
+    for t in topic_list:
+        for comment in t.get("comment_list", []):
+            user = users_dict.get(comment["user_id"])
+            if user:
+                comment["user_detail"] = user.to_json()
+
+    result["topics"] = topic_list
+    result["status"] = "success"
+    result["code"] = 200
+    result["msg"] = ""
+
+    return self.write(result)
+
+
+```
+
+    
+总共 1+10+1=12 次
