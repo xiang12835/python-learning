@@ -764,19 +764,6 @@ vouchers = VoucherEntity.objects.filter(id__in=voucher_id_list).order_by("-creat
 - 少用many_to_many，因为会有三张表做笛卡尔积，然后再查询，效率极低
    正确的做法是：用两个Foreigin_Key做关联
 
-示例：
-```python
-subject_id_list = []
-# 按照试卷取题
-current_paper_id = qd.get('paper_id', '')
-if current_paper_id:
-    objs = PaperSubjectInfo.objects.filter(paper_id=current_paper_id)
-    for i in objs:
-        subject_id_list.append(i.subject_id)
-
-datas = SubjectInfo.objects.filter(subject_id__in=subject_id_list)
-
-```
 
 - 检查是否重复
 ```python
