@@ -5,8 +5,8 @@
 1. Python教程(廖雪峰的官方网站)
 2. 《A Byte of Python》
 3. 《Effective Python》
-4. 《Target Offer》
-5. 《编写高质量代码：改善Python程序的91个建议》
+4. 《编写高质量代码：改善Python程序的91个建议》
+5. 《Target Offer》
 
 
 # Python 开发工程师 - 职位
