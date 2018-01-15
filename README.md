@@ -6,6 +6,7 @@
 2. 《A Byte of Python》
 3. 《Effective Python》
 4. 《Target Offer》
+5. 《编写高质量代码：改善Python程序的91个建议》
 
 
 # Python 开发工程师 - 职位
@@ -307,13 +308,13 @@ python manage.py migrate youappname #将更改反应到数据库（如果出现�
 一般地，/项目/模块/v1/视图名称
 
 例如：
-- /api/user_info/v5/product_count GET 获取产品的数量
-- /api/user_info/v5/product_list GET 获取产品列表
-- /api/user_info/v5/product_detail?id=100 GET 获取id为100的产品详情
-- /api/user_info/v5/product_post?item_id=100 POST 创建产品信息
-- /api/user_info/v5/product_put?item_id=100 PUT 更新产品的全部信息
-- /api/user_info/v5/product_patch?item_id=100 PATCH 更新产品的部分信息
-- /api/user_info/v5/product_delete?id=100 DELETE 删除id为100的产品信息
+- /api/user_info/v5/item_count GET 获取产品的数量
+- /api/user_info/v5/item_list GET 获取产品列表
+- /api/user_info/v5/item_detail?id=100 GET 获取id为100的产品详情
+- /api/user_info/v5/item_post?item_id=100 POST 创建产品信息
+- /api/user_info/v5/item_put?item_id=100 PUT 更新产品的全部信息
+- /api/user_info/v5/item_patch?item_id=100 PATCH 更新产品的部分信息
+- /api/user_info/v5/item_delete?id=100 DELETE 删除id为100的产品信息
 
 
 
