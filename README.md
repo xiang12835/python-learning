@@ -889,3 +889,38 @@ def get(self):
 
     
 总共 1+10+1=12 次
+
+
+
+### mysql 时间戳与日期格式的相互转换
+
+
+- UNIX时间戳转换为日期用函数： FROM_UNIXTIME()
+```sql
+select FROM_UNIXTIME(1156219870);  
+```
+输出：2006-08-22 12:11:10
+
+
+- 日期转换为UNIX时间戳用函数： UNIX_TIMESTAMP()
+
+
+```sql
+Select UNIX_TIMESTAMP('2006-11-04 12:23:00'); 
+```
+输出：1162614180  
+
+
+### mysql 格式化日期
+
+```sql
+select now();
+```
+
+输出：'2018-01-15 20:39:37'
+```sql
+select DATE_FORMAT(now(),'%Y-%m-%d');
+```
+
+输出：'2018-01-15'
+
