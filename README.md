@@ -34,6 +34,70 @@
 
 # 后端开发 - 总结
 
+
+## html/css/js
+
+### 格式化时间
+```html
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="validate_time">截止时间</label>
+    <div class="col-sm-8 input-prepend input-group">
+        <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+        <input type="text" style="width: 200px" name="deadline_time" id="deadline_time" class="form_datetime"
+               value="{% if item.id %}{{item.deadline_time|date:"Y-m-d H:i:s"}}{% endif %}"/>
+    </div>
+</div>
+
+```
+    
+```js
+$('.form_datetime').datetimepicker({
+    format: 'yyyy-mm-dd hh:ii:ss',
+    language:  'zh-CN',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1
+});
+
+```
+
+### 页面上限制字数个数
+
+[示例] maxlength=16 只允许显示16字
+
+```html
+<div class="form-group">
+  <label for="voucher_scope_str">适用范围描述</label>
+  <input type="text" class="form-control" maxlength=16 id="voucher_scope_desc" name="voucher_scope_desc"
+         value="{% if voucher %}{{ voucher.scope_desc }}{% endif %}">
+</div>
+
+```
+### &nbsp
+
+[问题]&nbsp是什么意思？？
+
+[解答]&nbsp;是空格，因为html对连续的空格只作为一个空格处理，所以要用&nbsp;显示空格
+
+
+### window.location.href
+
+```js
+$(".device_type_selector").change(function(){
+    window.location.href = "{% url 'search_hot_word_words' %}" + "?device_type=" + $(this).val()
+})
+```
+
+### 返回按钮 - onclick="history.back()"
+
+```html
+<a class="btn btn-default" onclick="history.back()" href="#"><i class="icon-circle-arrow-left"></i>返回</a>
+
+```
+
+
 ## Python 
 
 ### mac 上安装 python 开发环境
@@ -923,4 +987,188 @@ select DATE_FORMAT(now(),'%Y-%m-%d');
 ```
 
 输出：'2018-01-15'
+
+
+
+## 缓存
+### 缓存系统工作原理：
+
+> 对于给定的网址，尝试从缓存中找到网址，如果页面在缓存中，直接返回缓存的页面，如果缓存中没有，一系列操作（比如查数据库）后，保存生成的页面内容到缓存系统以供下一次使用，然后返回生成的页面内容。
+
+示例：当使用了cache后，访问情况变成了如下：
+
+> 访问一个网址时, 尝试从 cache 中找有没有缓存内容，如果网页在缓存中显示缓存内容，否则生成访问的页面，保存在缓存中以便下次使用，显示缓存的页面。
+
+```shell
+given a URL, try finding that page in the cache
+
+if the page is in the cache:
+  return the cached page
+else:
+  generate the page
+  save the generated page in the cache (for next time)
+  return the generated page
+
+```
+
+### 算法：
+- 简单的路由算法：
+
+余数hash
+
+出现的问题：使用余数Hash的路由算法，在扩容的时候会造成大量的数据无法正确命中（其实不仅仅是无法命中，那些大量的无法命中的数据还在原缓存中在被移除前占据着内存）
+
+解决：
+
+一致性性hash算法 － 构造一个长度为232的整数环（这个环被称为一致性Hash环）
+
+出现的问题：由于随机数服从正态分布，其中的M出现的数据比较集中
+
+解决：
+
+katama算法 － 统计学中，使用160个M
+
+### 缓存分类：
+
+- 内存缓存
+
+Memcached的缓存策略是LRU（最近最少使用）加上到期失效策略
+
+Memcached 是目前 Django 可用的最快的缓存
+
+示例：
+
+Django settings 中 cache 默认为
+
+```json
+{
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+```
+
+- 数据库缓存
+
+示例：
+
+```json
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache_table_name',
+        'TIMEOUT': 600,
+        'OPTIONS': {
+            'MAX_ENTRIES': 2000
+        }
+    }
+}
+```
+
+
+- 文件缓存
+
+示例：
+
+```json
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+        'TIMEOUT': 600,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
+```
+
+- 其他
+
+action cache
+
+fragment cache
+
+page cache
+
+
+## memcached
+### 清本地memcached缓存
+
+```shell
+
+$ telnet localhost 11211
+$ flush_all  #清空所有键值，但不会删除items，此时MemCache依旧占用内存
+
+```
+  
+
+### 清测试线memcached缓存
+
+```shell
+  telnet 10.105.28.41 11233
+  flush_all
+```
+
+### 缓存示例
+假设给app的首页接口是A， 给你们的接口是B
+
+A的缓存是：1m + 2m ＋ 1h（内容变更后更新）
+
+B的缓存是： 1h
+
+A中1h的部分在内容变更后更新，所以缓存3m；B中1h的部分之前由于使用不同组的缓存服务器是没办法清除的，但是用10.100.188.99测试B的话是和A中1h的缓存是同源的。
+
+所以用10.100.188.99访问的话的接口数据基本就是最新的了，相差3分钟
+
+```python
+from api.view.base import BaseHandler, CachedPlusHandler
+＃ 若某个类继承BaseHandler，则无缓存
+＃ 若某个类继承CachedPlusHandler，则有缓存
+
+from api.lib.cached_data import cached_all_boxes, cached_all_video_list_modules, cached_all_jumps, cached_box_videos, cached_all_tags, cached_box_poster_videos, cached_all_banners, cached_all_boxes_by_platform_id
+＃ 当某个内容需要经常使用的时候，需要使用缓存，以减少SQL语句，提高效率
+
+```
+
+
+## redis
+### redis常见操作
+
+```shell
+$ redis-server &
+$ redis-cli
+
+127.0.0.1:6379> select 12
+OK
+127.0.0.1:6379[12]> keys *
+1) "async.channel.job"
+127.0.0.1:6379[12]> llen async.channel.job
+(integer) 143
+127.0.0.1:6379[12]> del async.channel.job
+(integer) 1
+127.0.0.1:6379[12]> llen async.channel.job
+(integer) 0
+```
+
+
+
+### 链接redis服务器
+
+```shell
+cd ~/mobile-cms-background/target/mobile-cms-background/app/
+/home/tops/bin/python manage.py shell
+import redis
+r =redis.Redis(host='11.173.167.16',port=6379,db=12)
+r.keys()
+r.llen('cache.do_cms_url_clean')
+
+```
+
+
+## varnish
+
+使用varnish去除掉URL中的时间戳和一些PID，作为key值
+
+/Users/yourname/work/python/m-cms-new/api/conf/varnish/varnish3.vcl
 
