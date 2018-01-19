@@ -459,12 +459,12 @@ end = start + pageSize
 ```python
 {
     "msg": "请求成功",
-    "status": "success",
-    "code": "200",
+    "status": "success",    # "success"|"failed"
+    "code": 200,
     "result": {
-        "balance": 8000,
-        "voucher": {},
-        "orders": []
+        "balance": 8001,  # 余额（数据结构：Float）
+        "voucher_count": 1,  # 卡券数量
+        "order_count": 178  # 订单数量
     }
 }
 
