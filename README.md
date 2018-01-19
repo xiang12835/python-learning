@@ -990,6 +990,19 @@ select DATE_FORMAT(now(),'%Y-%m-%d');
 
 
 
+### like
+
+```sql 
+SELECT * FROM Persons
+WHERE City LIKE 'N%'
+
+```
+
+"%" 可用于定义通配符（模式中缺少的字母）
+
+
+
+
 ## 缓存
 ### 缓存系统工作原理：
 
