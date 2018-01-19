@@ -5,8 +5,8 @@
 1. [Python教程(廖雪峰的官方网站)](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
 2. [A Byte of Python](https://python.swaroopch.com/)
 3. [《编写高质量代码：改善Python程序的91个建议》](https://zhuanlan.zhihu.com/p/26761842)
-4. 《Effective Python》
-5. 《Target Offer》
+4. [《Effective Python》](https://guoruibiao.gitbooks.io/effective-python/content/)
+5. [《Target Offer》](http://blog.csdn.net/u012505432/article/details/52071537)
 
 
 # Python 开发工程师 - 职位
