@@ -7,6 +7,7 @@
 3. [《编写高质量代码：改善Python程序的91个建议》](https://zhuanlan.zhihu.com/p/26761842)
 4. [《Effective Python》](https://guoruibiao.gitbooks.io/effective-python/content/)
 5. [《Target Offer》](http://blog.csdn.net/u012505432/article/details/52071537)
+6. [《流畅的python》阅读笔记](https://segmentfault.com/a/1190000011568813)
 
 
 # Python 开发工程师 - 职位
