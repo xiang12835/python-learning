@@ -2,8 +2,8 @@
 
 ### 学习资料
 
-1. Python教程(廖雪峰的官方网站)
-2. 《A Byte of Python》
+1. [Python教程(廖雪峰的官方网站)](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
+2. [A Byte of Python](https://python.swaroopch.com/)
 3. 《Effective Python》
 4. 《编写高质量代码：改善Python程序的91个建议》
 5. 《Target Offer》
