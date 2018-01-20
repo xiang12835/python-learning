@@ -298,6 +298,8 @@ def default_if_none(value, arg):
 
 ``` python
 lessons = LessonInfo.objects.using('bsk_db').filter(status=1).order_by('lesson_name', "-id")
+
+item.save(using='bsk_db')
 ```
 
 ### 创建admin帐号
