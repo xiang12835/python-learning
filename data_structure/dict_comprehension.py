@@ -5,6 +5,7 @@
 l = [("a", 1), ["b", 2]]
 d = {key: value for (key, value) in l}
 print d
+print dict(l)
 
 
 # 用zip()构建字典序列
