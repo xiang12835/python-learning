@@ -25,6 +25,6 @@ def read_excel(file_name):
 
 if __name__ == "__main__":
 
-    f = os.path.join(os.path.dirname(__file__), "test.xlsx")
+    f = os.path.join(os.path.dirname(__file__), "excel_for_xlrd.xlsx")
 
     print read_excel(f)
