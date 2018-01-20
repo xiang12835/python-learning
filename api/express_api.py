@@ -109,17 +109,32 @@ class Express(object):
                 "expressCode": expresscode,
             }
             trace_data = cls.get_traces(expresscode, data['Shippers'][0]['ShipperCode'], APP_ID, APP_KEY, URL)
-            if trace_data['Success'] == "false" or not trace_data.get('Traces', ""):
-                trace_data["msg"] = "未查询到该快递物流轨迹！"
-                trace_data['State'] = '0'
-                trace_data['StateStr'] = "无物流"
-            else:
-                if trace_data['State'] == '2':
+
+            # print trace_data['Success']
+
+            if trace_data['Success']:
+
+                # 物流状态:0-无轨迹, 1-已揽收, 2-在途中 201-到达派件城市, 3-签收, 4-问题件
+                if trace_data['State'] == '0':
+                    trace_data['StateStr'] = "无轨迹"
+                    trace_data["msg"] = "该快递无轨迹信息！"
+                elif trace_data['State'] == '1':
+                    trace_data['StateStr'] = "已揽收"
+                    trace_data["msg"] = "该快递已揽收！"
+                elif trace_data['State'] == '2':
                     trace_data['StateStr'] = "在途中"
+                    trace_data["msg"] = "该快递在途中！"
                 elif trace_data['State'] == '3':
                     trace_data['StateStr'] = "已签收"
-                else:
+                    trace_data["msg"] = "该快递已签收！"
+                elif trace_data['State'] == '4':
                     trace_data['StateStr'] = "问题件"
+                    trace_data["msg"] = "该快递是问题件！"
+            else:
+                trace_data["msg"] = "未查询到该快递物流轨迹！"
+                trace_data['State'] = '9'
+                trace_data['StateStr'] = "无物流"
+
             result["traceInfo"] = trace_data
         return result
 
