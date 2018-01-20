@@ -1062,7 +1062,7 @@ Memcached 是目前 Django 可用的最快的缓存
 
 Django settings 中 cache 默认为
 
-```json
+```python
 {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -1074,7 +1074,7 @@ Django settings 中 cache 默认为
 
 示例：
 
-```json
+```python
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
@@ -1092,7 +1092,7 @@ CACHES = {
 
 示例：
 
-```json
+```python
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
@@ -1145,11 +1145,11 @@ A中1h的部分在内容变更后更新，所以缓存3m；B中1h的部分之前
 
 ```python
 from api.view.base import BaseHandler, CachedPlusHandler
-＃ 若某个类继承BaseHandler，则无缓存
-＃ 若某个类继承CachedPlusHandler，则有缓存
+# 若某个类继承BaseHandler，则无缓存
+# 若某个类继承CachedPlusHandler，则有缓存
 
 from api.lib.cached_data import cached_all_boxes, cached_all_video_list_modules, cached_all_jumps, cached_box_videos, cached_all_tags, cached_box_poster_videos, cached_all_banners, cached_all_boxes_by_platform_id
-＃ 当某个内容需要经常使用的时候，需要使用缓存，以减少SQL语句，提高效率
+# 当某个内容需要经常使用的时候，需要使用缓存，以减少SQL语句，提高效率
 
 ```
 
