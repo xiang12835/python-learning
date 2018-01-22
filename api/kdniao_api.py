@@ -1,5 +1,7 @@
 # encoding=utf-8
 
+__author__ = 'flyingfishyx <yuxiang0128@gmail.com>'
+
 import json
 import requests
 import hashlib
@@ -11,13 +13,12 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-# http://www.kdniao.com/;start on 2017-12-19;free in 1 year
-APP_ID = "1313736"
-APP_KEY = "d843bb7c-a10f-4be4-878c-a7e16bf5a577"
-URL = "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
-
-
 class Express(object):
+
+    # http://www.kdniao.com/;start on 2017-12-19;free in 1 year
+    APP_ID = "1313736"
+    APP_KEY = "d843bb7c-a10f-4be4-878c-a7e16bf5a577"
+    URL = "http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx"
 
     @classmethod
     def encrypt(cls, origin_data, appkey):
@@ -68,12 +69,12 @@ class Express(object):
     @classmethod
     def recognise(cls, expresscode):
         """输出数据"""
-        data = cls.get_company(expresscode, APP_ID, APP_KEY, URL)
+        data = cls.get_company(expresscode, cls.APP_ID, cls.APP_KEY, cls.URL)
         if not data.get('Shippers', ""):
             print "未查到该快递信息,请检查快递单号是否有误！"
         else:
             print "已查到该", str(data['Shippers'][0]['ShipperName'])+"("+str(data['Shippers'][0]['ShipperCode'])+")", expresscode
-            trace_data = cls.get_traces(expresscode, data['Shippers'][0]['ShipperCode'], APP_ID, APP_KEY, URL)
+            trace_data = cls.get_traces(expresscode, data['Shippers'][0]['ShipperCode'], cls.APP_ID, cls.APP_KEY, cls.URL)
             if trace_data['Success'] == "false" or not trace_data.get('Traces', ""):
                 print "未查询到该快递物流轨迹！"
             else:
@@ -94,7 +95,7 @@ class Express(object):
     @classmethod
     def get_express_info(cls, expresscode):
         """输出数据"""
-        data = cls.get_company(expresscode, APP_ID, APP_KEY, URL)
+        data = cls.get_company(expresscode, cls.APP_ID, cls.APP_KEY, cls.URL)
         result = {}
         if not data.get('Shippers', ""):
             result["msg"] = "未查到该快递信息,请检查快递单号是否有误！"
@@ -108,7 +109,7 @@ class Express(object):
                 "shipperCode": str(data['Shippers'][0]['ShipperCode']),
                 "expressCode": expresscode,
             }
-            trace_data = cls.get_traces(expresscode, data['Shippers'][0]['ShipperCode'], APP_ID, APP_KEY, URL)
+            trace_data = cls.get_traces(expresscode, data['Shippers'][0]['ShipperCode'], cls.APP_ID, cls.APP_KEY, cls.URL)
 
             # print trace_data['Success']
 
@@ -141,7 +142,7 @@ class Express(object):
 
 if __name__ == "__main__":
     while True:
-        code = input("请输入快递单号(Esc退出)：")
+        code = input("请输入快递单号：")  # 3909430112808
         # recognise(code)
         res = Express.get_express_info(str(code).strip())
         print json.dumps(res, ensure_ascii=False, sort_keys=True, indent=4)
