@@ -140,8 +140,8 @@ class Express(object):
 
 
 if __name__ == "__main__":
-    code = input("请输入快递单号(Esc退出)：")
-    code = str(code).strip()
-    # recognise(code)
-    res = Express.get_express_info(code)
-    print json.dumps(res, ensure_ascii=False, sort_keys=True, indent=4)
+    while True:
+        code = input("请输入快递单号(Esc退出)：")
+        # recognise(code)
+        res = Express.get_express_info(str(code).strip())
+        print json.dumps(res, ensure_ascii=False, sort_keys=True, indent=4)
