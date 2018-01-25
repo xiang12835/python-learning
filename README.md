@@ -352,7 +352,7 @@ python manage.py migrate youappname #将更改反应到数据库（如果出现�
 ### 模版 - 使用json与前端数据交换 
 
 ``` html
-    <a id="update_subject_num_btn" class="btn btn-danger ">更新题目数量</a>
+<a id="update_subject_num_btn" class="btn btn-danger ">更新题目数量</a>
 
 ```
 
@@ -387,7 +387,7 @@ $(document).ready(function () {
 ```
 
 ``` python
-    url(r'^area_review_subject_num/update$', 'bskgk.views.update_area_review_subject_num', name='update_area_review_subject_num'),
+url(r'^area_review_subject_num/update$', 'bskgk.views.update_area_review_subject_num', name='update_area_review_subject_num'),
 ```
 
 ``` python
