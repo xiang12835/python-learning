@@ -348,6 +348,107 @@ python manage.py migrate youappname #将更改反应到数据库（如果出现�
 - auto_now_add为添加时的时间，更新对象时不会有变动
 
 
+
+### 模版 - 使用json与前端数据交换 
+
+``` html
+    <a id="update_subject_num_btn" class="btn btn-danger ">更新题目数量</a>
+
+```
+
+``` js
+$(document).ready(function () {
+    $("#update_subject_num_btn").click(function () {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: "{% url 'update_area_review_subject_num' %}",
+            data: {
+            },
+            success: function (data) {
+                if (data.status === 'success') {
+                    $().toastmessage({
+                        position: 'middle-center'
+                    });
+                    $().toastmessage('showSuccessToast', '操作成功');
+                    setTimeout(function () {
+                        location.reload()
+                    }, 1000);
+                } else {
+                    $().toastmessage('showErrorToast', "操作失败")
+                }
+            }
+        });
+    });
+
+
+});
+
+```
+
+``` python
+    url(r'^area_review_subject_num/update$', 'bskgk.views.update_area_review_subject_num', name='update_area_review_subject_num'),
+```
+
+``` python
+@login_required
+def update_area_review_subject_num(request):
+    if request.method == 'POST':
+        qd = request.POST
+
+        try:
+
+            areas = ExamType.objects.filter(status=ExamType.STATUS_NORMAL)
+
+            exam_type_ids = [item.extype_id for item in areas if not item.has_department]
+            exam_type_ids_for_department = [item.extype_id for item in areas if item.has_department]
+
+            # 无部门的地区
+            for _id in exam_type_ids:
+
+                # 更新地区题目数量
+                exam_type = ExamType.objects.filter(extype_id=_id).first()
+                if exam_type:
+                    exam_type.review_subject_num = ReviewSubject.objects.filter(exam_type_id=_id, status="1").count()
+                    exam_type.save()
+
+            # 有部门的地区
+            for _id in exam_type_ids_for_department:
+
+                # 更新地区题目数量
+                exam_type = ExamType.objects.filter(extype_id=_id).first()
+                if exam_type:
+                    exam_type.review_subject_num = ReviewSubject.objects.filter(exam_type_id=_id, status="1").count()
+                    exam_type.save()
+
+                departments = ReviewDepartment.objects.filter(exam_type_id=_id, status=ReviewDepartment.STATUS_NORMAL)
+
+                department_ids = [d.id for d in departments]
+
+                for department_id in department_ids:
+                    # 更新部门题目数量
+                    department = ReviewDepartment.objects.filter(id=department_id).first()
+                    if department:
+                        department.review_subject_num = ReviewSubject.objects.filter(exam_type_id=_id,
+                                                                                     department_id=department_id, status="1").count()
+                        department.save()
+
+            # return HttpResponse(json.dumps({"status": "success"}), content_type="application/json")
+            response = {'status': 'success'}
+
+        except Exception as e:
+            logging.error("update_area_review_subject_num error:{0}".format(e))
+            response = {'status': 'error'}
+    else:
+
+        response = {'status': 'error'}
+
+    return HttpResponse(json.dumps(response), content_type="application/json")
+```
+
+
+
+
 ## Tornado
 
 ### 并行与并发
