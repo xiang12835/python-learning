@@ -36,7 +36,14 @@
 # 后端开发 - 总结
 
 
-## html/css/js
+## html/css/js/BootStrap/jQuery/Node.js/Vue.js
+
+### npm显示已安装的包
+
+``` shell
+npm list -g --depth 0
+
+```
 
 ### 格式化时间
 ```html
