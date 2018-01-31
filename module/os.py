@@ -30,3 +30,16 @@ os.path.isabs()是否为绝对路径
 os.path.isdir()是否为目录
 os.path.isfile()是否为文件
 """
+
+import os
+
+path = "/tmp"
+
+os.path.realpath(path)
+# /private/tmp
+os.path.dirname(path)
+# '/'
+os.path.basename(path)
+# 'tmp'
+os.path.abspath(path)
+# '/tmp'
