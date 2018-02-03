@@ -1565,10 +1565,10 @@ git reset --hard foundcommitid
 
 ### git reset --hard 回滚以后，怎么再回去？
 
-
 可以通过reflog来进行恢复，前提是丢失的分支或commit信息没有被git gc清除
 一般情况下，gc对那些无用的object会保留很长时间后才清除的
 可以使用git reflog show或git log -g命令来看到所有的操作日志
+
 恢复的过程很简单：
 通过git log -g命令来找到需要恢复的信息对应的commitid，可以通过提交的时间和日期来辨别,找到执行reset --hard之前的那个commit对应的commitid
 通过git branch recover_branch commitid 来建立一个新的分支
