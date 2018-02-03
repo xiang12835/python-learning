@@ -1025,7 +1025,7 @@ def get(self):
 总共 1+10+100+100=211次
 
 
-# 优化后
+优化后
 
 ```python
 
@@ -1301,4 +1301,285 @@ r.llen('cache.do_cms_url_clean')
 使用varnish去除掉URL中的时间戳和一些PID，作为key值
 
 /Users/yourname/work/python/m-cms-new/api/conf/varnish/varnish3.vcl
+
+
+## linux
+
+
+### 查看系统版本信息
+```bash
+[ec2-user@ip-172-31-18-212 ~]$ cat /etc/redhat-release
+
+# Red Hat Enterprise Linux Server release 7.2 (Maipo)
+
+```
+
+### 获取系统信息
+
+```bash
+$ lsb_release -a
+```
+
+```bash
+
+$ df -lh  # 磁盘管理工具
+
+$ find / -name nginx
+
+$ curl -vvsS 'http://test.api.platform.winlesson.com/subject/user/home?device=phone&platform=2&app_type=2&_s_=831357c39ca8b57e5b1f9b78e8f6159c&from=android&userid=110119&ver=3.9.1&_t_=1516006138' | json_reformat
+
+```
+
+
+### 添加环境变量
+```bash
+$ echo 'export PATH="$HOME/anaconda3/bin:$PATH"' >> ~/.zshrc
+
+```
+
+### 获取IP
+
+> 通过ifconfig命令获取全部的网络信息，并排除掉本地host和ipv6信息。
+
+```bash
+$ /sbin/ifconfig | grep inet | grep -v '127.0.0.1' | grep -v inet6 | awk '{print $2}' | tr -d "addr:"
+
+```
+
+### CPU 负载
+
+```bash
+$ top  # 在终端上查看系统负载通常使用 top 命令，但它是交互型的，且数据较多较杂，不利于写监控脚本
+$ uptime  # 通过其 average load 字段获取最近 1分钟、5分钟、15分钟的平均负载
+$ nproc  # 可以查看系统 CPU 核心数
+```
+
+
+### 内存
+```bash
+$ free -m
+```
+
+### 网络
+```bash
+$ netstat -an | grep LISTEN | grep tcp | grep 80  # 查看是否有进程正在监控80端口
+$ ping -w 100 -c 1 weibo.com &>/dev/null && echo "connected"  # 使用ping监控网络连接
+
+```
+
+
+### 硬盘
+```bash
+$ df -h
+$ du [-h] /path/to/dir
+$ du -sh *  # 显示该目录下文件的大小
+
+```
+
+
+### 分析ip访问量做多的top 10 , $1 为ip
+```bash
+cat log.pipe.20170926|grep -v '^"/"$'| awk -F ' ' '{print $1}'|sort|uniq -c|sort -nr|head -n 10
+
+```
+
+### 分析url访问量做多的top 10，$4 为path
+```bash
+cat log.pipe.20170926|grep -v '^"/"$'| awk -F ' ' '{print $4}'|sort|uniq -c|sort -nr|head -n 10
+
+```
+
+### 分析状态码访问量做多的top 10，$7 为status
+```bash
+cat log.pipe.20170926|grep -v '^"/"$'| awk -F ' ' '{print $7}'|sort|uniq -c|sort -nr|head -n 10
+
+```
+
+
+### 每秒并发
+```bash
+awk -F ' ' '{print $2}' log.pipe.20170930|awk -F 'T' '{print $2}'|sort |uniq -c |sort -rn |head -n 10
+
+```
+
+### 查看504
+```bash
+awk '$7==504' log.pipe
+
+```
+
+### 统计api响应时间和数量
+```bash
+cat log.pipe|awk -F ' ' 'BEGIN{count[$4]=1;sum[$4]=0}{count[$4]+=1;sum[$4]+=$9}END{for(k in count){print sum[k]/count[k]" "count[k]" "k" "sum[k]}}' |sort -rn|head -n 10
+
+cat log.pipe|awk -F ' ' 'BEGIN{count[$4]=1;sum[$4]=0;}{count[$4]+=1;sum[$4]+=$9}END{for(i in sum){print sum[i]/count[i]" "sum[i]" "count[i]" "i}}'|sort -rn |head -n 100
+
+```
+
+### rsync 同步
+
+```bash
+# 1.首先在服务端启动ssh服务
+$ service sshd start
+
+# 2.接下来就可以在客户端使用rsync命令来备份服务端上的数据了，SSH方式是通过系统用户来进行备份的
+$ rsync -vzrtopg --progress -e ssh --delete root@123.206.180.82:/data/static /data
+
+```
+
+### 使用 crontab 每天十二点半同步数据
+```bash
+# 正式线配置 crontab
+vi /var/spool/cron/root
+30 12 * * * /data/python2.7/bin/python /data/python/one_platform/background/sync_data/sync_fenbi_info.py
+service crond restart
+
+```
+
+
+## git
+
+### 如何在 Git 里撤销(几乎)任何操作
+
+- 撤销一个“已公开”的改变
+场景: 你已经执行了 git push, 把你的修改发送到了 GitHub，现在你意识到这些 commit 的其中一个是有问题的，你需要撤销那一个 commit.
+方法: git revert <SHA>
+
+- 修正最后一个 commit 消息
+场景: 你在最后一条 commit 消息里有个笔误，已经执行了 git commit -m "Fxies bug #42"，但在 git push 之前你意识到消息应该是 “Fixes bug #42″。
+方法: git commit --amend 或 git commit --amend -m "Fixes bug #42"
+
+- 撤销“本地的”修改
+场景: 一只猫从键盘上走过，无意中保存了修改，然后破坏了编辑器。不过，你还没有 commit 这些修改。你想要恢复被修改文件里的所有内容 — 就像上次 commit 的时候一模一样。
+方法: git checkout -- <bad filename>
+
+- 重置“本地的”修改
+场景: 你在本地提交了一些东西（还没有 push），但是所有这些东西都很糟糕，你希望撤销前面的三次提交 — 就像它们从来没有发生过一样。
+方法: git reset <last good SHA> 或 git reset --hard <last good SHA>
+
+- 在撤销“本地修改”之后再恢复
+场景: 你提交了几个 commit，然后用 git reset --hard 撤销了这些修改（见上一段），接着你又意识到：你希望还原这些修改！
+方法: git reflog 和 git reset 或 git checkout
+
+怎么利用 reflog 来“恢复”之前“撤销”的 commit 呢？它取决于你想做到的到底是什么：
+
+1. 如果你希望准确地恢复项目的历史到某个时间点，用 git reset --hard <SHA>
+2. 如果你希望重建工作目录里的一个或多个文件，让它们恢复到某个时间点的状态，用 git checkout <SHA> -- <filename>
+3. 如果你希望把这些 commit 里的某一个重新提交到你的代码库里，用 git cherry-pick <SHA>
+
+- 利用分支的另一种做法
+场景: 你进行了一些提交，然后意识到你开始 check out 的是 master 分支。你希望这些提交进到另一个特性（feature）分支里。
+方法: git branch feature, git reset --hard origin/master, and git checkout feature
+
+- 及时分支，省去繁琐
+场景: 你在 master 分支的基础上创建了 feature 分支，但 master 分支已经滞后于 origin/master 很多。现在 master 分支已经和 origin/master 同步，你希望在 feature 上的提交是从现在开始，而不是也从滞后很多的地方开始。
+方法: git checkout feature 和 git rebase master
+
+- 大量的撤销/恢复
+场景: 你向某个方向开始实现一个特性，但是半路你意识到另一个方案更好。你已经进行了十几次提交，但你现在只需要其中的一部分。你希望其他不需要的提交统统消失。
+方法: git rebase -i <earlier SHA>
+
+- 修复更早期的 commit
+场景: 你在一个更早期的 commit 里忘记了加入一个文件，如果更早的 commit 能包含这个忘记的文件就太棒了。你还没有 push，但这个 commit 不是最近的，所以你没法用 commit --amend.
+方法: git commit --squash <SHA of the earlier commit> 和 git rebase --autosquash -i <even earlier SHA>
+
+- 停止追踪一个文件
+场景: 你偶然把 application.log 加到代码库里了，现在每次你运行应用，Git 都会报告在 application.log 里有未提交的修改。你把 *.login 放到了 .gitignore 文件里，可文件还是在代码库里 — 你怎么才能告诉 Git “撤销” 对这个文件的追踪呢？
+方法: git rm --cached application.log
+
+
+1. 配置用户信息
+```bash
+$ git config --list
+$ git config --global user.name "username"
+$ git config --global user.email "email"
+
+```
+
+2.1 生存密钥
+```bash
+$ ssh-keygen -t rsa -C “email”
+
+```
+
+2.2 查看你生成的公钥
+```bash
+$ cat ~/.ssh/id_rsa.pub
+
+```
+
+3. 添加公钥到gitlab账户
+
+
+### git stash (暂存当前正在进行的工作)
+```bash
+git stash
+git stash pop
+
+```
+
+
+### git merge
+```bash
+git checkout test
+git pull
+git merge --squash feature/new_func
+```
+
+
+### 合并代码到online线
+
+(1)
+```bash
+git branch
+git checkout -b release/pre-online-20160808-oper_navi
+git merge --squash feature/oper_navi/corner_mark
+git status
+
+```
+
+(2)
+```bash
+git status
+git branch
+git checkout feature-func
+git log
+git reset --soft 98cd96c
+git status
+git stash
+git stash list
+git checkout test
+git pull
+git stash pop
+git status
+git diff
+git add .
+git commit -m "msg"
+git push
+git checkout feature-func
+git log -g  # 找到需要恢复的信息对应的commitid
+git reset --hard foundcommitid
+
+```
+
+
+### git reset --hard 回滚以后，怎么再回去？
+
+
+可以通过reflog来进行恢复，前提是丢失的分支或commit信息没有被git gc清除
+一般情况下，gc对那些无用的object会保留很长时间后才清除的
+可以使用git reflog show或git log -g命令来看到所有的操作日志
+恢复的过程很简单：
+通过git log -g命令来找到需要恢复的信息对应的commitid，可以通过提交的时间和日期来辨别,找到执行reset --hard之前的那个commit对应的commitid
+通过git branch recover_branch commitid 来建立一个新的分支
+这样，就把到commitid为止的代码、各种提交记录等信息都恢复到了recover_branch分支上了。
+
+
+### 对重大版本更新打tag
+
+```bash
+git tag v1.0.0 -m xxx
+git tag
+git push --tags
+```
 
