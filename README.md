@@ -1596,6 +1596,8 @@ $ vim /data/nginx/conf/nginx.conf                                               
 $ /data/nginx/sbin/nginx  -tc /data/nginx/conf/nginx.conf                                         # 测试
 $ /data/nginx/sbin/nginx  -s reload
 
+$ nginx -s quit  # 退出
+
 ```
 
 
