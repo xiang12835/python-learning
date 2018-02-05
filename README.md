@@ -1583,3 +1583,176 @@ git tag
 git push --tags
 ```
 
+
+## nginx
+
+### 配置 nginx
+
+```bash
+$ vim crm_system/conf/crm.x-transforms.com                                                        # 修改 upstream 和 fastcgi_pass
+$ ln -s /data/python/one_platform/crm_system/conf/crm.x-transforms.com /data/nginx/conf/crm.x-transforms.com
+$ vim /data/nginx/conf/nginx.conf                                                                 # 添加 include crm.x-transforms.com;
+$ /data/nginx/sbin/nginx  -tc /data/nginx/conf/nginx.conf                                         # 测试
+$ /data/nginx/sbin/nginx  -s reload
+
+```
+
+
+### 测试线启动 nginx
+
+```bash
+$ nginx -c /etc/nginx/nginx.conf
+
+```
+
+
+### 安装 nginx 等软件
+
+1 enable EPEL
+
+Red Hat
+
+```bash
+$ if ! rpm -q epel-release; then sudo yum install -y yum-utils http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm; fi
+$ sudo yum-config-manager --enable epel
+
+```
+
+CentOS
+
+```bash
+$ sudo yum install -y epel-release yum-utils
+$ sudo yum-config-manager --enable epel
+
+```
+
+
+2 安装 nginx
+
+ubuntu / Linux Mint 等，下面简写为 (ubuntu):
+
+```bash
+$ sudo apt-get install python-dev nginx
+
+```
+
+centos / Fedora/ redhat 等，下面简写为 (centos):
+
+```bash
+$ sudo yum install epel-release
+$ sudo yum install python-devel nginx
+
+```
+
+Mac
+
+```bash
+$ brew install nginx
+
+```
+
+
+## supervisor
+
+### 安装 supervisor, 一个专门用来管理进程的工具，我们用它来管理 gunicorn/uwsgi
+
+```bash
+$ sudo pip install supervisor
+```
+
+### supervisor 使用命令
+
+```bash
+$ supervisord -c supervisord.conf                             # 通过配置文件启动supervisor
+$ supervisorctl -c supervisord.conf reload                    # 重新载入 配置文件
+$ supervisorctl -c supervisord.conf start [all]|[appname]     # 启动指定/所有 supervisor管理的程序进程
+$ supervisorctl -c supervisord.conf stop [all]|[appname]      # 关闭指定/所有 supervisor管理的程序进程
+
+```
+
+### 例如：
+
+```bash
+$ supervisord -c supervisord.conf  # 通过配置文件启动supervisor
+$ supervisorctl status  # 查看运行状态
+$ supervisorctl reload  # 载入最新的配置文件，并按新的配置启动、管理所有进程。
+$ supervisorctl stop all  # 停止全部进程，注：start、restart、stop都不会载入最新的配置文件。
+$ supervisorctl start all  # 启动全部进程
+
+$ supervisorctl start appname  # 启动某个进程
+$ supervisorctl restart appname  # 重启某个进程
+$ supervisorctl stop appname  # 停止某一个进程
+
+```
+
+
+## regex
+
+### .*? - 懒惰匹配
+
+例：一个字符串“abcdakdjd”
+
+regex="a.*?d";
+
+结果：abcd - 尽量匹配最短串
+
+### .* - 贪婪匹配
+
+regex2="a.*d";
+
+结果：abcdakdjd - 要匹配最长串
+
+
+## http
+
+### HTTP协议包含一些标准的操作方法
+
+1. GET     读取资源（Read）    获取被请求URI（Request-URI）指定的信息（以实体的格式）。
+2. POST    创建资源（Create）  在服务器上创建一个新的资源，并返回新资源的URI。
+3. PUT     更新资源（Update）  指定URI资源存在则更新资源，指定URI资源不存在则创建一个新资源。
+4. DELETE  删除资源（Delete）  删除请求URI指定的资源。
+
+### 请求方式
+
+- 【GET】          /users                # 查询用户信息列表
+- 【GET】          /users/1001           # 查看某个用户信息
+- 【POST】         /users                # 新建用户信息
+- 【PUT】          /users/1001           # 更新用户信息(全部字段)
+- 【PATCH】        /users/1001           # 更新用户信息(部分字段)
+- 【DELETE】       /users/1001           # 删除用户信息
+
+### 状态码
+
+
+状态码  | 描述
+------ | ---------
+200    |  请求成功
+201    |  创建成功
+400    |  请求错误
+401    |  未验证
+403    |  被拒绝
+404    |  无法找到
+405    |  错误 – 方法不被允许 (Method not allowed)
+409    |  资源冲突
+499    |  “client has closed connection”。这很有可能是因为服务器端处理的时间过长，客户端“不耐烦”了。
+500    |  服务器内部错误
+502    |  Bad Gateway是指错误网关，无效网关
+504    |  Gateway Timeout 网关超时，由作为代理或网关的服务器使用，表示不能及时地从远程服务器获得应答。（HTTP 1.1新）。
+
+
+
+## web安全
+
+### xss
+
+### csrf
+
+### sql 注入
+
+
+## CDN
+
+
+## docker
+
+
