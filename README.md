@@ -1437,6 +1437,10 @@ service crond restart
 
 ```
 
+### scp
+```bash
+scp -r root@115.159.***.45:/data/bskgk/tomcat8/webapps/subjejctInfoFolder/root root@115.159.**.19:/data/www/subjejctInfoFolder/root
+```
 
 ## git
 
