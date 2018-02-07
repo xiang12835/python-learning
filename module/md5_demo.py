@@ -15,6 +15,8 @@ m2 = hashlib.md5()
 m2.update(src)
 print m2.hexdigest()
 
+print hashlib.md5(src).hexdigest()
+
 
 """
 一个签名问题
