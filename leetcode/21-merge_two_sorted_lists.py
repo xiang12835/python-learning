@@ -1,5 +1,5 @@
 # Definition for singly-linked list.
-class ListNode(object):
+class Node(object):
     def __init__(self, x):
         self.val = x
         self.nxt = None
@@ -12,7 +12,7 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        head = tmp = ListNode(-1)
+        head = tmp = Node(-1)
 
         while l1 and l2:
             if l1.val < l2.val:
