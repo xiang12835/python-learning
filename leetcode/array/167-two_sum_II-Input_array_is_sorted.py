@@ -71,7 +71,7 @@ class Solution2(object):
                 d[num] = i
 
 
-# binary search
+# binary search; O(n*log n)
 class Solution3(object):
     def twoSum(self, numbers, target):
         for i in xrange(len(numbers)):
