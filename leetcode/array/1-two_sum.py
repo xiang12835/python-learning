@@ -24,7 +24,7 @@ class Solution(object):
 
         length = len(nums)
 
-        for i in xrange(length):
+        for i in xrange(length-1):
             for j in xrange(i+1, length):
                 if nums[i] + nums[j] == target:
                     r = [i, j]
