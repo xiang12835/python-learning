@@ -61,3 +61,16 @@ print 'R[:10:2] =', R[:10:2]
 print 'R[::5] =', R[::5]
 
 print "R[::-1] =", R[::-1]
+
+
+l1 = [2,1,4,3,2]
+print sorted(l1)
+print sorted(l1, reverse=True)
+
+l2 = [2,1,4,3,2]
+l2.sort()
+print l2
+
+l3 = [2,1,4,3,2]
+l3.sort(reverse=True)
+print l3
