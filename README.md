@@ -8,7 +8,7 @@
 4. [《编写高质量代码：改善Python程序的91个建议》](https://zhuanlan.zhihu.com/p/26761842)
 5. [《流畅的python》阅读笔记](https://segmentfault.com/a/1190000011568813)
 6. [《Target Offer》](http://blog.csdn.net/u012505432/article/details/52071537)
-7. [LeetCode](https://leetcode.com/)
+7. [LeetCode](https://github.com/csujedihy/lc-all-solutions)
 
 
 # Python 开发工程师 - 职位
