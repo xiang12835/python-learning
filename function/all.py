@@ -3,6 +3,14 @@
 """
 all() 函数用于判断给定的可迭代参数 iterable 中的所有元素是否不为 0、''、False 或者 iterable 为空，如果是返回 True，否则返回 False。
 
+函数等价于：
+
+def all(iterable):
+    for element in iterable:
+        if not element:
+            return False
+    return True
+
 如果iterable的所有元素不为0、''、False或者iterable为空，all(iterable)返回True，否则返回False；
 
 注意：空元组、空列表返回值为True，这里要特别注意。
