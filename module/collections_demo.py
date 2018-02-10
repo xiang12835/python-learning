@@ -5,9 +5,9 @@
 # 这样一来，我们用namedtuple可以很方便地定义一种数据类型，它具备tuple的不变性，又可以根据属性来引用，使用十分方便。
 from collections import namedtuple
 
-Point = namedtuple('Point', ['x', 'y'])
-p = Point(1, 2)
-print('Point:', p.x, p.y)
+P = namedtuple('Point', ['x', 'y'])
+p = P(1, 2)
+print 'Point:', p.x, p.y
 
 '''
 可以验证创建的Point对象是tuple的一种子类：
@@ -20,8 +20,9 @@ True
 
 # 类似的，如果要用坐标和半径表示一个圆，也可以用namedtuple定义：
 # namedtuple('名称', [属性list]):
-Circle = namedtuple('Circle', ['x', 'y', 'r'])
-
+C = namedtuple('Circle', ['x', 'y', 'r'])
+c = C(3,4,5)
+print c.x, c.y, c.r
 
 
 
