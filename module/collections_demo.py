@@ -71,3 +71,6 @@ for ch in 'programming':
     c[ch] = c[ch] + 1
 print(c)
 # Counter({'g': 2, 'm': 2, 'r': 2, 'a': 1, 'i': 1, 'o': 1, 'n': 1, 'p': 1})
+
+nums = [1, 2, 3, 4, 5]
+print Counter(nums)
