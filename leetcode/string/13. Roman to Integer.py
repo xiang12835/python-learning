@@ -12,14 +12,14 @@ class Solution(object):
         :rtype: int
         """
         # VIII - 8 | IV - 4
-        d = {"I":1, "V": 5, "X":10,"L":50,"C":100, "D":500, "M":1000}
+        d = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
         r = 0
-        for i in xrange(len(s)-1):
+        for i in xrange(len(s) - 1):
             first = s[i]
-            second = s[i+1]
-            if first < second:
+            second = s[i + 1]
+            if d[first] < d[second]:
                 r -= d[s[i]]
             else:
                 r += d[s[i]]
-            r += d[s[-1]]
+        r += d[s[-1]]
         return r
