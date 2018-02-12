@@ -20,3 +20,9 @@ class Solution(object):
         """
         s = [i.lower() for i in s if i.isalnum()]
         return s[::-1] == s
+
+
+if __name__ == "__main__":
+    s = Solution()
+    print s.isPalindrome("A man, a plan, a canal: Panama")
+    print s.isPalindrome("race a car")
