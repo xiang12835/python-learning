@@ -62,7 +62,7 @@ print 'R[::5] =', R[::5]
 
 print "R[::-1] =", R[::-1]
 
-
+# 列表排序
 l1 = [2,1,4,3,2]
 print sorted(l1)
 print sorted(l1, reverse=True)
@@ -74,3 +74,11 @@ print l2
 l3 = [2,1,4,3,2]
 l3.sort(reverse=True)
 print l3
+
+# 列表反转
+l4 = [2,1,4,3,2]
+l4.reverse()
+print l4
+
+l5 = [2,1,4,3,2]
+print list(reversed(l5))
