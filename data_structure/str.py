@@ -13,3 +13,8 @@ sub = "i"
 print "str.count(sub, 4, 40) : ", str.count(sub, 4, 40)
 sub = "wow"
 print "str.count(sub) : ", str.count(sub)
+
+
+# 字符反转
+s = "abcdefg"
+print s[::-1]
