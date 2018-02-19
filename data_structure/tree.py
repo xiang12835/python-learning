@@ -37,7 +37,7 @@ class Node(object):
         self.data = data
 
 
-class Btree(object):
+class BTree(object):
     def __init__(self, base=0):
         self.base = base
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     node1 = Node(data=8)
     node2 = Node(data=9)
     root = Node(node1, node2, 7)
-    x = Btree(root)
+    x = BTree(root)
     print "前序遍历:"
     x.preorder(x.base)
     print "中序遍历:"
