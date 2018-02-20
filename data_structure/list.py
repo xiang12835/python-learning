@@ -82,3 +82,5 @@ print l4
 
 l5 = [2,1,4,3,2]
 print list(reversed(l5))
+
+print l5[::-1]
