@@ -1,8 +1,11 @@
 # -*- coding:utf-8 -*-
 
-"""
+""" 题目描述
 输入一个链表，从尾到头打印链表每个节点的值。
+"""
 
+""" 思路解析
+使用栈从头到尾push链表的元素，然后pop所有的元素到一个list中并返回
 """
 
 
@@ -33,6 +36,24 @@ class Solution:
             l.append(listNode.val)
             listNode = listNode.next
         return l[::-1]
+
+
+class Solution3:
+    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    def printListFromTailToHead(self, listNode):
+        # write code here
+        if not listNode:
+            return []
+
+        stack = []
+        r = []
+        p = listNode
+        while p:
+            stack.append(p.val)
+            p = p.next
+        while stack:
+            r.append(stack.pop())
+        return r
 
 
 node1 = ListNode(10)
