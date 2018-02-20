@@ -1,9 +1,7 @@
 # coding=utf-8
 
-'''
-range
+''' range
 函数说明：range([start,] stop[, step])，根据start与stop指定的范围以及step设定的步长，生成一个列表。
-
 '''
 
 print range(10)
@@ -11,8 +9,7 @@ print range(2,10)
 print range(2,10,2)
 
 
-'''
-xrange 
+''' xrange 
 函数说明：和range 的用法完全相同，但是返回的是一个生成器。 
 '''
 
