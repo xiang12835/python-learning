@@ -28,8 +28,9 @@
 class Solution:
     def NumberOf1(self, n):
         # write code here
-        if n < 0:  # 如果是负数求原码
+        if n < 0:  # 如果是负数求补码
             n = n & 0xffffffff
+            print bin(n)
         count = 0
         while n:
             count += 1
@@ -42,5 +43,13 @@ class Solution1:
         # write code here
         if n < 0:
             n = n + pow(2, 32)
+            print n
 
         return bin(n).count("1")
+
+
+if __name__ == "__main__":
+    s = Solution()
+    print s.NumberOf1(-5)
+    s1 = Solution1()
+    print s1.NumberOf1(-5)
