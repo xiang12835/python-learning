@@ -31,7 +31,7 @@ class Solution:
             return 2
 
         l = [1, 2]
-        for i in xrange(3, number + 1):
+        for _ in xrange(3, number + 1):
             l.append(l[-2] + l[-1])
 
         return l[-1]
