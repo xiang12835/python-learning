@@ -45,34 +45,6 @@ class Solution:
             right = self.VerifySquenceOfBST(sequence[i:-1])
         return left and right
 
-class Solution:
-    def VerifySquenceOfBST(self, sequence):
-        # write code here
-        if not sequence:
-            return False
-
-        length = len(sequence)
-        root_val = sequence[-1]
-
-        # 左子树
-        for i in xrange(length):
-            if sequence[i] > root_val:
-                break
-        # 右子树
-        for j in xrange(i, length):
-            if sequence[j] < root_val:
-                return False
-
-        # 递归
-        left = True
-        if i > 0:
-            left = self.VerifySquenceOfBST(sequence[:i])
-        right = True
-        if i < length - 1:
-            right = self.VerifySquenceOfBST(sequence[i:])
-
-        return left and right
-
 
 if __name__ == "__main__":
     s = Solution()
