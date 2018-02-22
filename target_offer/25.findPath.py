@@ -14,25 +14,31 @@
 """
 
 
-# -*- coding:utf-8 -*-
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+
 class Solution:
     # 返回二维列表，内部每个列表表示找到的路径
-    def FindPath(self, root, Number):
-        if root==None:
+    def FindPath(self, root, expectNumber):
+        # write code here
+        if root == None:
             return []
-        if root.left==None and root.right==None and Number==root.val:
+
+        if root.left == None and root.right == None and root.val != expectNumber:
+            return []
+
+        if root.left == None and root.right == None and root.val == expectNumber:
             return [[root.val]]
-        if root.left==None and root.right==None and Number!=root.val:
-            return []
-        res=[]
-         #进行递归
-        res_left=self.FindPath(root.left,Number-root.val)
-        res_right=self.FindPath(root.right,Number-root.val)
-        for i in res_left+res_right:  # 取交集
-            res.append([root.val]+i)
-        return res
+
+        r = []
+
+        result_left = self.FindPath(root.left, expectNumber - root.val)
+        result_right = self.FindPath(root.right, expectNumber - root.val)
+
+        for v in result_left + result_right:
+            r.append([root.val] + v)
+        return r
