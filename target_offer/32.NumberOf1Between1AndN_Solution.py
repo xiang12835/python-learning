@@ -7,6 +7,12 @@
 """
 
 
+"""思路解析
+将1-n全部转换为字符串
+只需要统计每个字符串中'1'出现的次数并相加即可
+"""
+
+
 class Solution:
     def NumberOf1Between1AndN_Solution(self, n):
         # write code here
