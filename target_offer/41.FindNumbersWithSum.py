@@ -12,6 +12,7 @@
 
 
 class Solution:
+    # Time: O(n*n)
     def FindNumbersWithSum(self, array, tsum):
         # write code here
         if not array:
