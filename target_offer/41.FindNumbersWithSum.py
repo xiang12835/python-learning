@@ -17,18 +17,34 @@ class Solution:
         # write code here
         if not array:
             return []
-        index = 0
-        r = []
-        while index < len(array):
-            for i in range(index+1, len(array)):
-                if sum([array[index], array[i]]) == tsum:
-                    r.append(array[index])
-                    r.append(array[i])
-                    return r
-            index += 1
+
+        for i in range(len(array)-1):
+            for j in range(i+1, len(array)):
+                if sum([array[i], array[j]]) == tsum:
+                    return [array[i], array[j]]
+        return []
+
+
+class Solution1:
+    # Time: O(n*n)
+    def FindNumbersWithSum(self, array, tsum):
+        # write code here
+        if not array:
+            return []
+
+        start = 0
+        end = len(array) - 1
+
+        while start < end:
+            if sum([array[start], array[end]]) < tsum:
+                start += 1
+            elif sum([array[start], array[end]]) > tsum:
+                end -= 1
+            else:
+                return [array[start], array[end]]
         return []
 
 
 if __name__ == "__main__":
-    s = Solution()
+    s = Solution1()
     print s.FindNumbersWithSum([1,2,4,7,11,15],15)
