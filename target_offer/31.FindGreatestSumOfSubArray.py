@@ -24,3 +24,8 @@ class Solution:
             cur_sum = max(v, cur_sum+v)
             max_sum = max(max_sum, cur_sum)
         return max_sum
+
+
+if __name__ == "__main__":
+    s = Solution()
+    print s.FindGreatestSumOfSubArray([6,-3,-4,7,15,1,2,2])
