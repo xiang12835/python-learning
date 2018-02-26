@@ -38,7 +38,7 @@ class Solution1:
         # write code here
         l = [1, 2]
         r = []
-        while len(l) <= 1:
+        while len(l) > 1:
             if sum(l) < tsum:
                 l.append(l[-1]+1)
             elif sum(l) > tsum:
