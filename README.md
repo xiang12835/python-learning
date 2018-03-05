@@ -1514,7 +1514,7 @@ $ git config --global user.email "email"
 
 2.1 生存密钥
 ```bash
-$ ssh-keygen -t rsa -C “email”
+$ ssh-keygen -t rsa -C "email"
 
 ```
 
