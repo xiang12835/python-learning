@@ -84,3 +84,9 @@ l5 = [2,1,4,3,2]
 print list(reversed(l5))
 
 print l5[::-1]
+
+
+# count() 方法用于统计某个元素在列表中出现的次数。
+
+numbers = [2,1,4,3,2]
+print numbers.count(2)
