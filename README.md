@@ -1432,10 +1432,21 @@ $ rsync -vzrtopg --progress -e ssh --delete root@123.206.180.82:/data/static /da
 ```bash
 # 正式线配置 crontab
 vi /var/spool/cron/root
-30 12 * * * /data/python2.7/bin/python /data/python/one_platform/background/sync_data/sync_fenbi_info.py
+30 12 * * * /data/python2.7/bin/python /data/python/one_platform/background/sync_data/sync_fenbi_info.py 2>&1
 service crond restart
 
 ```
+
+#### 注意清理系统用户的邮件日志
+
+每条任务调度执行完毕，系统都会将任务输出信息通过电子邮件的形式发送给当前系统用户，这样日积月累，日志信息会非常大，可能会影响系统的正常运行，因此，将每条任务进行重定向处理非常重要。
+
+例如，可以在crontab文件中设置如下形式，忽略日志输出：
+
+0 */3 * * * /usr/local/apache2/apachectl restart >/dev/null 2>&1
+
+“/dev/null 2>&1”表示先将标准输出重定向到/dev/null，然后将标准错误重定向到标准输出，由于标准输出已经重定向到了/dev/null，因此标准错误也会重定向到/dev/null，这样日志输出问题就解决了。
+
 
 ### scp
 ```bash
