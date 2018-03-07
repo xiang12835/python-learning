@@ -1459,8 +1459,9 @@ $ service sshd start
 $ rsync -vzrtopg --progress -e ssh --delete root@123.206.180.82:/data/static /data
 
 ```
+### [crontab命令详解](https://juejin.im/entry/5a322b28518825275410566c)
 
-### 使用 crontab 每天十二点半同步数据
+#### 使用 crontab 每天十二点半同步数据
 ```bash
 # 正式线配置 crontab
 vi /var/spool/cron/root
