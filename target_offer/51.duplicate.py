@@ -20,3 +20,7 @@ class Solution:
                     return True
         return False
 
+
+if __name__ == "__main__":
+    s = Solution()
+    print s.duplicate([2,1,3,1,4],duplication=[])
