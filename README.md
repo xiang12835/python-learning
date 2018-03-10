@@ -469,7 +469,7 @@ def update_area_review_subject_num(request):
 
 > 每个接口<=100ms * 10个并发 * 40个进程
 
-
+> API 每台机器120个请求/秒 * 7台
 
 
 ## RESTfull API
