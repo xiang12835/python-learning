@@ -45,3 +45,23 @@ class Solution:
             else:
                 break
 
+
+class Solution1:
+    def GetNext(self, pNode):
+        # write code here
+        root = pNode
+        while root.next:
+            root = root.next
+        self.result = []
+        self.midOrder(root)
+        if self.result.index(pNode) != len(self.result) - 1:
+            return self.result[self.result.index(pNode) + 1]
+        else:
+            return None
+
+    def midOrder(self, root):
+        if not root:
+            return None
+        self.midOrder(root.left)
+        self.result.append(root)
+        self.midOrder(root.right)
