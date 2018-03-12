@@ -71,15 +71,39 @@ class BTree(object):
         self.postorder(node.right)
         print node.data
 
+    def level_order(self, node):
+        """层次遍历"""
+        if node == 0:
+            return
+        r = []
+        node_stack = [node]
+        while node_stack:
+            tmp_stack = []
+            for node in node_stack:
+                r.append(node.data)
+                if node.left:
+                    tmp_stack.append(node.left)
+                if node.right:
+                    tmp_stack.append(node.right)
+            node_stack = tmp_stack
+        for v in r:
+            print v
+
 
 if __name__ == "__main__":
     node1 = Node(data=8)
     node2 = Node(data=9)
     root = Node(node1, node2, 7)
     x = BTree(root)
+
     print "前序遍历:"
     x.preorder(x.base)
+
     print "中序遍历:"
     x.inorder(x.base)
+
     print "后序遍历:"
     x.postorder(x.base)
+
+    print "层次遍历:"
+    x.level_order(x.base)
