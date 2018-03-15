@@ -25,3 +25,10 @@ s.remove(4) # 通过remove(key)方法可以删除元素
 print s
 
 # 小结: 使用key-value存储结构的dict在Python中非常有用，选择不可变对象作为key很重要，最常用的key是字符串。
+
+
+q = {"a", "b", "c", "d"}
+print q
+print type(q)
+
+print q.pop()  # pop() 函数用于移除集合中的第一个元素，并且返回该元素的值。
