@@ -1,7 +1,7 @@
 # coding=utf-8
 
 
-dec = 10
+dec = 2147483647
 
 print "十进制数为：", dec
 print "转换为二进制为：", bin(dec)
