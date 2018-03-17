@@ -1302,6 +1302,9 @@ from api.lib.cached_data import cached_all_boxes, cached_all_video_list_modules,
 $ redis-server &
 $ redis-cli
 
+127.0.0.1:6379> config get *  # 使用 * 号获取所有配置项
+127.0.0.1:6379> config get databases  # 所有数据库个数
+
 127.0.0.1:6379> select 12
 OK
 127.0.0.1:6379[12]> keys *
