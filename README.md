@@ -1438,11 +1438,6 @@ awk -F ' ' '{print $2}' log.pipe.20170930|awk -F 'T' '{print $2}'|sort |uniq -c 
 
 ```
 
-### 查看504
-```bash
-awk '$7==504' log.pipe
-
-```
 
 ### 统计api响应时间和数量
 ```bash
@@ -1451,6 +1446,40 @@ cat log.pipe|awk -F ' ' 'BEGIN{count[$4]=1;sum[$4]=0}{count[$4]+=1;sum[$4]+=$9}E
 cat log.pipe|awk -F ' ' 'BEGIN{count[$4]=1;sum[$4]=0;}{count[$4]+=1;sum[$4]+=$9}END{for(i in sum){print sum[i]/count[i]" "sum[i]" "count[i]" "i}}'|sort -rn |head -n 100
 
 ```
+
+
+
+### 查看504
+```bash
+awk '$7==504' log.pipe
+```
+
+### 查看某个接口状态码>400的日志
+```bash
+tail -n1000000 /data/logs/nginx/access/log.pipe |grep /api/information/v5/article_list | awk '$7>400'
+```
+
+### 升级app
+```bash
+cd /data/python/one_platform/app/;git pull;sh app.sh restart
+```
+
+### 升级api
+```bash
+cd /data/python/one_platform/api/;git pull;sh tornado.sh restart
+```
+
+### 查看错误日志
+```bash
+tail -f /data/logs/tornado/*.log
+```
+
+### 查看状态码>400的日志
+```bash
+tail -f /data/logs/nginx/access/log.pipe | awk '$7>400'
+```
+
+
 
 ### rsync 同步
 
