@@ -31,9 +31,9 @@ class Solution1(object):
         :type s: str
         :rtype: int
         """
-        for c in list(s):
+        for c in s:
             if s.count(c) == 1:
-                return list(s).index(c)
+                return s.index(c)
         return -1
 
 
