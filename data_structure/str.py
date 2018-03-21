@@ -18,3 +18,7 @@ print "str.count(sub) : ", str.count(sub)
 # 字符反转
 s = "abcdefg"
 print s[::-1]
+
+
+s = "hello"
+print sorted(s)
