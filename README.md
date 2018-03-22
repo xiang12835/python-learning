@@ -210,6 +210,13 @@ $ python -m http.server  # python3
 
 ## Django
 
+### django 数据模型中 null=True 和 blank=True 有什么区别？
+
+null 是针对数据库而言，如果 null=True, 表示数据库的该字段可以为空。
+
+blank 是针对表单的，如果 blank=True，表示你的表单填写该字段的时候可以不填，
+
+
 ### filter | exclude
 
 ``` Python
