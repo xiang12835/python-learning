@@ -1,6 +1,3 @@
-[toc]
-
-
 # PythonLearning
 
 ### 学习资料
