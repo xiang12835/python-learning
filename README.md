@@ -210,6 +210,22 @@ $ python -m http.server  # python3
 
 ## Django
 
+
+### queryset - raw()
+
+只适用于查询，必须包含主键
+
+``` python
+sql = "SELECT id, title, content FROM operation.area_push;"
+# sql = "SELECT * FROM operation.area_push;"
+datas = AreaPush.objects.raw(sql)  # 必须包含主键
+
+for d in datas:
+    print (d.id,d.title,d.content)
+
+```
+
+
 ### django 数据模型中 null=True 和 blank=True 有什么区别？
 
 null 是针对数据库而言，如果 null=True, 表示数据库的该字段可以为空。
