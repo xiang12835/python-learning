@@ -1,45 +1,6 @@
 # coding=utf-8
 
 
-
-"""
-/*
-struct ListNode {
-    int val;
-    struct ListNode *next;
-    ListNode(int x) :
-        val(x), next(NULL) {
-    }
-};
-*/
-class Solution {
-public:
-    ListNode* deleteDuplication(ListNode* pHead)
-    {
-        ListNode* p1 = pHead;
-        if (p1 == NULL)
-            return NULL;
-        if (p1 != NULL && p1->next == NULL)
-            return p1;
-
-        ListNode* cur;
-
-        if (p1->val == p1->next->val) {
-            cur = p1->next->next;
-            while(cur && cur->val == p1->val){
-                cur = cur->next;
-            }
-            return deleteDuplication(cur);
-        }else {
-            cur = p1->next;
-            p1->next = deleteDuplication(cur);
-            return p1;
-        }
-
-    }
-};
-"""
-
 # -*- coding:utf-8 -*-
 class ListNode:
     def __init__(self, x):
