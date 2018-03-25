@@ -45,3 +45,17 @@ try/except/else/finally
 - else 会在 finally 之前运行，else 块可以用来缩减 try 块中的代码量
 - 最终一定会执行 finally，可以在其中进行清理工作
 '''
+
+
+
+a = 1
+try:
+  a += 1
+except:
+  a += 1
+else:
+  a += 1
+finally:
+  a += 1
+print a
+
