@@ -1910,7 +1910,7 @@ i. 使用mysqli或pdo预处理。
 ## Data Structure and Algorithm
 
 
-> [algorithm](https://github.com/xiang12835/python-learning/blob/master/leetcode/leetcode.md)
+> [algorithm](https://github.com/xiang12835/python-learning/blob/master/algorithm/note.md)
 
 
-> [leetcode](https://github.com/xiang12835/python-learning/blob/master/leetcode/leetcode.md)
+> [leetcode](https://github.com/xiang12835/python-learning/blob/master/leetcode/note.md)
