@@ -1380,6 +1380,13 @@ r.llen('cache.do_cms_url_clean')
 
 ## linux
 
+### 分析慢查询日志
+MySQL-实例列表-监控
+
+MySQL-实例列表-实例-操作日志-下载
+
+$ mysqldumpslow -s c -t 10 winlesson.com_slowlog_20180326.log
+
 
 ### 查看系统版本信息
 ```bash
