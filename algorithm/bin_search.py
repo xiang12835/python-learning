@@ -6,9 +6,9 @@ def bin_search(l, n):
     right = len(l) - 1
     while left <= right:
         mid = (left + right) // 2
-        if l[mid] == n:
+        if n == l[mid]:
             return mid
-        elif l[mid] < n:
+        elif n > l[mid]:
             left = mid + 1
         else:
             right = mid - 1
