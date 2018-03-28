@@ -28,7 +28,7 @@
 
 双指针主要用于遍历数组，两个指针指向不同的元素，从而协同完成任务。
 
-- 167. Two Sum II - Input array is sorted
+- 167. Two Sum II - Input array is sorted (Easy)
 - 345. Reverse Vowels of a String (Easy)
 - 633. Sum of Square Numbers (Easy)
 - 680. Valid Palindrome II (Easy)
