@@ -9,3 +9,11 @@
 
 344. Reverse String | 541. Reverse String II
 
+
+
+### 二分查找
+
+69. Sqrt(x) | 441. Arranging Coins
+
+
+

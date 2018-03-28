@@ -49,3 +49,31 @@ class Solution(object):
             s += row
 
         return row - 1
+
+
+class Solution1(object):
+    def arrangeCoins(self, n):
+        """
+        :type x: int
+        :rtype: int
+        """
+        l, r = 0, n
+        while l <= r:
+            mid = (l + r) / 2
+            s = mid * (mid + 1) / 2
+            if n == s:
+                return mid
+            elif n > s:
+                l = mid + 1
+            else:
+                r = mid - 1
+
+        return r
+
+
+if __name__ == "__main__":
+    s = Solution()
+    print s.arrangeCoins(5)
+
+    s1 = Solution1()
+    print s1.arrangeCoins(5)
