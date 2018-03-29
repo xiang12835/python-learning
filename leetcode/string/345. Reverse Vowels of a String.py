@@ -19,7 +19,13 @@ class Solution(object):
         :rtype: str
         """
         vowel_str = "aeiou"
-        l = s[0]
-        r = s[-1]
+        length = len(s)
+        l = 0
+        r = length - 1
+        while l < r:
+            while s[l] not in vowel_str:
+                l += 1
+            while s[r] not in vowel_str:
+                r -= 1
 
 
