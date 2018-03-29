@@ -2,6 +2,7 @@
 
 
 def bin_search(l, n):
+    # Time: O(log(n))
     left = 0
     right = len(l) - 1
     while left <= right:
