@@ -18,14 +18,17 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        vowel_str = "aeiou"
+        vowels_set = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        s = list(s)
         length = len(s)
         l = 0
         r = length - 1
         while l < r:
-            while s[l] not in vowel_str:
+            while l < r and s[l] not in vowels_set:
                 l += 1
-            while s[r] not in vowel_str:
+            while l < r and s[r] not in vowels_set:
                 r -= 1
-
-
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
+        return "".join(s)
