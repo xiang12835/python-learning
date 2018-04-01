@@ -1,8 +1,24 @@
-### 相似题目
+## 相似题目
 
-- 回文
 
-9. Palindrome Number.py | 125. Valid Palindrome.py | 234. Palindrome Linked List | 680. Valid Palindrome II 
+### 回文
+- 9. Palindrome Number.py
+- 125. Valid Palindrome.py
+- 234. Palindrome Linked List
+- 680. Valid Palindrome II 
+
+
+###  反转
+- 344. Reverse String
+- 541. Reverse String II
+
+
+### 路径
+- 112. Path Sum
+- 113. Path Sum II
+- 257. Binary Tree Paths
+- 
+
 
 
 53. Maximum Subarray.py | 121. Best Time to Buy and Sell Stock.py | 122. Best Time to Buy and Sell Stock II.py | 198. House Robber
@@ -11,8 +27,9 @@
 
 136. Single Number | 242. Valid Anagram
 
-344. Reverse String | 541. Reverse String II
 
+
+## 算法
 
 ### 二分查找
 
@@ -64,5 +81,9 @@ BFS | DFS
 - 200
 - 257. Binary Tree Paths (Easy)
 - 130
+
+
+## 数据结构
+
 
 
