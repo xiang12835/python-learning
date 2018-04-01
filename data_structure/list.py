@@ -64,8 +64,13 @@ print "R[::-1] =", R[::-1]
 
 # 列表排序
 l1 = [2,1,4,3,2]
-print sorted(l1)
-print sorted(l1, reverse=True)
+print sorted(l1)  # 升序
+print sorted(l1, reverse=True)  # 降序
+
+
+# key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。
+print sorted(l1, key=lambda el:el)  # 升序
+print sorted(l1, key=lambda el:-el)  # 降序
 
 l2 = [2,1,4,3,2]
 l2.sort()
@@ -74,6 +79,11 @@ print l2
 l3 = [2,1,4,3,2]
 l3.sort(reverse=True)
 print l3
+
+people = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]
+people.sort(key=lambda (h, k): (-h, k))
+
+print people
 
 # 列表反转
 l4 = [2,1,4,3,2]
