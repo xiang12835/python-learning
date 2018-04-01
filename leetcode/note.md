@@ -25,6 +25,16 @@
 
 贪心思想保证每次操作都是局部最优的，并且最后得到的结果是全局最优的。
 
+- 455. Assign Cookies (Easy)
+- 452. Minimum Number of Arrows to Burst Balloons (Medium)
+- 122. Best Time to Buy and Sell Stock II (Easy)
+- 605. Can Place Flowers (Easy)
+- 665. Non-decreasing Array (Easy)
+- 392. Is Subsequence (Medium)
+- 763. Partition Labels (Medium)
+- 406. Queue Reconstruction by Height(Medium)
+- 
+
 
 ### 双指针
 
