@@ -1,3 +1,4 @@
+### 相似题目
 
 - 回文
 
@@ -11,7 +12,6 @@
 136. Single Number | 242. Valid Anagram
 
 344. Reverse String | 541. Reverse String II
-
 
 
 ### 二分查找
@@ -49,6 +49,20 @@
 - 524. Longest Word in Dictionary through Deleting (Medium)
 
 
+### 排序
 
+- 215. Kth Largest Element in an Array (Medium)
+- 347. Top K Frequent Elements (Medium)
+
+
+### 搜索
+
+BFS | DFS
+
+- 695
+- 547
+- 200
+- 257. Binary Tree Paths (Easy)
+- 130
 
 
