@@ -599,7 +599,8 @@ end = start + pageSize
     "result": {
         "balance": 8001,  # 余额（数据结构：Float）
         "voucher_count": 1,  # 卡券数量
-        "order_count": 178  # 订单数量
+        "courses": []  # 课程列表
+        "user_info": {}  # 用户详情
     }
 }
 
