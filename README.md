@@ -207,6 +207,25 @@ $ python -m http.server  # python3
 ### 切片 slice
 
 
+### pdb 调试
+
+``` python
+import pdb
+pdb.set_trace()
+```
+
+import pdb，然后，在可能出错的地方放一个 pdb.set_trace()，就可以设置一个断点
+
+运行代码，程序会自动在pdb.set_trace()暂停并进入pdb调试环境，可以用命令p查看变量，或者用命令c继续运行
+
+输入命令l来查看代码
+
+输入命令n可以单步执行代码
+
+任何时候都可以输入命令p 变量名来查看变量
+
+输入命令q结束调试，退出程序
+
 
 ## Django
 
