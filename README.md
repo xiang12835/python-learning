@@ -31,7 +31,11 @@
     * [CDN](#cdn)
     * [Docker](#docker)
 * [Data Structure and Algorithm](#data-structure-and-algorithm)
+    * [Data Structure](#data-structure)
+    * [Algorithm](#algorithm)
+    * [LeetCode](#leetcode)
 * [Interview](#interview)
+    * [Interview Notebook](#interview-notebook)
 <!-- GFM-TOC -->
 
 
