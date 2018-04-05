@@ -2,7 +2,7 @@
 
 <!-- GFM-TOC -->
 * [PythonLearning](#pythonlearning)
-    * [学习资料](#学习资料)
+    * [Collections](#学习资料)
 * [PythonDeveloper](#python-开发工程师)
     * [Responsibilities](#工作职责)
     * [Qualifications](#任职要求)
