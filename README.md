@@ -2,8 +2,16 @@
 
 <!-- GFM-TOC -->
 * [PythonLearning](#pythonlearning)
+    * [学习资料](#学习资料)
+* [PythonDeveloper](#python-开发工程师)
+    * [工作职责](#工作职责)
+    * [任职要求](#任职要求)
 * [Front End](#前端开发)
-    * [html/css/js/BootStrap/jQuery/Node.js/Vue.js](#htmlcssjsbootstrapjquerynodejsvuejs)
+    * [HTML/CSS/JS](#htmlcssjs)
+    * [Node.js](#nodejs)
+    * [jQuery](#jquery)
+    * [BootStrap](#bootstrap)
+    * [Vue.js](#vuejs)
 * [Back End](#后端开发)
     * [Python](#python)
     * [Django](#django)
@@ -41,7 +49,7 @@
 7. [LeetCode](https://github.com/csujedihy/lc-all-solutions)
 
 
-# Python 开发工程师 - 职位
+# Python 开发工程师
 
 ### 工作职责：
 1. 优酷 APP 服务端业务需求开发，性能优化
@@ -66,14 +74,7 @@
 
 # 前端开发
 
-## html/css/js/BootStrap/jQuery/Node.js/Vue.js
-
-### npm显示已安装的包
-
-``` shell
-npm list -g --depth 0
-
-```
+## HTML/CSS/JS
 
 ### 格式化时间
 ```html
@@ -134,6 +135,25 @@ $(".device_type_selector").change(function(){
 <a class="btn btn-default" onclick="history.back()" href="#"><i class="icon-circle-arrow-left"></i>返回</a>
 
 ```
+
+
+## Node.js
+
+### npm显示已安装的包
+
+``` shell
+npm list -g --depth 0
+
+```
+
+
+## jQuery
+
+
+## BootStrap
+
+
+## Vue.js
 
 
 
