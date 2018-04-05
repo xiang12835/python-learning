@@ -31,7 +31,7 @@
     * [CDN](#cdn)
     * [Docker](#docker)
     * [Data Structure and Algorithm](#data-structure-and-algorithm)
-    * [Interview](#interview)
+* [Interview](#interview)
 <!-- GFM-TOC -->
 
 
@@ -2008,7 +2008,7 @@ i. 使用mysqli或pdo预处理。
 
 
 
-## Interview
+# Interview
 
 > [Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
 
