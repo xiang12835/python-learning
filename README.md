@@ -37,6 +37,34 @@
 # 后端开发 - 总结
 
 
+<!-- GFM-TOC -->
+[Front End](## html/css/js/BootStrap/jQuery/Node.js/Vue.js)
+[Python](## Python)
+[Django](## Django)
+[Tornado](## Tornado)
+[RESTfull API](## RESTfull API)
+[MySQL](## MySQL)
+[缓存](## 缓存)
+[Redis](## Redis)
+[Varnish](## Varnish)
+[Linux](## Linux)
+[Git](## Git)
+[Nginx](## Nginx)
+[Supervisor](## Supervisor)
+[Regex](## Regex)
+[Http](## Http)
+[Web安全](## Web安全)
+[CDN](## CDN)
+[Docker](## Docker)
+[Data Structure and Algorithm](## Data Structure and Algorithm)
+[Interview](## Interview)
+
+
+
+
+
+
+
 ## html/css/js/BootStrap/jQuery/Node.js/Vue.js
 
 ### npm显示已安装的包
@@ -332,7 +360,9 @@ def default_if_none(value, arg):
         return arg
     return value
 ```
+
 使用：
+
 {{video.live_url|default_if_none:""}} - 如果值有可能为none 加上这个 templatetags 就可以把None装换成空字符串了
 
 
@@ -1354,7 +1384,7 @@ from api.lib.cached_data import cached_all_boxes, cached_all_video_list_modules,
 ```
 
 
-## redis
+## Redis
 ### redis常见操作
 
 ```shell
@@ -1391,14 +1421,14 @@ r.llen('cache.do_cms_url_clean')
 ```
 
 
-## varnish
+## Varnish
 
 使用varnish去除掉URL中的时间戳和一些PID，作为key值
 
 /Users/yourname/work/python/m-cms-new/api/conf/varnish/varnish3.vcl
 
 
-## linux
+## Linux
 
 ### 分析慢查询日志
 MySQL-实例列表-监控
@@ -1584,7 +1614,7 @@ service crond restart
 scp -r root@115.159.***.45:/data/bskgk/tomcat8/webapps/subjejctInfoFolder/root root@115.159.**.19:/data/www/subjejctInfoFolder/root
 ```
 
-## git
+## Git
 
 ### 如何在 Git 里撤销(几乎)任何操作
 
@@ -1731,7 +1761,7 @@ git push --tags
 ```
 
 
-## nginx
+## Nginx
 
 ### 配置 nginx
 
@@ -1801,7 +1831,7 @@ $ brew install nginx
 ```
 
 
-## supervisor
+## Supervisor
 
 ### 安装 supervisor, 一个专门用来管理进程的工具，我们用它来管理 gunicorn/uwsgi
 
@@ -1837,7 +1867,7 @@ $ supervisorctl stop appname  # 停止某一个进程
 
 
 
-## regex
+## Regex
 
 ### (.*?) - 懒惰匹配
 
@@ -1854,7 +1884,7 @@ regex2="a.*d";
 结果：abcdakdjd - 要匹配最长串
 
 
-## http
+## Http
 
 ### HTTP协议包含一些标准的操作方法
 
@@ -1893,7 +1923,7 @@ regex2="a.*d";
 
 
 
-## web安全
+## Web安全
 
 ### xss
 
