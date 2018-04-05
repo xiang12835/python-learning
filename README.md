@@ -1,23 +1,16 @@
 # 目录
 
 <!-- GFM-TOC -->
-
-
-* [一、算法分析](#一算法分析)
-    * [数学模型](#数学模型)
-    * [ThreeSum](#threesum)
-
-
-* [PythonLearning](#pythonLearning)
+* [PythonLearning](#pythonlearning)
 * [Front End](#前端开发)
-    * [html/css/js/BootStrap/jQuery/Node.js/Vue.js](#html/css/js/BootStrap/jQuery/Node.js/Vue.js)
+    * [html/css/js/BootStrap/jQuery/Node.js/Vue.js](#htmlcssjsbootstrapjquerynodejsvuejs)
 * [Back End](#后端开发)
     * [Python](#python)
     * [Django](#django)
     * [Tornado](#tornado)
-    * [RESTfull API](#rESTfull-API)
-    * [MySQL](#mySQL)
-    * [缓存](#缓存)
+    * [RESTfull API](#restfull-api)
+    * [MySQL](#mysql)
+    * [Cache](#缓存)
     * [Redis](#redis)
     * [Varnish](#varnish)
     * [Linux](#linux)
@@ -27,9 +20,9 @@
     * [Regex](#regex)
     * [Http](#http)
     * [Web安全](#web安全)
-    * [CDN](#cDN)
+    * [CDN](#cdn)
     * [Docker](#docker)
-    * [Data Structure and Algorithm](#data-Structure-and-Algorithm)
+    * [Data Structure and Algorithm](#data-structure-and-algorithm)
     * [Interview](#interview)
 <!-- GFM-TOC -->
 
@@ -557,7 +550,7 @@ def update_area_review_subject_num(request):
 > API 每台机器120个请求/秒 * 7台
 
 
-## RESTfull-API
+## RESTfull API
 
 ### 资源路径命名规则
 
@@ -1985,7 +1978,7 @@ i. 使用mysqli或pdo预处理。
 
 
 
-## Data-Structure-and-Algorithm
+## Data Structure and Algorithm
 
 > [algorithm](https://github.com/xiang12835/python-learning/blob/master/algorithm/note.md)
 
