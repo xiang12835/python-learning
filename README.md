@@ -1,3 +1,31 @@
+<!-- GFM-TOC -->
+* [PythonLearning](#PythonLearning)
+* [Front End](#前端开发)
+    * [html/css/js/BootStrap/jQuery/Node.js/Vue.js](##html/css/js/BootStrap/jQuery/Node.js/Vue.js)
+* [Back End](#后端开发)
+    * [Python](##Python)
+    * [Django](##Django)
+    * [Tornado](##Tornado)
+    * [RESTfull API](##RESTfull-API)
+    * [MySQL](##MySQL)
+    * [缓存](##缓存)
+    * [Redis](##Redis)
+    * [Varnish](##Varnish)
+    * [Linux](##Linux)
+    * [Git](##Git)
+    * [Nginx](##Nginx)
+    * [Supervisor](##Supervisor)
+    * [Regex](##Regex)
+    * [Http](##Http)
+    * [Web安全](##Web安全)
+    * [CDN](##CDN)
+    * [Docker](##Docker)
+    * [Data Structure and Algorithm](##Data-Structure-and-Algorithm)
+    * [Interview](##Interview)
+<!-- GFM-TOC -->
+
+
+
 # PythonLearning
 
 ### 学习资料
@@ -109,33 +137,6 @@ $(".device_type_selector").change(function(){
 
 
 # 后端开发
-
-
-<!-- GFM-TOC -->
-* [Back End](#后端开发)
-    * [Python](##Python)
-    * [Django](##Django)
-    * [Tornado](##Tornado)
-    * [RESTfull API](##RESTfull API)
-    * [MySQL](##MySQL)
-    * [缓存](##缓存)
-    * [Redis](##Redis)
-    * [Varnish](##Varnish)
-    * [Linux](##Linux)
-    * [Git](##Git)
-    * [Nginx](##Nginx)
-    * [Supervisor](##Supervisor)
-    * [Regex](##Regex)
-    * [Http](##Http)
-    * [Web安全](##Web安全)
-    * [CDN](##CDN)
-    * [Docker](##Docker)
-    * [Data Structure and Algorithm](##Data Structure and Algorithm)
-    * [Interview](##Interview)
-<!-- GFM-TOC -->
-
-
-
 
 
 ## Python 
@@ -547,7 +548,7 @@ def update_area_review_subject_num(request):
 > API 每台机器120个请求/秒 * 7台
 
 
-## RESTfull API
+## RESTfull-API
 
 ### 资源路径命名规则
 
@@ -1975,7 +1976,7 @@ i. 使用mysqli或pdo预处理。
 
 
 
-## Data Structure and Algorithm
+## Data-Structure-and-Algorithm
 
 > [algorithm](https://github.com/xiang12835/python-learning/blob/master/algorithm/note.md)
 
