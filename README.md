@@ -34,36 +34,7 @@
 11. 熟悉 LVS 等开源负载均衡系统
 
 
-# 后端开发 - 总结
-
-
-<!-- GFM-TOC -->
-[Front End](## html/css/js/BootStrap/jQuery/Node.js/Vue.js)
-[Python](## Python)
-[Django](## Django)
-[Tornado](## Tornado)
-[RESTfull API](## RESTfull API)
-[MySQL](## MySQL)
-[缓存](## 缓存)
-[Redis](## Redis)
-[Varnish](## Varnish)
-[Linux](## Linux)
-[Git](## Git)
-[Nginx](## Nginx)
-[Supervisor](## Supervisor)
-[Regex](## Regex)
-[Http](## Http)
-[Web安全](## Web安全)
-[CDN](## CDN)
-[Docker](## Docker)
-[Data Structure and Algorithm](## Data Structure and Algorithm)
-[Interview](## Interview)
-
-
-
-
-
-
+# 前端开发
 
 ## html/css/js/BootStrap/jQuery/Node.js/Vue.js
 
@@ -87,7 +58,7 @@ npm list -g --depth 0
 </div>
 
 ```
-    
+
 ```js
 $('.form_datetime').datetimepicker({
     format: 'yyyy-mm-dd hh:ii:ss',
@@ -133,6 +104,38 @@ $(".device_type_selector").change(function(){
 <a class="btn btn-default" onclick="history.back()" href="#"><i class="icon-circle-arrow-left"></i>返回</a>
 
 ```
+
+
+
+
+# 后端开发
+
+
+<!-- GFM-TOC -->
+* [Back End](# 后端开发)
+    * [Python](## Python)
+    * [Django](## Django)
+    * [Tornado](## Tornado)
+    * [RESTfull API](## RESTfull API)
+    * [MySQL](## MySQL)
+    * [缓存](## 缓存)
+    * [Redis](## Redis)
+    * [Varnish](## Varnish)
+    * [Linux](## Linux)
+    * [Git](## Git)
+    * [Nginx](## Nginx)
+    * [Supervisor](## Supervisor)
+    * [Regex](## Regex)
+    * [Http](## Http)
+    * [Web安全](## Web安全)
+    * [CDN](## CDN)
+    * [Docker](## Docker)
+    * [Data Structure and Algorithm](## Data Structure and Algorithm)
+    * [Interview](## Interview)
+
+
+
+
 
 
 ## Python 
