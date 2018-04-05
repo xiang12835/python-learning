@@ -2001,14 +2001,16 @@ i. 使用mysqli或pdo预处理。
 
 # Data Structure and Algorithm
 
-> [algorithm](https://github.com/xiang12835/python-learning/blob/master/algorithm/note.md)
+## [Data Structure](https://github.com/xiang12835/python-learning/blob/master/data_structure/note.md)
 
-> [leetcode](https://github.com/xiang12835/python-learning/blob/master/leetcode/note.md)
+## [Algorithm](https://github.com/xiang12835/python-learning/blob/master/algorithm/note.md)
+
+## [LeetCode](https://github.com/xiang12835/python-learning/blob/master/leetcode/note.md)
 
 
 
 
 # Interview
 
-> [Interview-Notebook](https://github.com/CyC2018/Interview-Notebook)
+## [Interview Notebook](https://github.com/CyC2018/Interview-Notebook)
 
