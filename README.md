@@ -1,8 +1,10 @@
+# 目录
+
 <!-- GFM-TOC -->
-* [PythonLearning](# PythonLearning)
-* [Front End](# 前端开发)
+* [PythonLearning](#PythonLearning)
+* [Front End](#前端开发)
     * [html/css/js/BootStrap/jQuery/Node.js/Vue.js](##html/css/js/BootStrap/jQuery/Node.js/Vue.js)
-* [Back End](# 后端开发)
+* [Back End](#后端开发)
     * [Python](##Python)
     * [Django](##Django)
     * [Tornado](##Tornado)
@@ -26,7 +28,7 @@
 
 
 
-# PythonLearning
+#PythonLearning
 
 ### 学习资料
 
@@ -62,7 +64,7 @@
 11. 熟悉 LVS 等开源负载均衡系统
 
 
-# 前端开发
+#前端开发
 
 ## html/css/js/BootStrap/jQuery/Node.js/Vue.js
 
@@ -136,7 +138,7 @@ $(".device_type_selector").change(function(){
 
 
 
-# 后端开发
+#后端开发
 
 
 ## Python 
