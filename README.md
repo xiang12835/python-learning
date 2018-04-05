@@ -3,32 +3,32 @@
 <!-- GFM-TOC -->
 * [PythonLearning](#PythonLearning)
 * [Front End](#前端开发)
-    * [html/css/js/BootStrap/jQuery/Node.js/Vue.js](##html/css/js/BootStrap/jQuery/Node.js/Vue.js)
+    * [html/css/js/BootStrap/jQuery/Node.js/Vue.js](#html/css/js/BootStrap/jQuery/Node.js/Vue.js)
 * [Back End](#后端开发)
-    * [Python](##Python)
-    * [Django](##Django)
-    * [Tornado](##Tornado)
-    * [RESTfull API](##RESTfull-API)
-    * [MySQL](##MySQL)
-    * [缓存](##缓存)
-    * [Redis](##Redis)
-    * [Varnish](##Varnish)
-    * [Linux](##Linux)
-    * [Git](##Git)
-    * [Nginx](##Nginx)
-    * [Supervisor](##Supervisor)
-    * [Regex](##Regex)
-    * [Http](##Http)
-    * [Web安全](##Web安全)
-    * [CDN](##CDN)
-    * [Docker](##Docker)
-    * [Data Structure and Algorithm](##Data-Structure-and-Algorithm)
-    * [Interview](##Interview)
+    * [Python](#Python)
+    * [Django](#Django)
+    * [Tornado](#Tornado)
+    * [RESTfull API](#RESTfull-API)
+    * [MySQL](#MySQL)
+    * [缓存](#缓存)
+    * [Redis](#Redis)
+    * [Varnish](#Varnish)
+    * [Linux](#Linux)
+    * [Git](#Git)
+    * [Nginx](#Nginx)
+    * [Supervisor](#Supervisor)
+    * [Regex](#Regex)
+    * [Http](#Http)
+    * [Web安全](#Web安全)
+    * [CDN](#CDN)
+    * [Docker](#Docker)
+    * [Data Structure and Algorithm](#Data-Structure-and-Algorithm)
+    * [Interview](#Interview)
 <!-- GFM-TOC -->
 
 
 
-#PythonLearning
+# PythonLearning
 
 ### 学习资料
 
@@ -64,7 +64,7 @@
 11. 熟悉 LVS 等开源负载均衡系统
 
 
-#前端开发
+# 前端开发
 
 ## html/css/js/BootStrap/jQuery/Node.js/Vue.js
 
@@ -138,7 +138,7 @@ $(".device_type_selector").change(function(){
 
 
 
-#后端开发
+# 后端开发
 
 
 ## Python 
