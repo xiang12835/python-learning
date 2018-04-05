@@ -4,8 +4,8 @@
 * [PythonLearning](#pythonlearning)
     * [学习资料](#学习资料)
 * [PythonDeveloper](#python-开发工程师)
-    * [工作职责](#工作职责)
-    * [任职要求](#任职要求)
+    * [Responsibilities](#工作职责)
+    * [Qualifications](#任职要求)
 * [Front End](#前端开发)
     * [HTML/CSS/JS](#htmlcssjs)
     * [Node.js](#nodejs)
@@ -27,12 +27,13 @@
     * [Supervisor](#supervisor)
     * [Regex](#regex)
     * [Http](#http)
-    * [Web安全](#web安全)
+    * [Web Security](#web安全)
     * [CDN](#cdn)
     * [Docker](#docker)
     * [Data Structure and Algorithm](#data-structure-and-algorithm)
     * [Interview](#interview)
 <!-- GFM-TOC -->
+
 
 
 
