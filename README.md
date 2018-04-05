@@ -30,7 +30,7 @@
     * [Web Security](#web安全)
     * [CDN](#cdn)
     * [Docker](#docker)
-    * [Data Structure and Algorithm](#data-structure-and-algorithm)
+* [Data Structure and Algorithm](#data-structure-and-algorithm)
 * [Interview](#interview)
 <!-- GFM-TOC -->
 
@@ -1999,7 +1999,7 @@ i. 使用mysqli或pdo预处理。
 
 
 
-## Data Structure and Algorithm
+# Data Structure and Algorithm
 
 > [algorithm](https://github.com/xiang12835/python-learning/blob/master/algorithm/note.md)
 
