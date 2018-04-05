@@ -1835,6 +1835,8 @@ $ supervisorctl stop appname  # 停止某一个进程
 ```
 
 
+
+
 ## regex
 
 ### (.*?) - 懒惰匹配
@@ -1890,6 +1892,7 @@ regex2="a.*d";
 
 
 
+
 ## web安全
 
 ### xss
@@ -1927,7 +1930,12 @@ h. 控制错误信息：关闭错误提示信息，将错误信息写到系统�
 
 i. 使用mysqli或pdo预处理。
 
+
+
+
 ## CDN
+
+
 
 
 ## Docker
@@ -1936,11 +1944,10 @@ i. 使用mysqli或pdo预处理。
 
 ## Data Structure and Algorithm
 
-
 > [algorithm](https://github.com/xiang12835/python-learning/blob/master/algorithm/note.md)
 
-
 > [leetcode](https://github.com/xiang12835/python-learning/blob/master/leetcode/note.md)
+
 
 
 
