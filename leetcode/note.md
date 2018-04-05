@@ -2,10 +2,10 @@
 
 
 ### 回文
-> 9 Palindrome Number.py
-> 125 Valid Palindrome.py
-> 234 Palindrome Linked List
-> 680 Valid Palindrome II
+: 9. Palindrome Number.py
+: 125. Valid Palindrome.py
+: 234. Palindrome Linked List
+: 680. Valid Palindrome II
 
 
 ###  反转
