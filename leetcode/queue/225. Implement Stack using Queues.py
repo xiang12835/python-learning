@@ -44,7 +44,7 @@ class MyStack(object):
         :rtype: int
         """
         if not self.empty():
-            return self.queue[len(self.queue)-1]
+            return self.queue[-1]
 
     def empty(self):
         """
