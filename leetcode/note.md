@@ -13,21 +13,21 @@
 
 贪心思想保证每次操作都是局部最优的，并且最后得到的结果是全局最优的。
 
-455 Assign Cookies (Easy)
+分配饼干：455
 
-452 Minimum Number of Arrows to Burst Balloons (Medium)
+投飞镖刺破气球：452
 
-122 Best Time to Buy and Sell Stock II (Easy)
+股票的最大收益：122 Best Time to Buy and Sell Stock II (Easy)
 
-605 Can Place Flowers (Easy)
+种植花朵：605
 
-665 Non-decreasing Array (Easy)
+修改一个数成为非递减数组：665 Non-decreasing Array (Easy)
 
-392 Is Subsequence (Medium)
+判断是否为子串：392 Is Subsequence (Medium)
 
-763 Partition Labels (Medium)
+分隔字符串使同种字符出现在一起：763 Partition Labels (Medium)
 
-406 Queue Reconstruction by Height(Medium)
+根据身高和序号重组队列：406 Queue Reconstruction by Height(Medium)
 
 
 ### 双指针
