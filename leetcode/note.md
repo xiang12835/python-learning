@@ -40,11 +40,11 @@
 
 ### 二分查找
 
-69 Sqrt(x)
+求开方：69 Sqrt(x)
 
-441 Arranging Coins
+摆硬币：441 Arranging Coins
 
-167 Two Sum II - Input array is sorted
+有序数组的 Single Element：540
 
 
 ### 贪心思想
@@ -72,74 +72,94 @@
 
 双指针主要用于遍历数组，两个指针指向不同的元素，从而协同完成任务。
 
-167 Two Sum II - Input array is sorted (Easy)
+有序数组的 Tow Sum：167 Two Sum II - Input array is sorted (Easy)
 
-345 Reverse Vowels of a String (Easy)
+反转字符串中的元音字符：345 Reverse Vowels of a String (Easy)
 
-633 Sum of Square Numbers (Easy)
+两数平方和：633 Sum of Square Numbers (Easy)
 
-680 Valid Palindrome II (Easy)
+回文字符串：680 Valid Palindrome II (Easy)
 
-88 Merge Sorted Array (Easy)
+归并两个有序数组：88 Merge Sorted Array (Easy)
 
-141 Linked List Cycle (Easy)
+判断链表是否存在环：141 Linked List Cycle (Easy)
 
-524 Longest Word in Dictionary through Deleting (Medium)
+最长子序列：524 Longest Word in Dictionary through Deleting (Medium)
 
 
 ### 排序
 
-215 Kth Largest Element in an Array (Medium)
+Kth Element：215 Kth Largest Element in an Array (Medium)
 
-347 Top K Frequent Elements (Medium)
+出现频率最多的 k 个数：347 Top K Frequent Elements (Medium)
+
+按照字符出现次数对字符串排序：451
 
 
 ### 搜索
 
 BFS | DFS
 
-695
+查找最大的连通面积：695
 
-547
+图的连通分量：547
 
-200
+矩阵中的连通区域数量：200
 
-257 Binary Tree Paths (Easy)
+输出二叉树中所有从根到叶子的路径：257 Binary Tree Paths (Easy)
 
-130
+IP 地址划分：93
+
+填充封闭区域：130
+
+从两个方向都能到达的区域：417
 
 
 ## 数据结构
 
 ### 栈和队列
 
-232 Implement Queue using Stacks (Easy)
+用栈实现队列：232 Implement Queue using Stacks (Easy)
 
-225 Implement Stack using Queues (Easy)
+用队列实现栈：225 Implement Stack using Queues (Easy)
 
-155 Min Stack (Easy)
+最小值栈：155 Min Stack (Easy)
 
-20 Valid Parentheses (Easy)
+用栈实现括号匹配：20 Valid Parentheses (Easy)
 
-739 Daily Temperatures (Medium)
+数组中元素与下一个比它大的元素之间的距离：739 Daily Temperatures (Medium)
 
-496 Next Greater Element I (Easy)
+在另一个数组中比当前元素大的下一个元素：496 Next Greater Element I (Easy)
 
-503 Next Greater Element II (Medium)
-
-
-## 哈希表
-
-1 Two Sum (Easy)
-
-217 Contains Duplicate (Easy)
-
-594 Longest Harmonious Subsequence (Easy)
-
-128
+循环数组中比当前元素大的下一个元素：503 Next Greater Element II (Medium)
 
 
-## 字符串
+### 哈希表
+
+数组中的两个数和为给定值：1 Two Sum (Easy)
+
+判断数组是否含有相同元素：217 Contains Duplicate (Easy)
+
+最长和谐序列：594 Longest Harmonious Subsequence (Easy)
+
+最长连续序列：128
+
+
+### 字符串
+
+两个字符串包含的字符是否完全相同：242 Valid Anagram (Easy)
+
+205 Isomorphic Strings (Easy)
+
+409 Longest Palindrome (Easy)
+
+9 Palindrome Number (Easy)
+
+647 Palindromic Substrings (Medium)
+
+696 Count Binary Substrings (Easy)
+
+
 
 
 
