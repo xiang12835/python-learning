@@ -153,9 +153,9 @@ IP 地址划分：93
 
 计算一组字符集合可以组成的回文字符串的最大长度：409 Longest Palindrome (Easy)
 
-9 Palindrome Number (Easy)
+判断一个整数是否是回文数：9 Palindrome Number (Easy)
 
-647 Palindromic Substrings (Medium)
+回文子字符串：647 Palindromic Substrings (Medium)
 
 696 Count Binary Substrings (Easy)
 
