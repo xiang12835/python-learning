@@ -149,9 +149,9 @@ IP 地址划分：93
 
 两个字符串包含的字符是否完全相同：242 Valid Anagram (Easy)
 
-205 Isomorphic Strings (Easy)
+字符串同构：205 Isomorphic Strings (Easy)
 
-409 Longest Palindrome (Easy)
+计算一组字符集合可以组成的回文字符串的最大长度：409 Longest Palindrome (Easy)
 
 9 Palindrome Number (Easy)
 
