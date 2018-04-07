@@ -40,15 +40,13 @@ class Solution1(object):
         :type target: int
         :rtype: List[int]
         """
-        r = []
         d = {}
-        for idx, val in enumerate(nums):
-            if target - val in d:
-                return [d[target-val], idx]
+        for i, v in enumerate(nums):
+            if target - v in d:
+                return [d[target - v], i]
             else:
-                d[val] = idx
-
-        return r
+                d[v] = i
+        return []
 
 
 if __name__ == "__main__":
