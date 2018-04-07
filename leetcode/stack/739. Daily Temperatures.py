@@ -31,6 +31,28 @@ class Solution(object):
         return r
 
 
+class Solution1(object):
+    def dailyTemperatures(self, temperatures):
+        if not temperatures:
+            return []
+
+        length = len(temperatures)
+        r = [0] * length
+        for i in range(length):
+            count = 0
+
+            for j in range(i + 1, length):
+                count += 1
+                if temperatures[j] > temperatures[i]:
+                    r[i] = count
+                    break
+        return r
+
+
 if __name__ == "__main__":
     s = Solution()
     print s.dailyTemperatures([4,5,2,3,1])
+
+    s1 = Solution1()
+    print s1.dailyTemperatures([4,5,2,3,1])
+
