@@ -178,3 +178,65 @@ IP 地址划分：93
 链表元素按奇偶聚集：328. Odd Even Linked List (Medium)
 
 
+### 树
+
+树的高度：104. Maximum Depth of Binary Tree (Easy)
+
+翻转树：226. Invert Binary Tree (Easy)
+
+归并两棵树：617. Merge Two Binary Trees (Easy)
+
+判断路径和是否等于一个数：112. Path Sum (Easy)
+
+统计路径和等于一个数的路径数量：437. Path Sum III (Easy)
+
+树的对称：101. Symmetric Tree (Easy)
+
+平衡树：110. Balanced Binary Tree (Easy)
+
+最小路径：111. Minimum Depth of Binary Tree (Easy)
+
+统计左叶子节点的和：404. Sum of Left Leaves (Easy)
+
+修剪二叉查找树：669. Trim a Binary Search Tree (Easy)
+
+子树：572. Subtree of Another Tree (Easy)
+
+从有序数组中构造二叉查找树：108. Convert Sorted Array to Binary Search Tree (Easy)
+
+两节点的最长路径：543. Diameter of Binary Tree (Easy)
+
+找出二叉树中第二小的节点：671. Second Minimum Node In a Binary Tree (Easy)
+
+二叉查找树的最近公共祖先：235. Lowest Common Ancestor of a Binary Search Tree (Easy)
+
+二叉树的最近公共祖先：236. Lowest Common Ancestor of a Binary Tree (Medium)
+
+相同节点值的最大路径长度：687. Longest Univalue Path (Easy)
+
+间隔遍历：337. House Robber III (Medium)
+
+一棵树每层节点的平均数：637. Average of Levels in Binary Tree (Easy)
+
+得到左下角的节点：513. Find Bottom Left Tree Value (Easy)
+
+非递归实现二叉树的前序遍历：144. Binary Tree Preorder Traversal (Medium)
+
+非递归实现二叉树的后序遍历：145. Binary Tree Postorder Traversal (Medium)
+
+非递归实现二叉树的中序遍历：94. Binary Tree Inorder Traversal (Medium)
+
+在 BST 中寻找两个节点，使它们的和为一个给定值：653. Two Sum IV - Input is a BST (Easy)
+
+在 BST 中查找两个节点之差的最小绝对值：530. Minimum Absolute Difference in BST (Easy)
+
+把 BST 每个节点的值都加上比它大的节点的值：538. Convert BST to Greater Tree
+
+寻找 BST 中出现次数最多的节点：501. Find Mode in Binary Search Tree (Easy)
+
+寻找 BST 的第 k 个元素：230. Kth Smallest Element in a BST (Medium)
+
+实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium)
+
+实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
+
