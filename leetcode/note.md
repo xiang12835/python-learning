@@ -119,3 +119,11 @@ BFS | DFS
 
 155 Min Stack (Easy)
 
+20. Valid Parentheses (Easy)
+
+739. Daily Temperatures (Medium)
+
+496. Next Greater Element I (Easy)
+
+503. Next Greater Element II (Medium)
+
