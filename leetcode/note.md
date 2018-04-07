@@ -123,7 +123,7 @@ BFS | DFS
 
 739 Daily Temperatures (Medium)
 
-496  Next Greater Element I (Easy)
+496 Next Greater Element I (Easy)
 
 503 Next Greater Element II (Medium)
 
@@ -136,8 +136,10 @@ BFS | DFS
 
 594 Longest Harmonious Subsequence (Easy)
 
-128 Longest Consecutive Sequence (Medium)
+128
 
+
+## 字符串
 
 
 
