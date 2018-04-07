@@ -157,7 +157,7 @@ IP 地址划分：93
 
 回文子字符串：647 Palindromic Substrings (Medium)
 
-696 Count Binary Substrings (Easy)
+统计二进制字符串中连续 1 和连续 0 数量相同的子字符串个数：696
 
 
 
