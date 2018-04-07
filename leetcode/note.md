@@ -1,41 +1,3 @@
-## 相似题目
-
-
-###  回文
-9 Palindrome Number.py
-
-125 Valid Palindrome.py
-
-234 Palindrome Linked List
-
-680 Valid Palindrome II
-
-
-###  反转
-344 Reverse String
-
-541 Reverse String II
-
-
-### 路径
-112 Path Sum
-
-113 Path Sum II
-
-437 Path Sum III
-
-257 Binary Tree Paths
-
-
-### 其他
-53 Maximum Subarray.py | 121 Best Time to Buy and Sell Stock.py | 122 Best Time to Buy and Sell Stock II.py | 198 House Robber
-
-190 Reverse Bits | 191 Number of 1 Bits.py
-
-136 Single Number | 242 Valid Anagram
-
-
-
 ## 算法
 
 ### 二分查找
@@ -160,6 +122,36 @@ IP 地址划分：93
 统计二进制字符串中连续 1 和连续 0 数量相同的子字符串个数：696
 
 
+
+### 数组
+
+把数组中的 0 移到末尾：283. Move Zeroes (Easy)
+
+调整矩阵：566. Reshape the Matrix (Easy)
+
+找出数组中最长的连续 1：485. Max Consecutive Ones (Easy)
+
+数组相邻差值的个数：667
+
+数组的度：697
+
+对角元素相等的矩阵：766
+
+嵌套数组：565
+
+分隔数组：769
+
+一个数组元素在 [1, n] 之间，其中一个数被替换为另一个数，找出丢失的数和重复的数：645
+
+寻找所有丢失的元素：448
+
+寻找所有重复的元素：442
+
+找出数组中重复的数，数组值在 [1, n] 之间：287
+
+有序矩阵查找：240
+
+有序矩阵的 Kth Element：378
 
 
 
