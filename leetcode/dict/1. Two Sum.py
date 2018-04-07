@@ -41,10 +41,9 @@ class Solution1(object):
         :rtype: List[int]
         """
         r = []
-
         d = {}
         for idx, val in enumerate(nums):
-            if target - val in d.keys():
+            if target - val in d:
                 return [d[target-val], idx]
             else:
                 d[val] = idx

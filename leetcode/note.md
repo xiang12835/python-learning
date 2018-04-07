@@ -119,11 +119,25 @@ BFS | DFS
 
 155 Min Stack (Easy)
 
-20. Valid Parentheses (Easy)
+20 Valid Parentheses (Easy)
 
-739. Daily Temperatures (Medium)
+739 Daily Temperatures (Medium)
 
-496. Next Greater Element I (Easy)
+496  Next Greater Element I (Easy)
 
-503. Next Greater Element II (Medium)
+503 Next Greater Element II (Medium)
+
+
+## 哈希表
+
+1 Two Sum (Easy)
+
+217 Contains Duplicate (Easy)
+
+594 Longest Harmonious Subsequence (Easy)
+
+128 Longest Consecutive Sequence (Medium)
+
+
+
 
