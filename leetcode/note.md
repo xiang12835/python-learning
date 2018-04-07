@@ -1,5 +1,17 @@
 ## 算法
 
+
+### 排序
+
+Kth Element：215 Kth Largest Element in an Array (Medium)
+
+出现频率最多的 k 个数：347 Top K Frequent Elements (Medium)
+
+按照字符出现次数对字符串排序：451
+
+
+### 顺序查找
+
 ### 二分查找
 
 求开方：69 Sqrt(x)
@@ -49,15 +61,6 @@
 最长子序列：524 Longest Word in Dictionary through Deleting (Medium)
 
 
-### 排序
-
-Kth Element：215 Kth Largest Element in an Array (Medium)
-
-出现频率最多的 k 个数：347 Top K Frequent Elements (Medium)
-
-按照字符出现次数对字符串排序：451
-
-
 ### 搜索
 
 BFS | DFS
@@ -78,33 +81,6 @@ IP 地址划分：93
 
 
 ## 数据结构
-
-### 栈和队列
-
-用栈实现队列：232 Implement Queue using Stacks (Easy)
-
-用队列实现栈：225 Implement Stack using Queues (Easy)
-
-最小值栈：155 Min Stack (Easy)
-
-用栈实现括号匹配：20 Valid Parentheses (Easy)
-
-数组中元素与下一个比它大的元素之间的距离：739 Daily Temperatures (Medium)
-
-在另一个数组中比当前元素大的下一个元素：496 Next Greater Element I (Easy)
-
-循环数组中比当前元素大的下一个元素：503 Next Greater Element II (Medium)
-
-
-### 哈希表
-
-数组中的两个数和为给定值：1 Two Sum (Easy)
-
-判断数组是否含有相同元素：217 Contains Duplicate (Easy)
-
-最长和谐序列：594 Longest Harmonious Subsequence (Easy)
-
-最长连续序列：128
 
 
 ### 字符串
@@ -151,6 +127,34 @@ IP 地址划分：93
 有序矩阵查找：240
 
 有序矩阵的 Kth Element：378
+
+
+### 栈和队列
+
+用栈实现队列：232 Implement Queue using Stacks (Easy)
+
+用队列实现栈：225 Implement Stack using Queues (Easy)
+
+最小值栈：155 Min Stack (Easy)
+
+用栈实现括号匹配：20 Valid Parentheses (Easy)
+
+数组中元素与下一个比它大的元素之间的距离：739 Daily Temperatures (Medium)
+
+在另一个数组中比当前元素大的下一个元素：496 Next Greater Element I (Easy)
+
+循环数组中比当前元素大的下一个元素：503 Next Greater Element II (Medium)
+
+
+### 哈希表
+
+数组中的两个数和为给定值：1 Two Sum (Easy)
+
+判断数组是否含有相同元素：217 Contains Duplicate (Easy)
+
+最长和谐序列：594 Longest Harmonious Subsequence (Easy)
+
+最长连续序列：128
 
 
 ### 链表
