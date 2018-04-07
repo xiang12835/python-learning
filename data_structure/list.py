@@ -100,3 +100,8 @@ print l5[::-1]
 
 numbers = [2,1,4,3,2]
 print numbers.count(2)
+
+
+import collections
+d = collections.Counter(numbers)
+print d
