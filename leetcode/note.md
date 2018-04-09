@@ -169,17 +169,17 @@ IP 地址划分：93
 
 删除链表的倒数第 n 个节点：19. Remove Nth Node From End of List (Medium)
 
-交换链表中的相邻结点：24. Swap Nodes in Pairs (Medium)
+交换链表中的相邻结点：24
 
-根据有序链表构造平衡的 BST：109. Convert Sorted List to Binary Search Tree (Medium)
+根据有序链表构造平衡的 BST：109
 
-链表求和：445. Add Two Numbers II (Medium)
+链表求和：445
 
-分隔链表：725. Split Linked List in Parts(Medium)
+分隔链表：725
 
 回文链表：234. Palindrome Linked List (Easy)
 
-链表元素按奇偶聚集：328. Odd Even Linked List (Medium)
+链表元素按奇偶聚集：328
 
 
 ### 树

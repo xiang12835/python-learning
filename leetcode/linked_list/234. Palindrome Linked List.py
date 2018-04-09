@@ -16,31 +16,32 @@ class Solution(object):
 
         pre = None
         cur = head
-        while cur.next:
+        while cur:
             nxt = cur.next
             cur.next = pre
 
             pre = cur
             cur = nxt
-
-        cur.next = pre
-
-        return cur
+        return pre
 
     def isPalindrome(self, head):
         """
         :type head: ListNode
         :rtype: bool
         """
+
+        l1 = []
+        p = head
+        while p:
+            l1.append(p.val)
+            p = p.next
+
         reverse_head = self.reverseList(head)
 
-        p1 = head
-        p2 = reverse_head
+        l2 = []
+        p = reverse_head
+        while p:
+            l2.append(p.val)
+            p = p.next
 
-        while p1 and p2:
-            if p1.val != p2.val:
-                return False
-            p1 = p1.next
-            p2 = p2.next
-
-        return True
+        return l1 == l2
