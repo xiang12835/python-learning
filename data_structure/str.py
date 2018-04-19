@@ -22,3 +22,19 @@ print s[::-1]
 
 s = "hello"
 print sorted(s)
+
+
+# 去重
+s = 'aaabbc'
+def deduplicate(s):
+    r = []
+    l = list(s)
+    for v in l:
+        if v in r:
+            continue
+        r.append(v)
+    r = "".join(r)
+    return r
+
+print deduplicate(s)
+
