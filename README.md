@@ -25,9 +25,9 @@
     * [Git](#git)
     * [Nginx](#nginx)
     * [Supervisor](#supervisor)
-    * [Regex](#regex)
-    * [Http](#http)
+    * [Network](#network)
     * [Web Security](#web安全)
+    * [Regex](#regex)
     * [CDN](#cdn)
     * [Docker](#docker)
 * [Data Structure and Algorithm](#data-structure-and-algorithm)
@@ -1897,25 +1897,30 @@ $ supervisorctl stop appname  # 停止某一个进程
 
 
 
-
-## Regex
-
-### (.*?) - 懒惰匹配
-
-例：一个字符串“abcdakdjd”
-
-regex="a.*?d";
-
-结果：abcd - 尽量匹配最短串
-
-### (.*) - 贪婪匹配
-
-regex2="a.*d";
-
-结果：abcdakdjd - 要匹配最长串
+## Network
 
 
-## Http
+
+### 讲一下TCP三次握手和TCP四次分手
+
+
+
+
+### TCP和UDP的区别(很常见的问题)：
+TCP面向连接（如打电话要先拨号建立连接） UDP是无连接的，即发送数据之前不需要建立连接
+
+TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付
+
+TCP面向字节流，实际上是TCP把数据看成一连串无结构的字节流;UDP是面向报文的
+
+UDP没有拥塞控制，因此网络出现拥塞不会使源主机的发送速率降低（对实时应用很有用，如IP电话，实时视频会议等）
+
+每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信
+
+TCP首部开销20字节;UDP的首部开销小，只有8个字节
+
+TCP的逻辑通信信道是全双工的可靠信道，UDP则是不可靠信道
+
 
 ### HTTP协议包含一些标准的操作方法
 
@@ -1924,7 +1929,7 @@ regex2="a.*d";
 3. PUT     更新资源（Update）  指定URI资源存在则更新资源，指定URI资源不存在则创建一个新资源。
 4. DELETE  删除资源（Delete）  删除请求URI指定的资源。
 
-### 请求方式
+### HTTP协议请求方式
 
 - 【GET】          /users                # 查询用户信息列表
 - 【GET】          /users/1001           # 查看某个用户信息
@@ -1933,7 +1938,7 @@ regex2="a.*d";
 - 【PATCH】        /users/1001           # 更新用户信息(部分字段)
 - 【DELETE】       /users/1001           # 删除用户信息
 
-### 状态码
+### HTTP协议状态码
 
 
 状态码  | 描述
@@ -2000,6 +2005,26 @@ i. 使用mysqli或pdo预处理。
 
 
 ## Docker
+
+
+
+## Regex
+
+### (.*?) - 懒惰匹配
+
+例：一个字符串“abcdakdjd”
+
+regex="a.*?d";
+
+结果：abcd - 尽量匹配最短串
+
+### (.*) - 贪婪匹配
+
+regex2="a.*d";
+
+结果：abcdakdjd - 要匹配最长串
+
+
 
 
 
