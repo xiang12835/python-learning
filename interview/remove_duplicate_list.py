@@ -2,7 +2,7 @@
 
 l1 = [1,1,2,3,3]
 
-l2 = [{"a": 1},{"a": 1},{"a": 2},{"a": 3},{"a": 3}]
+l2 = [{"a": 3},{"a": 1},{"a": 2},{"a": 1},{"a": 3}]
 
 
 print list(set(l1))
@@ -21,3 +21,8 @@ def deduplicate(l):
 
 
 print deduplicate(l2)
+
+r = deduplicate(l2)
+
+print sorted(r, key=lambda d:d["a"])
+
