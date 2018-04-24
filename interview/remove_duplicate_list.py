@@ -22,6 +22,22 @@ def deduplicate(l):
 
 print deduplicate(l2)
 
+
+def deduplicate1(l):
+    r = []
+    tmp = []
+
+    for d in l:
+        if d["a"] not in tmp:
+            tmp.append(d["a"])
+            r.append(d)
+
+    return r
+
+
+print deduplicate1(l2)
+
+
 r = deduplicate(l2)
 
 print sorted(r, key=lambda d:d["a"])
