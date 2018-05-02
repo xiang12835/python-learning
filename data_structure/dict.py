@@ -45,3 +45,24 @@ d['a'] = 127
 print d
 print d['a']
 print d['b']
+
+
+
+""" 字典
+
+普通字典 - 有序字典 - 默认值字典
+"""
+
+d = dict()  # 普通字典
+print d
+
+
+from collections import OrderedDict, defaultdict
+
+ordered_dict = OrderedDict()  # 有序字典，可以简化测试与调试工作
+print ordered_dict
+
+
+stats = defaultdict(int)  # 默认值字典，可用于统计
+stats["a"] += 1
+print stats
