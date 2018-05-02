@@ -1,16 +1,32 @@
 # coding=utf-8
 
-mytuple = (1, 2, 3)  # Tuple to list
+
+# Tuple to list
+mytuple = (1, 2, 3)
 print list(mytuple)
 
-mylist = [1, 2, 3]  # List to tuple
+
+# List to tuple
+mylist = [1, 2, 3]
 print tuple(mylist)
 
-mylist2 = [('blue', 5), ('red', 3), ('yellow', 7)]  # List to dictionary
+
+# List to dictionary
+mylist2 = [('blue', 5), ('red', 3), ('yellow', 7)]
 print dict(mylist2)
 
-mystring = 'hello'  # String to list
+
+# String to list
+mystring = 'hello'
 print list(mystring)
 
-mylist3 = ['w', 'or', 'ld']  # List to string
+
+# List to string
+mylist3 = ['w', 'or', 'ld']
 print ''.join(mylist3)
+
+
+# dict to str
+d = {"a": 1, "b": 2}
+print str(d)
+
