@@ -52,7 +52,7 @@ print fifo
 
 """ 优先级队列（堆队列）
 
-
+堆操作所消耗的时间，与列表长度的对数成正比
 
 """
 from heapq import heappush, heappop, nsmallest
