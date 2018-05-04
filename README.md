@@ -204,6 +204,24 @@ $ workon env3.5
 $ deactivate
 ```
 
+- 使用虚拟环境隔离项目 pyvenv
+
+```shell
+$ pyvenv /tmp/myproject
+$ cd /tmp/myproject
+$ ls
+$ source bin/activate
+$ deactivate
+```
+
+- 重建项目依赖关系
+```shell
+$ pip3 freeze > requirements.txt
+$ cat requirements.txt
+
+$ pip3 install -r requirements.txt
+```
+
 ### mac 安装 pylibmc
 
 #### pylibmc 是什么
