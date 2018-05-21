@@ -16,3 +16,8 @@ print lst
 
 dic = dict(lst)
 print dic
+
+
+# 反转字典的两种方法（字典的key和value对换）
+print {v: k for k, v in dic.items()}
+
