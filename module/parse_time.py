@@ -141,3 +141,43 @@ def is_legal_date(d):
 http://python.usyiyi.cn/documents/python_352/library/time.html#module-time
 http://python.usyiyi.cn/documents/python_352/library/datetime.html#module-datetime
 """
+
+
+
+''' timedalte
+
+timedalte 是datetime中的一个对象，该对象表示两个时间的差值
+
+构造函数：datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+其中参数都是可选，默认值为0
+
+下面应该是常识，几乎每个人都知道：
+
+
+
+1 millisecond = 1000 microseconds
+1 minute = 60 seconds
+1 hour = 3600 seconds
+1 week = 7 days
+
+
+
+在构造函数中，参数值的范围如下：
+
+
+
+0 <= microseconds < 1000000
+0 <= seconds < 3600*24 (the number of seconds in one day)
+-999999999 <= days <= 999999999
+
+
+timedalte 有三个只读属性：
+
+
+
+timedelta.min：负数最大时间差，相当于  timedelta(-999999999)。
+timedelta.max：正数最大时间差，相当于  timedelta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)。
+timedelta.resolution：两个时间的最小差值 相当于   timedelta(microseconds=1)。
+
+
+'''
