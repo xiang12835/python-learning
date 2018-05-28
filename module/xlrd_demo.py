@@ -3,6 +3,15 @@ import xlrd
 import os
 
 
+def get_xlsx(doc_url):
+    # urllib.urlretrieve()方法，直接将远程数据下载到本地
+
+    import urllib
+    file_name = doc_url.split("/")[-1]
+    urllib.urlretrieve(doc_url,filename=file_name)
+    return file_name
+
+
 def read_excel(file_name):
 
     # 打开文件
