@@ -17,7 +17,7 @@ def quick_sort(lists, left, right):
     val = lists[left]
     low = left
     high = right
-    while left < right:
+    while left != right:
         while left < right and lists[right] >= val:
             right -= 1
         lists[left] = lists[right]
