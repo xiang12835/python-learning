@@ -28,3 +28,11 @@ def quick_sort(lists, left, right):
     quick_sort(lists, low, left - 1)
     quick_sort(lists, left + 1, high)
     return lists
+
+
+if __name__ == '__main__':
+    l = [6, 4, 8, 9, 2, 3, 1]
+    print '排序前:', l
+    length = len(l) - 1
+    quick_sort(l, 0, len(l) - 1)
+    print '排序后:', l
