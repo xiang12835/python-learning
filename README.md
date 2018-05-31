@@ -166,7 +166,7 @@ npm list -g --depth 0
 # 后端开发
 
 
-## Python 
+## Python
 
 ### mac 上安装 python 开发环境
 
@@ -478,7 +478,7 @@ python manage.py migrate youappname #将更改反应到数据库（如果出现�
 
 
 
-### 模版 - 使用json与前端数据交换 
+### 模版 - 使用json与前端数据交换
 
 ``` html
 <a id="update_subject_num_btn" class="btn btn-danger ">更新题目数量</a>
@@ -626,7 +626,7 @@ def update_area_review_subject_num(request):
 
 请求内容
 
-``` python 
+``` python
 {
     "username": "lgz",                 # 必填, 用户名称, max 10
     "realname": "your_name",           # 必填, 用户名称, max 10
@@ -647,7 +647,7 @@ limit = pageSize
 offset = (pageNum - 1) * pageSize
 
 ```
-    
+
 - 若是 列表[]
 
 ```python
@@ -686,8 +686,8 @@ end = start + pageSize
  404    | 无法找到
  409    | 资源冲突
  500    | 服务器内部错误
- 
- 
+
+
 ### JSON数据返回格式
 ```python
 {
@@ -721,12 +721,12 @@ end = start + pageSize
 
 
 
-类型              |      大小     |    范围（有符号）                                            | 范围（无符号）                     |  用途 
+类型              |      大小     |    范围（有符号）                                            | 范围（无符号）                     |  用途
 -----------------|---------------|-----------------------------------------------------------|---------------------------------|----------------
-TINYINT          |      1字节    |    (-128，127)                                             | (0，255)                         |  小整数值 
-SMALLINT         |      2 字节   |    (-32 768，32 767)                                       | (0，65 535)                      |   大整数值 
-MEDIUMINT        |      3 字节   |    (-8 388 608，8 388 607)                                 |(0，16 777 215)                   |  大整数值 
-INT或INTEGER     |     4 字节    |    (-2 147 483 648，2 147 483 647)                         | (0，4 294 967 295)               |  大整数值 
+TINYINT          |      1字节    |    (-128，127)                                             | (0，255)                         |  小整数值
+SMALLINT         |      2 字节   |    (-32 768，32 767)                                       | (0，65 535)                      |   大整数值
+MEDIUMINT        |      3 字节   |    (-8 388 608，8 388 607)                                 |(0，16 777 215)                   |  大整数值
+INT或INTEGER     |     4 字节    |    (-2 147 483 648，2 147 483 647)                         | (0，4 294 967 295)               |  大整数值
 BIGINT           |      8 字节   |    (-9 233 372 036 854 775 808，9 223 372 036 854 775 807) | (0，18 446 744 073 709 551 615)  |  极大整数值
 
 
@@ -746,10 +746,10 @@ mysql> SELECT * FROM table LIMIT 5,10;
 
 -- 为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
 -- 检索记录行 96-last.
-mysql> SELECT * FROM table LIMIT 95,-1; 
+mysql> SELECT * FROM table LIMIT 95,-1;
 
 -- 如果只给定一个参数，它表示返回最大的记录行数目：
--- 检索前 5 个记录行 
+-- 检索前 5 个记录行
 mysql> SELECT * FROM table LIMIT 5;     
 -- 换句话说，LIMIT n 等价于 LIMIT 0,n。
 
@@ -792,8 +792,8 @@ offset = (pageNum - 1) * pageSize
 
 ```sql
 explain select tb1.orderId
-from bskgk.order_info as tb1 
-inner join bskgk.order_info_detail as tb2 on tb1.orderId=tb2.orderId 
+from bskgk.order_info as tb1
+inner join bskgk.order_info_detail as tb2 on tb1.orderId=tb2.orderId
 where tb1.PayJe>0 and tb1.status=2 and tb2.productId=201801051723328662664953
 ORDER BY tb1.createTime DESC;
 
@@ -803,8 +803,8 @@ ORDER BY tb1.createTime DESC;
 
 ```sql
 explain select tb1.orderId
-from bskgk.order_info as tb1 
-inner join bskgk.order_info_detail as tb2 on tb1.orderId=tb2.orderId 
+from bskgk.order_info as tb1
+inner join bskgk.order_info_detail as tb2 on tb1.orderId=tb2.orderId
 where tb1.PayJe>0 and tb1.status=2 and tb2.productId="201801051723328662664953"
 ORDER BY tb1.createTime DESC;
 
@@ -830,7 +830,7 @@ for a in a_list:
 
 2> o(1)
 ```sql
-select * from A 
+select * from A
 inner join B on B.item_id=A.item_id
 
 ```
@@ -909,7 +909,7 @@ EXEC sp_rename 'tableName.column1', 'column2'  (把表名为tableName的column1�
 alter table tableName drop column columnName1[, drop column columnName2]
 
 ```
- 
+
 
 
 ### mysql中数据迁移
@@ -1051,13 +1051,13 @@ for id_items in id_group:
         response = {'status': 'error', 'msg': u"视频不存在!"}
 
 ```
-    
+
 - 减少循环中sql的查询次数
 
 > a) 1+n -> 1+1 问题: 通过建立 where in []
 
 问题<1+n>:
-    
+
 ```python
 user_vouchers = UserVoucher.objects.filter(user_id=user_id).order_by("-create_time")  # 第一次
 vouchers = []
@@ -1066,8 +1066,8 @@ for each in user_vouchers:
     vouchers.append(voucher)
 
 ```
-        
-        
+
+
 解决<1+1>:
 ```python
 user_vouchers = UserVoucher.objects.filter(user_id=user_id).order_by("-create_time")  # 第一次
@@ -1113,7 +1113,7 @@ if exists:
     return render(request, 'customer/customer_new.html', context)
 
 ```
-        
+
 - 一个示例
 
 优化前
@@ -1162,7 +1162,7 @@ def get(self):
     return self.write(result)
 
 ```
-    
+
 总共 1+10+100+100=211次
 
 
@@ -1209,7 +1209,7 @@ def get(self):
 
 ```
 
-    
+
 总共 1+10+1=12 次
 
 
@@ -1228,7 +1228,7 @@ select FROM_UNIXTIME(1156219870);
 
 
 ```sql
-Select UNIX_TIMESTAMP('2006-11-04 12:23:00'); 
+Select UNIX_TIMESTAMP('2006-11-04 12:23:00');
 ```
 输出：1162614180  
 
@@ -1250,7 +1250,7 @@ select DATE_FORMAT(now(),'%Y-%m-%d');
 
 ### like
 
-```sql 
+```sql
 SELECT * FROM Persons
 WHERE City LIKE 'N%'
 
@@ -1402,7 +1402,7 @@ $ telnet localhost 11211
 $ flush_all  #清空所有键值，但不会删除items，此时MemCache依旧占用内存
 
 ```
-  
+
 
 ### 清测试线memcached缓存
 
@@ -1809,8 +1809,33 @@ git tag
 git push --tags
 ```
 
+### git rm
+
+git rm与git rm --cached
+
+当我们需要删除暂存区或分支上的文件, 同时工作区也不需要这个文件了, 可以使用
+
+```bash
+$ git rm file_path
+$ git commit -m 'delete somefile'
+$ git push
+```
+
+当我们需要删除暂存区或分支上的文件, 但本地又需要使用, 只是不希望这个文件被版本控制, 可以使用
+
+```bash
+$ git rm --cached file_path
+$ git commit -m 'delete remote somefile'
+$ git push
+```
 
 ## Nginx
+
+### 反向代理：
+
+### 负载均衡：nginx能实现负载均衡，什么是负载均衡呢？就是说应用部署在不同的服务器上，但是通过统一的域名进入，nginx则对请求进行分发，将请求分发到不同的服务器上去处理，这样就可以有效的减轻了单台服务器的压力。
+
+### 同源：URL由协议、域名、端口和路径组成，如果两个URL的协议、域名和端口相同，则表示他们同源。
 
 ### 配置 nginx
 
@@ -2060,4 +2085,3 @@ regex2="a.*d";
 # Interview
 
 ## [Interview Notebook](https://github.com/CyC2018/Interview-Notebook)
-
