@@ -54,3 +54,16 @@ class Solution1:
             first = first.next
             second = second.next
         return second
+
+
+
+class Solution3:
+    def FindKthToTail(self, head, k):
+        # write code here
+        l = []
+        while head:
+            l.append(head)
+            head = head.next
+        if len(l) < k or k < 1:
+            return None
+        return l[-k]
