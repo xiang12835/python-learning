@@ -40,20 +40,22 @@ class Solution1:
     def FindKthToTail(self, head, k):
         # write code here
         if not head:
-            return None
-        first = head
-        count = 0
-        while first and count < k:
-            count += 1
-            first = first.next
-        if k > count:
-            return None
+            return
 
-        second = head
-        while first:
-            first = first.next
-            second = second.next
-        return second
+        fast = head
+        count = 0
+        while fast and count < k:
+            fast = fast.next
+            count += 1
+        if k > count:
+            return
+
+        slow = head
+        while fast:
+            fast = fast.next
+            slow = slow.next
+
+        return slow
 
 
 
