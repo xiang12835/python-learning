@@ -76,7 +76,12 @@ shutdown()方法
 
 Executor.shutdown(wait=True)
 
-Future
+
+
+"""
+
+""" Future
+
 Future可以理解为一个在未来完成的操作，这是异步编程的基础。通常情况下，我们执行io操作，访问url时（如下）在等待结果返回之前会产生阻塞，cpu不能做其他事情，而Future的引入帮助我们在等待的这段时间可以完成其他的操作。
 
 Future类封装了可调用的异步执行。Future 实例通过 Executor.submit()方法创建。
