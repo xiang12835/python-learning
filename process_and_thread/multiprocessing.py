@@ -55,3 +55,11 @@ RLock（可重入的互斥锁(同一个进程可以多次获得它，同时不�
 Semaphore（信号量）
 
 """
+
+
+""" 多线程
+multiprocessing.dummy 模块与 multiprocessing 模块的区别： dummy 模块是多线程，而 multiprocessing 是多进程， api 都是通用的。 所有可以很方便将代码在多线程和多进程之间切换。multiprocessing.dummy通常在IO场景可以尝试使用，比如使用如下方式引入线程池。
+
+from multiprocessing.dummy import Pool as ThreadPool
+multiprocessing.dummy与早期的threading，不同的点好像是在多多核CPU下，只绑定了一个核心（具体未考证）。
+"""
