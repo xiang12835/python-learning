@@ -81,6 +81,32 @@
 
 ## HTML/CSS/JS
 
+### 环境搭建
+
+ * 安装 Node.js
+
+``` shell
+
+$ brew install node
+
+$ cd ~
+$ mkdir static
+
+$ npm install bootstrap
+$ mv node_modules/bootstrap/dist/*  static
+
+$ npm install jquery
+$ mv node_modules/jquery/dist/* static/js
+
+$ npm install vue
+$ mv node_modules/vue/dist/* static/js/
+
+$ npm install vue-router
+$ mv node_modules/vue/dist/* static/js/
+
+```
+
+
 ### 格式化时间
 ```html
 
