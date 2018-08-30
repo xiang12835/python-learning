@@ -17,3 +17,12 @@ t3[2][0] = 'x'
 t3[2][1] = 'y'
 print t3
 # 解释:tuple所谓的“不变”是说，tuple的每个元素，指向永远不变,指向一个list，就不能改成指向其他对象，但指向的这个list本身是可变的！
+
+
+
+# 元组的解封装是什么？
+mytuple=3,4,5
+print mytuple
+
+x,y,z=mytuple
+print x+y+z
