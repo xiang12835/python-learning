@@ -105,3 +105,11 @@ print numbers.count(2)
 import collections
 d = collections.Counter(numbers)
 print d
+
+
+# 如何以就地操作方式打乱一个列表的元素？
+mylist = [1,2,3,4,5,6,7,8,9]
+from random import shuffle
+shuffle(mylist)
+
+print mylist
