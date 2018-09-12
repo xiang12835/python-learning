@@ -20,6 +20,7 @@
     * [MySQL](#mysql)
     * [Cache](#缓存)
     * [Redis](#redis)
+    * [Memcached](#memcached)
     * [Varnish](#varnish)
     * [Linux](#linux)
     * [Git](#git)
