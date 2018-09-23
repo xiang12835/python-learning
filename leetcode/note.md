@@ -128,6 +128,8 @@ IP 地址划分：93
 
 有序矩阵的 Kth Element：378
 
+帕斯卡三角形 118. Pascal's Triangle
+
 
 ### 栈和队列
 
@@ -243,4 +245,14 @@ IP 地址划分：93
 实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium)
 
 实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
+
+
+### 位
+
+位1的个数 191. Number of 1 Bits.py
+
+汉明距离
+
+颠倒二进制位 190. Reverse Bits.py
+
 
