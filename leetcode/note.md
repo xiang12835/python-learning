@@ -255,4 +255,12 @@ IP 地址划分：93
 
 颠倒二进制位 190. Reverse Bits.py
 
+### 数学
 
+Fizz Buzz
+
+计数质数
+
+3的幂 326. Power of Three
+
+罗马数字转整数 13. Roman to Integer
