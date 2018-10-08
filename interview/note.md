@@ -667,6 +667,8 @@ results_list = list(results)
 
 -- dict
 
+哈希表的原理
+
 普通字典 - 字典推导式（互换字典的键值对） - 有序字典 - 默认值字典
 
 缓存(redis|memcache) - 分布式缓存
