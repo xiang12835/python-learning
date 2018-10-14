@@ -22,6 +22,24 @@ class Solution(object):
         return len(stack) == 0
 
 
+class Solution2(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        d = {')':'(', ']':'[','{':'}'}
+
+        for c in s:
+            if c not in d:
+                stack.append(c)
+            elif not stack or d[c] != stack.pop():
+                return False
+
+        return not stack
+
+
 if __name__ == "__main__":
     s = Solution()
     print s.isValid("(){}")
