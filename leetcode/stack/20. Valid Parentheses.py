@@ -29,7 +29,7 @@ class Solution2(object):
         :rtype: bool
         """
         stack = []
-        d = {')':'(', ']':'[','{':'}'}
+        d = {')':'(', ']':'[','}':'{'}
 
         for c in s:
             if c not in d:
