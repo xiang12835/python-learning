@@ -29,8 +29,17 @@ print bubble_sort(l)
 
 
 a = [6, 5, 4, 3, 2, 1]  # 大数下沉
-for i in range(len(a)):
-    for j in range(len(a)-1):
-        if a[j] > a[j+1]:
-            a[j], a[j+1] = a[j+1], a[j]
-print a
+def bubble_sort1(a):
+    # 冒泡排序，大数下沉
+    has_changed = False  # 提前退出冒泡循环的标记位
+    n = len(a)
+    for i in range(n):
+        for j in range(n-i-1):
+            if a[j] > a[j+1]:
+                a[j], a[j+1] = a[j+1], a[j]
+                has_changed = True  # 数据有交换
+        if not has_changed:  # 没有数据交换，提前退出
+            break
+    return a
+
+print bubble_sort1(a)
