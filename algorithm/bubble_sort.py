@@ -31,9 +31,9 @@ print bubble_sort(l)
 a = [6, 5, 4, 3, 2, 1]  # 大数下沉
 def bubble_sort1(a):
     # 冒泡排序，大数下沉
-    has_changed = False  # 提前退出冒泡循环的标记位
     n = len(a)
     for i in range(n):
+        has_changed = False  # 提前退出冒泡循环的标记位
         for j in range(n-i-1):
             if a[j] > a[j+1]:
                 a[j], a[j+1] = a[j+1], a[j]
