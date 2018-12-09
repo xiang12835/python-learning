@@ -412,7 +412,7 @@ IP 地址划分：93
 
 寻找 BST 的第 k 个元素：230. Kth Smallest Element in a BST (Medium)
 
-实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium)
+实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium) done!
 
 实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
 
