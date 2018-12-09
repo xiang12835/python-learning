@@ -14,7 +14,7 @@ Kth Element：215 Kth Largest Element in an Array (Medium)
 
 ### 二分查找
 
-求开方：69 Sqrt(x)
+求开方：69 Sqrt(x) done!
 
 摆硬币：441 Arranging Coins
 
