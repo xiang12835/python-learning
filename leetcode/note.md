@@ -421,6 +421,8 @@ IP 地址划分：93
 
 位1的个数（汉明距离） 191. Number of 1 Bits.py - done!
 
+比特位计数 338. Counting Bits - done!
+
 颠倒二进制位 190. Reverse Bits.py
 
 2的幂 231. Power of Two - done!
