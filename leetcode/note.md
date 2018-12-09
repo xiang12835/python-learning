@@ -419,7 +419,7 @@ IP 地址划分：93
 
 ### 位
 
-位1的个数 191. Number of 1 Bits.py
+位1的个数 191. Number of 1 Bits.py done!
 
 汉明距离
 
