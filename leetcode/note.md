@@ -14,7 +14,7 @@ Kth Element：215 Kth Largest Element in an Array (Medium)
 
 ### 二分查找
 
-求开方：69 Sqrt(x) done!
+求开方：69 Sqrt(x) - done!
 
 摆硬币：441 Arranging Coins
 
@@ -412,18 +412,18 @@ IP 地址划分：93
 
 寻找 BST 的第 k 个元素：230. Kth Smallest Element in a BST (Medium)
 
-实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium) done!
+实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium) - done!
 
 实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
 
 
 ### 位
 
-位1的个数 191. Number of 1 Bits.py done!
-
-汉明距离
+位1的个数（汉明距离） 191. Number of 1 Bits.py - done!
 
 颠倒二进制位 190. Reverse Bits.py
+
+2的幂 231. Power of Two - done!
 
 ### 数学
 
