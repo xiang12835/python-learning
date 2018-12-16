@@ -40,7 +40,7 @@ def bin_search(arr, target):
 
 >面试题
 
-- 69. x 的平方根 - done!
+- x 的平方根：69.  - done!
 - 摆硬币：441 Arranging Coins
 - 有序数组的 Single Element：540
 
@@ -62,7 +62,7 @@ def bin_search(arr, target):
 
 > 题目
 
-- 122. 买卖股票的最佳时机 II
+- 买卖股票的最佳时机 II：122.
 - 分配饼干：455
 - 投飞镖刺破气球：452
 - 种植花朵：605
@@ -146,10 +146,10 @@ DFS
 
 > 题目
 
-- 102. Binary Tree Level Order Traversal
-- 104. 二叉树的最大深度
-- 111. 二叉树的最小深度
-- 22. Generate Parentheses
+- 二叉树的层次遍历：102. Binary Tree Level Order Traversal
+- 二叉树的最大深度：104.
+- 二叉树的最小深度：111.
+- Generate Parentheses：22.
 - 查找最大的连通面积：695
 - 图的连通分量：547
 - 矩阵中的连通区域数量：200
@@ -171,10 +171,10 @@ DFS
 
 >题目
 
-- 51. N-Queens
-- 52. N皇后 II
-- 36. Valid Sudoku
-- 37. Sudoku Solver
+- N皇后：51. N-Queens
+- N皇后 II：52. N-Queens II
+- 有效的数独：36. Valid Sudoku
+- 解数独：37. Sudoku Solver
 
 
 ### 递归 & 分治
@@ -194,7 +194,7 @@ DFS
 > 题目
 
 - Pow(x,n)：50
-- 169. 求众数
+- 求众数：169.
 
 
 ### 动态规划（DP）
@@ -234,15 +234,15 @@ else:
 
 >面试题
 
-- 70. 爬楼梯
-- 120. 三角形最小路径和
-- 152. 乘积最大子序列
-- 121. 买卖股票的最佳时机
-- 122. 买卖股票的最佳时机 II
-- 123. 买卖股票的最佳时机 III
-- 300. 最长上升子序列
-- 322. 零钱兑换
-- 72. 编辑距离
+- 爬楼梯：70. 爬楼梯
+- 三角形最小路径和：120.
+- 乘积最大子序列：152.
+- 买卖股票的最佳时机：121.
+- 买卖股票的最佳时机 II：122.
+- 买卖股票的最佳时机 III：123.
+- 最长上升子序列：300.
+- 零钱兑换：322.
+- 编辑距离：72.
 
 
 ### LRU Cache
@@ -268,7 +268,7 @@ else:
 
 >面试题
 
-- 146. LRU缓存机制
+- LRU缓存机制：146.
 
 
 
@@ -315,15 +315,11 @@ else:
 
 > 题目
 
-字符串同构：205 Isomorphic Strings (Easy)
-
-计算一组字符集合可以组成的回文字符串的最大长度：409 Longest Palindrome (Easy)
-
-判断一个整数是否是回文数：9 Palindrome Number (Easy)
-
-回文子字符串：647 Palindromic Substrings (Medium)
-
-统计二进制字符串中连续 1 和连续 0 数量相同的子字符串个数：696
+- 字符串同构：205 Isomorphic Strings (Easy)
+- 计算一组字符集合可以组成的回文字符串的最大长度：409 Longest Palindrome (Easy)
+- 判断一个整数是否是回文数：9 Palindrome Number (Easy)
+- 回文子字符串：647 Palindromic Substrings (Medium)
+- 统计二进制字符串中连续 1 和连续 0 数量相同的子字符串个数：696
 
 
 ### 数组
@@ -504,9 +500,9 @@ else:
 
 
 > 题目
-- 1. 两数之和
-- 15. 三数之和
-- 242. 有效的字母异位词
+- 两数之和：1.
+- 三数之和：15.
+- 有效的字母异位词：242.
 - 判断数组是否含有相同元素：217 Contains Duplicate (Easy)
 - 最长和谐序列：594 Longest Harmonious Subsequence (Easy)
 - 最长连续序列：128
@@ -602,8 +598,6 @@ else:
 - 把 BST 每个节点的值都加上比它大的节点的值：538. Convert BST to Greater Tree
 - 寻找 BST 中出现次数最多的节点：501. Find Mode in Binary Search Tree (Easy)
 - 寻找 BST 的第 k 个元素：230. Kth Smallest Element in a BST (Medium)
-- 实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium) - done!
-- 实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
 
 
 ### Trie
@@ -649,9 +643,9 @@ class TrieNode:
 
 >面试题
 
-- 208. 实现 Trie (前缀树)
-
-- 212. 单词搜索 II
+- 实现 Trie (前缀树)：208. Implement Trie (Prefix Tree) (Medium) - done!
+- 单词搜索 II：212.
+- 实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
 
 
 
@@ -693,8 +687,8 @@ Rank（排名）就是树的深度
 
 >面试题
 
-- 200. 岛屿的个数
-- 547. 朋友圈
+- 岛屿的个数：200.
+- 朋友圈：547.
 
 
 
@@ -710,7 +704,7 @@ Rank（排名）就是树的深度
 - 位1的个数（汉明距离） 191. Number of 1 Bits.py - done!
 - 比特位计数 338. Counting Bits - done!
 - 2的幂 231. Power of Two - done!
-- 52. N皇后 II - done!
+- N皇后 II：52. - done!
 - 颠倒二进制位 190. Reverse Bits.py
 
 ### 数学
