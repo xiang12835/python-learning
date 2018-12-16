@@ -37,7 +37,7 @@ class Solution(object):
         self.DFS(n, 0, 0, 0, 0)
         return self.count
 
-    def DFS(self, n, row, col, pie, na):
+    def dfs(self, n, row, col, pie, na):
         # 递归终止条件
         if row >= n:
             self.count += 1
@@ -47,6 +47,6 @@ class Solution(object):
 
         while bits:
             p = bits & -bits  # 取到最低位的1
-            self.DFS(n, row + 1, col | p, (pie | p) << 1, (na | p) >> 1)
+            self.dfs(n, row + 1, col | p, (pie | p) << 1, (na | p) >> 1)
             bits = bits & (bits - 1)  # 去掉最低位的1
 
