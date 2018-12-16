@@ -3,49 +3,73 @@
 
 ### 排序
 
-Kth Element：215 Kth Largest Element in an Array (Medium)
+>题目
 
-出现频率最多的 k 个数：347 Top K Frequent Elements (Medium)
-
-按照字符出现次数对字符串排序：451
+- Kth Element：215 Kth Largest Element in an Array (Medium)
+- 出现频率最多的 k 个数：347 Top K Frequent Elements (Medium)
+- 按照字符出现次数对字符串排序：451
 
 
 ### 顺序查找
 
 ### 二分查找
 
-求开方：69 Sqrt(x) - done!
+>理论
 
-摆硬币：441 Arranging Coins
+- sorted （单调递增或者递减）
+- bounded（存在上下界）
+- accessible by index（能够通过索引访问）
 
-有序数组的 Single Element：540
+一般的认为数组适合二分查找，链表不适合
+
+>实现
+
+``` python
+def bin_search(arr, target):
+  # O(logn)
+  l, r = 0, len(arr)
+  while l <= r:
+    mid = (l+r)/2
+    if target == arr[mid]:
+      return mid
+    elif target > arr[mid]:
+      l = mid + 1
+    else:
+      r = mid - 1
+```
+
+>面试题
+
+- 69. x 的平方根 - done!
+- 摆硬币：441 Arranging Coins
+- 有序数组的 Single Element：540
 
 
 ### 贪心思想
 
 > 概念
 
-贪心思想保证每次操作都是局部最优的，并且最后得到的结果是全局最优的。
+在对问题求解时，总是做出在**当前**看来是最好的选择
+
+例子：用纸币去匹配一个36数额的面值最少数量
+
+将问题分解成子问题，找到子问题的最优解，递推到最终问题的最优解
+
+贪心算法是对每个问题都做出最优解，不能回退，只关注眼前利益
+
+动态规划会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能，关注的全局
 
 
 > 题目
 
-分配饼干：455
-
-投飞镖刺破气球：452
-
-股票的最大收益：122 Best Time to Buy and Sell Stock II (Easy)
-
-种植花朵：605
-
-修改一个数成为非递减数组：665 Non-decreasing Array (Easy)
-
-判断是否为子串：392 Is Subsequence (Medium)
-
-分隔字符串使同种字符出现在一起：763 Partition Labels (Medium)
-
-根据身高和序号重组队列：406 Queue Reconstruction by Height(Medium)
-
+- 122. 买卖股票的最佳时机 II
+- 分配饼干：455
+- 投飞镖刺破气球：452
+- 种植花朵：605
+- 修改一个数成为非递减数组：665 Non-decreasing Array (Easy)
+- 判断是否为子串：392 Is Subsequence (Medium)
+- 分隔字符串使同种字符出现在一起：763 Partition Labels (Medium)
+- 根据身高和序号重组队列：406 Queue Reconstruction by Height(Medium)
 
 ### 双指针
 
@@ -88,40 +112,196 @@ Kth Element：215 Kth Largest Element in an Array (Medium)
 - 删除链表的倒数第N个节点：19.
 
 
-> 题目
+>题目
 
-有序数组的 Tow Sum：167 Two Sum II - Input array is sorted (Easy)
-
-反转字符串中的元音字符：345 Reverse Vowels of a String (Easy)
-
-两数平方和：633 Sum of Square Numbers (Easy)
-
-回文字符串：680 Valid Palindrome II (Easy)
-
-归并两个有序数组：88 Merge Sorted Array (Easy)
-
-判断链表是否存在环：141 Linked List Cycle (Easy)
-
-最长子序列：524 Longest Word in Dictionary through Deleting (Medium)
+- 有序数组的 Tow Sum：167 Two Sum II - Input array is sorted (Easy)
+- 反转字符串中的元音字符：345 Reverse Vowels of a String (Easy)
+- 两数平方和：633 Sum of Square Numbers (Easy)
+- 回文字符串：680 Valid Palindrome II (Easy)
+- 归并两个有序数组：88 Merge Sorted Array (Easy)
+- 判断链表是否存在环：141 Linked List Cycle (Easy)
+- 最长子序列：524 Longest Word in Dictionary through Deleting (Medium)
 
 
 ### 搜索
 
 BFS | DFS
 
-查找最大的连通面积：695
+>理论
 
-图的连通分量：547
+BFS
 
-矩阵中的连通区域数量：200
+- 例子：水滴波纹
+- 层层推进
+- 注意重复，使用集合记录访问过的节点
+- 符合人类
 
-输出二叉树中所有从根到叶子的路径：257 Binary Tree Paths (Easy)
+DFS
 
-IP 地址划分：93
+- 一路到底，回头再走
+- 注意重复，使用集合记录访问过的节点
+- 符合计算机
 
-填充封闭区域：130
 
-从两个方向都能到达的区域：417
+
+> 题目
+
+- 102. Binary Tree Level Order Traversal
+- 104. 二叉树的最大深度
+- 111. 二叉树的最小深度
+- 22. Generate Parentheses
+- 查找最大的连通面积：695
+- 图的连通分量：547
+- 矩阵中的连通区域数量：200
+- 输出二叉树中所有从根到叶子的路径：257 Binary Tree Paths (Easy)
+- IP 地址划分：93
+- 填充封闭区域：130
+- 从两个方向都能到达的区域：417
+
+
+### 剪枝
+
+>理论
+
+- 搜索问题
+- 提高搜索效率
+- 去差选优
+- 下棋问题
+
+
+>题目
+
+- 51. N-Queens
+- 52. N皇后 II
+- 36. Valid Sudoku
+- 37. Sudoku Solver
+
+
+### 递归 & 分治
+
+>理论
+
+递归  - 循环 | 函数
+
+- 终止条件
+- 做梦
+- 醒来
+
+出现重复问题
+
+解决保存中间结果
+
+> 题目
+
+- Pow(x,n)：50
+- 169. 求众数
+
+
+### 动态规划（DP）
+
+>理论
+
+- 递归 + 记忆话 --> 递推
+- 状态的定义：opt[n], dp[n], fib[n]
+- 状态转移方程：opt[n] = best_of(opt[n-1], opt[2], ...)
+- 最优子结构
+
+自上而下
+
+自下而上
+
+>fib
+
+递推公式：F(n) = F(n-1) + F(n-2); F(0) = 0; F(1) = 1
+
+记忆化，将fib的时间复杂度由 O(2^n) 降低到 O(n)
+
+>count the paths
+
+```python
+if a[i,j] == '空地':
+  opt[i, j ] = opt[i-1, j] + opt[i, j-1]
+else:
+  opt[i, j ] = 0
+```
+
+>DP VS 回溯 VS 贪心
+
+- 回溯（递归） - 重复计算
+- 贪心 - 永远局部最优
+- DP - 记录局部最优子结构 / 多种记录值
+
+
+>面试题
+
+- 70. 爬楼梯
+- 120. 三角形最小路径和
+- 152. 乘积最大子序列
+- 121. 买卖股票的最佳时机
+- 122. 买卖股票的最佳时机 II
+- 123. 买卖股票的最佳时机 III
+- 300. 最长上升子序列
+- 322. 零钱兑换
+- 72. 编辑距离
+
+
+### LRU Cache
+
+>理论
+
+记忆
+
+钱包 - 储物柜
+
+代码模块
+
+
+ - Least recently used（最近最少使用）
+ - Double LinkedList
+ - O(1)查询
+ - O(1)修改、更新
+
+>LFU
+
+最近最不常用页面置换算法
+
+
+>面试题
+
+- 146. LRU缓存机制
+
+
+
+### Bloom Filer (布隆过滤器)
+
+在实际的数据存储之前，挡掉一些一定不存在的数据，起到加速或减轻系统负担的作用
+
+
+>理论
+
+- 一个很长的**二进制向量**和一个**映射函数**
+- 布隆过滤器可以检索一个元素是否在一个集合中
+
+>优点
+- 空间效率和查询时间都远远超过一般的算法
+
+>缺点
+- 有一定的误识别率和删除困难
+
+>误识别率
+对判断存在的元素有一定的错误；对判断不存在的元素一定不存在
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8jfl22eij31b80u0dv6.jpg)
+
+>案例
+
+- 比特币 (Redis VS Bloom Filter)
+- 分布式系统 (Map-Reduce)
+
+
+
+
+----
 
 
 ## 数据结构
@@ -135,8 +315,6 @@ IP 地址划分：93
 
 > 题目
 
-两个字符串包含的字符是否完全相同：242 Valid Anagram (Easy)
-
 字符串同构：205 Isomorphic Strings (Easy)
 
 计算一组字符集合可以组成的回文字符串的最大长度：409 Longest Palindrome (Easy)
@@ -149,6 +327,13 @@ IP 地址划分：93
 
 
 ### 数组
+
+>理论
+
+- Access: O(1)
+- Insert: 平均O(n)
+- Delete: 平均O(n)
+
 
 > 数组相关的技术
 
@@ -180,52 +365,60 @@ IP 地址划分：93
 
 > 题目
 
-把数组中的 0 移到末尾：283. Move Zeroes (Easy)
-
-调整矩阵：566. Reshape the Matrix (Easy)
-
-找出数组中最长的连续 1：485. Max Consecutive Ones (Easy)
-
-数组相邻差值的个数：667
-
-数组的度：697
-
-对角元素相等的矩阵：766
-
-嵌套数组：565
-
-分隔数组：769
-
-一个数组元素在 [1, n] 之间，其中一个数被替换为另一个数，找出丢失的数和重复的数：645
-
-寻找所有丢失的元素：448
-
-寻找所有重复的元素：442
-
-找出数组中重复的数，数组值在 [1, n] 之间：287
-
-有序矩阵查找：240
-
-有序矩阵的 Kth Element：378
-
-帕斯卡三角形 118. Pascal's Triangle
+- 把数组中的 0 移到末尾：283. Move Zeroes (Easy)
+- 调整矩阵：566. Reshape the Matrix (Easy)
+- 找出数组中最长的连续 1：485. Max Consecutive Ones (Easy)
+- 数组相邻差值的个数：667
+- 数组的度：697
+- 对角元素相等的矩阵：766
+- 嵌套数组：565
+- 分隔数组：769
+- 一个数组元素在 [1, n] 之间，其中一个数被替换为另一个数，找出丢失的数和重复的数：645
+- 寻找所有丢失的元素：448
+- 寻找所有重复的元素：442
+- 找出数组中重复的数，数组值在 [1, n] 之间：287
+- 有序矩阵查找：240
+- 有序矩阵的 Kth Element：378
+- 帕斯卡三角形 118. Pascal's Triangle
 
 
 ### 栈和队列
 
-用栈实现队列：232 Implement Queue using Stacks (Easy)
+>理论
 
-用队列实现栈：225 Implement Stack using Queues (Easy)
+- stack: FILO
+- queue: FIFO
 
-最小值栈：155 Min Stack (Easy)
+>题目
 
-用栈实现括号匹配：20 Valid Parentheses (Easy)
+- 用栈实现括号匹配：20 Valid Parentheses (Easy)
+- 用栈实现队列：232 Implement Queue using Stacks (Easy)
+- 用队列实现栈：225 Implement Stack using Queues (Easy)
+- 最小值栈：155 Min Stack (Easy)
+- 数组中元素与下一个比它大的元素之间的距离：739 Daily Temperatures (Medium)
+- 在另一个数组中比当前元素大的下一个元素：496 Next Greater Element I (Easy)
+- 循环数组中比当前元素大的下一个元素：503 Next Greater Element II (Medium)
 
-数组中元素与下一个比它大的元素之间的距离：739 Daily Temperatures (Medium)
 
-在另一个数组中比当前元素大的下一个元素：496 Next Greater Element I (Easy)
+### 优先队列
 
-循环数组中比当前元素大的下一个元素：503 Next Greater Element II (Medium)
+>理论
+
+1）特点
+
+正常进，优先级出
+
+2）实现
+
+- Heap (Binary | Binomial | Fibonacci)
+  - min heap
+  - max heap
+- Binary Search Tree
+
+>面试题
+
+- 数据流中的第K大元素：703.
+- 滑动窗口最大值：239.
 
 
 ### 哈希表
@@ -242,6 +435,16 @@ IP 地址划分：93
 在标准模板库的帮助下，哈希表是易于使用的。大多数常见语言（如Java，C ++ 和 Python）都支持哈希集合和哈希映射。
 
 通过选择合适的哈希函数，哈希表可以在插入和搜索方面实现出色的性能。
+
+- HashMap | HashSet
+  - 无序
+  - O(1)
+  - 哈希表实现
+- TreeMap | TreeSet
+  - 有序
+  - O(logN)
+  - 二叉搜索树实现
+
 
 > 哈希表的原理
 
@@ -301,14 +504,12 @@ IP 地址划分：93
 
 
 > 题目
-
-数组中的两个数和为给定值：1 Two Sum (Easy)
-
-判断数组是否含有相同元素：217 Contains Duplicate (Easy)
-
-最长和谐序列：594 Longest Harmonious Subsequence (Easy)
-
-最长连续序列：128
+- 1. 两数之和
+- 15. 三数之和
+- 242. 有效的字母异位词
+- 判断数组是否含有相同元素：217 Contains Duplicate (Easy)
+- 最长和谐序列：594 Longest Harmonious Subsequence (Easy)
+- 最长连续序列：128
 
 
 ### 链表
@@ -323,116 +524,200 @@ IP 地址划分：93
 
 双链表：与单链表不同的是，双链表的每个结点中都含有两个引用字段。
 
+- space: O(n)
+- prepend: O(1)
+- append: O(1)
+- lookup: O(n)
+- insert: O(1)
+- delete: O(1)
+
 > 双指针技巧
 
 慢指针和快指针问题
 
 > 题目
 
-找出两个链表的交点：160. Intersection of Two Linked Lists (Easy)
-
-链表反转：206. Reverse Linked List (Easy)
-
-归并两个有序的链表：21. Merge Two Sorted Lists (Easy)
-
-从有序链表中删除重复节点：83. Remove Duplicates from Sorted List (Easy)
-
-删除链表的倒数第 n 个节点：19. Remove Nth Node From End of List (Medium)
-
-交换链表中的相邻结点：24
-
-根据有序链表构造平衡的 BST：109
-
-链表求和：445
-
-分隔链表：725
-
-回文链表：234. Palindrome Linked List (Easy)
-
-链表元素按奇偶聚集：328
-
-移除链表元素：203.
+- 反转一个单链表：206. Reverse Linked List (Easy)
+- 两两交换链表中的节点：24
+- 环形链表：141. 判断链表中是否有环
+- 环形链表 II：142. 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null
+- k个一组翻转链表：25.
+- 找出两个链表的交点：160. Intersection of Two Linked Lists (Easy)
+- 归并两个有序的链表：21. Merge Two Sorted Lists (Easy)
+- 从有序链表中删除重复节点：83. Remove Duplicates from Sorted List (Easy)
+- 删除链表的倒数第 n 个节点：19. Remove Nth Node From End of List (Medium)
+- 根据有序链表构造平衡的 BST：109
+- 链表求和：445
+- 分隔链表：725
+- 回文链表：234. Palindrome Linked List (Easy)
+- 链表元素按奇偶聚集：328
+- 移除链表元素：203.
 
 
 ### 树
 
-树的高度：104. Maximum Depth of Binary Tree (Easy)
+>理论
 
-翻转树：226. Invert Binary Tree (Easy)
+- Tree
+- BT
+- BST
+  - O(logN)
+- Graph
 
-归并两棵树：617. Merge Two Binary Trees (Easy)
+插入、删除、查找操作的平均时间复杂度也比较稳定，是 O(logn)
 
-判断路径和是否等于一个数：112. Path Sum (Easy)
+链表 -(两个指针)-> 二叉树 -(查找)-> 二叉查找树 -(稳定性)-> 平衡二叉查找树
 
-统计路径和等于一个数的路径数量：437. Path Sum III (Easy)
+链表 -(多个指针)-> 图
 
-树的对称：101. Symmetric Tree (Easy)
+二叉树的遍历：前序 | 中序| 后序
 
-平衡树：110. Balanced Binary Tree (Easy)
 
-最小路径：111. Minimum Depth of Binary Tree (Easy)
+>题目
 
-统计左叶子节点的和：404. Sum of Left Leaves (Easy)
+- 验证二叉搜索树：98
+- 二叉查找树的最近公共祖先：235. Lowest Common Ancestor of a Binary Search Tree (Easy)
+- 二叉树的最近公共祖先：236. Lowest Common Ancestor of a Binary Tree (Medium)
+- 翻转树：226. Invert Binary Tree (Easy)
+- 归并两棵树：617. Merge Two Binary Trees (Easy)
+- 判断路径和是否等于一个数：112. Path Sum (Easy)
+- 统计路径和等于一个数的路径数量：437. Path Sum III (Easy)
+- 树的对称：101. Symmetric Tree (Easy)
+- 平衡树：110. Balanced Binary Tree (Easy)
+- 统计左叶子节点的和：404. Sum of Left Leaves (Easy)
+- 修剪二叉查找树：669. Trim a Binary Search Tree (Easy)
+- 子树：572. Subtree of Another Tree (Easy)
+- 从有序数组中构造二叉查找树：108. Convert Sorted Array to Binary Search Tree (Easy)
+- 两节点的最长路径：543. Diameter of Binary Tree (Easy)
+- 找出二叉树中第二小的节点：671. Second Minimum Node In a Binary Tree (Easy)
+- 相同节点值的最大路径长度：687. Longest Univalue Path (Easy)
+- 间隔遍历：337. House Robber III (Medium)
+- 一棵树每层节点的平均数：637. Average of Levels in Binary Tree (Easy)
+- 得到左下角的节点：513. Find Bottom Left Tree Value (Easy)
+- 非递归实现二叉树的前序遍历：144. Binary Tree Preorder Traversal (Medium)
+- 非递归实现二叉树的后序遍历：145. Binary Tree Postorder Traversal (Medium)
+- 非递归实现二叉树的中序遍历：94. Binary Tree Inorder Traversal (Medium)
+- 在 BST 中寻找两个节点，使它们的和为一个给定值：653. Two Sum IV - Input is a BST (Easy)
+- 在 BST 中查找两个节点之差的最小绝对值：530. Minimum Absolute Difference in BST (Easy)
+- 把 BST 每个节点的值都加上比它大的节点的值：538. Convert BST to Greater Tree
+- 寻找 BST 中出现次数最多的节点：501. Find Mode in Binary Search Tree (Easy)
+- 寻找 BST 的第 k 个元素：230. Kth Smallest Element in a BST (Medium)
+- 实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium) - done!
+- 实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
 
-修剪二叉查找树：669. Trim a Binary Search Tree (Easy)
 
-子树：572. Subtree of Another Tree (Easy)
+### Trie
 
-从有序数组中构造二叉查找树：108. Convert Sorted Array to Binary Search Tree (Easy)
+>理论
 
-两节点的最长路径：543. Diameter of Binary Tree (Easy)
+字典树
 
-找出二叉树中第二小的节点：671. Second Minimum Node In a Binary Tree (Easy)
+用于统计和排序大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计
 
-二叉查找树的最近公共祖先：235. Lowest Common Ancestor of a Binary Search Tree (Easy)
+>优点
 
-二叉树的最近公共祖先：236. Lowest Common Ancestor of a Binary Tree (Medium)
+最大限度地减少无谓的字符串比较，查询效率比哈希表高
 
-相同节点值的最大路径长度：687. Longest Univalue Path (Easy)
+>核心思想
 
-间隔遍历：337. House Robber III (Medium)
+空间换时间。利用字符串的公共前缀来降低查询时间的开销以达到提高效率的目的。
 
-一棵树每层节点的平均数：637. Average of Levels in Binary Tree (Easy)
+>实际存储结构
 
-得到左下角的节点：513. Find Bottom Left Tree Value (Easy)
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fy0tvtp813j30ys0hadnr.jpg)
 
-非递归实现二叉树的前序遍历：144. Binary Tree Preorder Traversal (Medium)
+>实现
 
-非递归实现二叉树的后序遍历：145. Binary Tree Postorder Traversal (Medium)
+```python
+ALPHABET_SIZE = 256
 
-非递归实现二叉树的中序遍历：94. Binary Tree Inorder Traversal (Medium)
+class TrieNode:
+  # Trie node class
+  def __init(self):
+    self.children = [Node] * ALPHABET_SIZE
+    # isEndOfWord is True if node represent
+    # the end of the word
+    self.isEndOfWord = False
+```
 
-在 BST 中寻找两个节点，使它们的和为一个给定值：653. Two Sum IV - Input is a BST (Easy)
+>基本性质
 
-在 BST 中查找两个节点之差的最小绝对值：530. Minimum Absolute Difference in BST (Easy)
+- 根节点不包含字符，除根节点每一个节点都只包含一个字符
+- 从根节点到某一节点，路径上经过的字符串连接起来，为该节点对应的字符串
+- 每个节点的所有子节点包含的字符都不相同
 
-把 BST 每个节点的值都加上比它大的节点的值：538. Convert BST to Greater Tree
 
-寻找 BST 中出现次数最多的节点：501. Find Mode in Binary Search Tree (Easy)
+>面试题
 
-寻找 BST 的第 k 个元素：230. Kth Smallest Element in a BST (Medium)
+- 208. 实现 Trie (前缀树)
 
-实现一个 Trie：208. Implement Trie (Prefix Tree) (Medium) - done!
+- 212. 单词搜索 II
 
-实现一个 Trie，用来求前缀和：677. Map Sum Pairs (Medium)
+
+
+### 并查集
+
+>理论
+
+Union & find：一种**树型**的数据结构，用于处理一些不交集的合并及查询问题
+
+Find：确定元素属于哪一个子集。它可以被用来确定两个元素是否属于同一子集
+
+Union：将两个子集合并成同一个集合
+
+>实现
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fy8f8fzb5tj30u80u0qha.jpg)
+
+>优化一
+
+Rank（排名）就是树的深度
+
+将rank较低的子集合并到rank较高的子集中，形成一个总体rank较低的并查集
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fy8ffqamuuj313l0u0gvj.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fy8ffy5qs7j30u00yc4gb.jpg)
+
+
+
+>优化二
+
+路径压缩
+
+将单链表压缩成树
+
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fy8foenrw3j31f60tgtg2.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fy8fop5806j30u011y1cu.jpg)
+
+>面试题
+
+- 200. 岛屿的个数
+- 547. 朋友圈
+
+
 
 
 ### 位
 
-位1的个数（汉明距离） 191. Number of 1 Bits.py - done!
+>什么是位运算
 
-比特位计数 338. Counting Bits - done!
+程序中的所有数据在计算机内存中是以二进制的形式存储的。位运算说穿了，就是直接对整数在内存中的二进制位进行操作。
 
-颠倒二进制位 190. Reverse Bits.py
+>题目
 
-2的幂 231. Power of Two - done!
+- 位1的个数（汉明距离） 191. Number of 1 Bits.py - done!
+- 比特位计数 338. Counting Bits - done!
+- 2的幂 231. Power of Two - done!
+- 52. N皇后 II - done!
+- 颠倒二进制位 190. Reverse Bits.py
 
 ### 数学
 
-Fizz Buzz
+>题目
 
-计数质数
-
-3的幂 326. Power of Three
-
-罗马数字转整数 13. Roman to Integer
+- Fizz Buzz
+- 计数质数
+- 3的幂 326. Power of Three
+- 罗马数字转整数 13. Roman to Integer
