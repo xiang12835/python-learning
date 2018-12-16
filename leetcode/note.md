@@ -315,7 +315,7 @@ else:
 >误识别率
 对判断存在的元素有一定的错误；对判断不存在的元素一定不存在
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8jfl22eij31b80u0dv6.jpg)
+![](https://ws2.sinaimg.cn/large/006tNbRwly1fy8t1evxycj31b80u00w6.jpg)
 
 >案例
 
@@ -685,7 +685,7 @@ Union：将两个子集合并成同一个集合
 
 >实现
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy8f8fzb5tj30u80u0qha.jpg)
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fy8tghdildj30u80u00vi.jpg)
 
 >优化一
 
@@ -693,7 +693,7 @@ Rank（排名）就是树的深度
 
 将rank较低的子集合并到rank较高的子集中，形成一个总体rank较低的并查集
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy8ffqamuuj313l0u0gvj.jpg)
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fy8ter80s1j313l0u0gnv.jpg)
 
 ![](https://ws1.sinaimg.cn/large/006tNbRwly1fy8ffy5qs7j30u00yc4gb.jpg)
 
@@ -705,9 +705,9 @@ Rank（排名）就是树的深度
 
 将单链表压缩成树
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy8foenrw3j31f60tgtg2.jpg)
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fy8t7x4txyj31f60tgjta.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy8fop5806j30u011y1cu.jpg)
+![](https://ws4.sinaimg.cn/large/006tNbRwly1fy8tbumq52j30u011y426.jpg)
 
 >面试题
 
