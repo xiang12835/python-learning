@@ -34,7 +34,7 @@ class Solution(object):
         if n < 1:
             return []
         self.count = 0
-        self.DFS(n, 0, 0, 0, 0)
+        self.dfs(n, 0, 0, 0, 0)
         return self.count
 
     def dfs(self, n, row, col, pie, na):
