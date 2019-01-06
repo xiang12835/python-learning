@@ -35,6 +35,8 @@ class Solution(object):
         """
         :type x: int
         :rtype: int
+
+        牛顿迭代法
         """
         r = x
         while r * r > x:
@@ -47,14 +49,16 @@ class Solution1(object):
         """
         :type x: int
         :rtype: int
+
+        迭代中的二分法
         """
         if x < 1:
             return x
 
         l, r = 1, x
         while l <= r:
-            mid = (l + r) / 2
-            sqrt = x / mid
+            mid = l + (r - l) / 2
+            sqrt = x / mid  # 技巧：取整
             if sqrt == mid:
                 return mid
             elif sqrt < mid:
@@ -68,4 +72,5 @@ if __name__ == "__main__":
     print s.mySqrt(100)
 
     s1 = Solution1()
-    print s1.mySqrt(100)
+    print s1.mySqrt(102)
+
