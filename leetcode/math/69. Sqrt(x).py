@@ -58,7 +58,7 @@ class Solution1(object):
         l, r = 1, x
         while l <= r:
             mid = l + (r - l) / 2
-            sqrt = x / mid  # 技巧：取整
+            sqrt = x / mid  # 技巧：通过取整避免解的精度问题
             if sqrt == mid:
                 return mid
             elif sqrt < mid:
