@@ -1,0 +1,4 @@
+ALTER TABLE aa ADD application_id int DEFAULT 1 NULL;
+CREATE INDEX index_application_id ON aa (application_id);
+ALTER TABLE bb ADD application_id int DEFAULT 1 NULL;
+CREATE INDEX index_application_id ON bb (application_id);
