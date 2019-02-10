@@ -69,3 +69,17 @@ class Solution2(object):
         nxt = node.next
         node.next = pre
         return self._reverse(nxt, node)
+
+
+class Solution3(object):
+    def reverseList(self, head, prev=None):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+
+        递归
+        """
+        if not head:
+            return prev
+        head.next, prev, head = prev, head, head.next
+        return self.reverseList(head, prev)
