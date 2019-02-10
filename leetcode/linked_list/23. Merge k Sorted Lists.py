@@ -28,6 +28,7 @@ class Solution(object):
         """
         :type lists: List[ListNode]
         :rtype: ListNode
+        哨兵；小顶堆
         """
         from heapq import heappush, heappop
         nodes_pool = []

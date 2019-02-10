@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
 
@@ -5,8 +6,6 @@ Example:
 
 Input: 1->2->4, 1->3->4
 Output: 1->1->2->3->4->4
-
-
 """
 
 
@@ -23,6 +22,7 @@ class Solution(object):
         :type l1: ListNode
         :type l2: ListNode
         :rtype: ListNode
+        哨兵
         """
         head = tmp = Node(-1)
 
