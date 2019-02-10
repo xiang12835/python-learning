@@ -1,3 +1,5 @@
+# coding=utf-8
+
 """
  Given a linked list, determine if it has a cycle in it.
 
@@ -39,6 +41,8 @@ class Solution1(object):
         """
         :type head: ListNode
         :rtype: bool
+
+        快慢指针
         """
 
         slow = head
