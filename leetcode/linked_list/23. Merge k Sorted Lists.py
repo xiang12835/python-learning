@@ -40,7 +40,7 @@ class Solution(object):
             smallest_node = heappop(nodes_pool)[1]
             cur.next = smallest_node
             cur = cur.next
-            if smallest_node.next:
+            if smallest_node.next:  # 将最小节点链表的下一个节点进堆
                 heappush(nodes_pool, [smallest_node.next.val, smallest_node.next])
         return dummy.next
 
