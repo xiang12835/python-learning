@@ -14,3 +14,23 @@ class Solution(object):
         :rtype: int
         """
         return sorted(nums)[len(nums) / 2]
+
+
+class Solution1(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        idx, cnt = 0, 1
+
+        for i in xrange(1, len(nums)):
+            if nums[idx] == nums[i]:
+                cnt += 1
+            else:
+                cnt -= 1
+                if cnt == 0:
+                    idx = i
+                    cnt = 1
+
+        return nums[idx]
