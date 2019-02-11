@@ -39,6 +39,8 @@ class Solution(object):
         :type head: ListNode
         :type k: int
         :rtype: ListNode
+
+        反转三次链表
         """
         if not head or k == 0:
             return head
@@ -102,7 +104,8 @@ class Solution1:
 
 Input: 1->2->3->4->5->NULL, k = 2
 Output: 4->5->1->2->3->NULL
-
+时间复杂度: O(N)
+空间复杂度: O(N)
         """
         if not head or k == 0:
             return head
@@ -130,6 +133,10 @@ class Solution2:
 
 Input: 1->2->3->4->5->NULL, k = 2
 Output: 4->5->1->2->3->NULL
+
+时间复杂度: O(N)
+空间复杂度: O(1)
+
         """
         if not head or k == 0:
             return head
