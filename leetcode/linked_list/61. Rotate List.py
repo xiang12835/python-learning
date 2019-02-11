@@ -102,6 +102,34 @@ class Solution1:
 
 Input: 1->2->3->4->5->NULL, k = 2
 Output: 4->5->1->2->3->NULL
+
+        """
+        if not head or k == 0:
+            return head
+
+        nodes = []
+        while head:
+            nodes.append(head)
+            head = head.next
+
+        k = k % len(nodes)
+        if k == 0:
+            return nodes[0]
+
+        nodes[-k-1].next = None
+        nodes[-1].next = nodes[0]
+        return nodes[-k]
+
+
+class Solution2:
+    def rotateRight(self, head, k):
+        """
+        :type head: ListNode
+        :type k: int
+        :rtype: ListNode
+
+Input: 1->2->3->4->5->NULL, k = 2
+Output: 4->5->1->2->3->NULL
         """
         if not head or k == 0:
             return head
