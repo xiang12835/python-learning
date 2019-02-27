@@ -26,12 +26,14 @@ class Solution1(object):
         """
         :type nums: List[int]
         :rtype: int
+        # nums[0,i]为非重复数列
         """
-        if not nums:
-            return 0
-        index = 0
         length = len(nums)
-        for i in range(1, length):
+        if length == 0 or length == 1:
+            return length
+
+        index = 0
+        for i in xrange(1, len(nums)):
             if nums[i] != nums[index]:
                 index += 1
                 nums[index] = nums[i]
