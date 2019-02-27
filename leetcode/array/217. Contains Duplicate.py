@@ -11,3 +11,18 @@ class Solution(object):
         :rtype: bool
         """
         return True if len(set(nums)) < len(nums) else False
+
+
+class Solution1(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        ss = set()
+        for n in nums:
+            if n in ss:
+                return True
+            ss.add(n)
+
+        return False
