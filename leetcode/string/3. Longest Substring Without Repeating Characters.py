@@ -24,7 +24,7 @@ Explanation: The answer is "wke", with the length of 3.
 """
 
 
-class Solution1:
+class Solution:
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
