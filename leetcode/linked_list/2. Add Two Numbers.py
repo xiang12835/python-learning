@@ -27,7 +27,7 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        head = cur = ListNode(0)
+        dummy = tmp = ListNode(-1)
         carry = 0
         while l1 or l2 or carry:
             if l1:
@@ -36,7 +36,7 @@ class Solution(object):
             if l2:
                 carry += l2.val
                 l2 = l2.next
-            cur.next = ListNode(carry % 10)
-            cur = cur.next
+            tmp.next = ListNode(carry % 10)
+            tmp = tmp.next
             carry = carry // 10
-        return head.next
+        return dummy.next
