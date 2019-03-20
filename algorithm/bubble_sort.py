@@ -7,6 +7,7 @@
     Time Complexity: O(n**2)
     Space Complexity: O(1) Auxiliary
     Stable: Yes
+    O(n**2) | O(1) | 原地 | 稳定
 """
 
 
