@@ -7,7 +7,6 @@
     Time Complexity: O(n**2)
     Space Complexity: O(1) Auxiliary
     Stable: Yes
-    O(n**2) | O(1) | 原地 | 稳定
 """
 
 
@@ -31,6 +30,7 @@ print bubble_sort(l)
 
 a = [6, 5, 4, 3, 2, 1]  # 大数下沉
 def bubble_sort1(a):
+    # O(n ** 2) | O(1) | 原地 | 稳定
     # 冒泡排序，大数下沉
     n = len(a)
     for i in range(n):
