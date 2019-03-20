@@ -39,15 +39,14 @@ partition(A, p, r) {
 """
 
 
-from typing import List
 import random
 
 
-def quick_sort(a: List[int]):
+def quick_sort(a):
     _quick_sort_between(a, 0, len(a) - 1)
 
 
-def _quick_sort_between(a: List[int], low: int, high: int):
+def _quick_sort_between(a, low, high):
     if low < high:
         # get a random position as the pivot
         k = random.randint(low, high)
@@ -58,7 +57,7 @@ def _quick_sort_between(a: List[int], low: int, high: int):
         _quick_sort_between(a, m + 1, high)
 
 
-def _partition(a: List[int], low: int, high: int):
+def _partition(a, low, high):
     pivot, j = a[low], low
     for i in range(low + 1, high + 1):
         if a[i] <= pivot:
