@@ -5,7 +5,7 @@ def bfs(graph, start, end):
     queue = []
     queue.append([start])
 
-    visited = set()
+    visited = set()  # 树可省，图不可
     visited.add(start)
 
     while queue:
