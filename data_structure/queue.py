@@ -15,7 +15,7 @@ class Queue():
             return False
 
     def full(qu):
-        if qu.rear - qu.front + 1 == qu.size:
+        if (qu.rear + 1) % qu.size == qu.front:
             return True
         else:
             return False
