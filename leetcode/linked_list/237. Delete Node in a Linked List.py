@@ -1,3 +1,5 @@
+# coding=utf-8
+
 """
  Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
 
@@ -16,6 +18,10 @@ class Solution(object):
         """
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
+
+        另外一个O（1）的办法更好，把后一个node的val移到待删这个节点，并且把node.next = node.next.next
+
+
         """
         node.val = node.next.val
         node.next = node.next.next
