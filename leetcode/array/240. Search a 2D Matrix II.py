@@ -35,11 +35,41 @@ class Solution(object):
             return False
 
         row = len(matrix)
-        column = len(matrix[0])
+        column = len(matrix[0]) if row else 0
 
         for i in xrange(row):
             for j in xrange(column):
                 if matrix[i][j] == target:
                     return True
+
+        return False
+
+
+class Solution1(object):
+    def searchMatrix(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+
+        时间复杂度O(max(M,N))，因为每次都会往下或者往左走
+
+        """
+        if not matrix:
+            return False
+
+        row = len(matrix)
+        col = len(matrix[0]) if row else 0
+
+        i = 0
+        j = col - 1
+
+        while i < row and j >= 0:
+            if matrix[i][j] < target:
+                i += 1
+            elif matrix[i][j] > target:
+                j -= 1
+            else:
+                return True
 
         return False
