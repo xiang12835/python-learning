@@ -1,3 +1,5 @@
+# coding=utf-8
+
 """
  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
 
@@ -22,3 +24,21 @@ class Solution(object):
             max_sum = max(cur_sum, max_sum)
 
         return max_sum
+
+
+class Solution1(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) == 1:
+            return nums[0]
+
+        n = len(nums)
+
+        maxSum = [nums[0]] * n
+        for i in xrange(1, n):
+            maxSum[i] = max(maxSum[i - 1] + nums[i], nums[i])
+
+        return max(maxSum)
