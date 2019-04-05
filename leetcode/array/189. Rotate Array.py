@@ -16,7 +16,7 @@ class Solution(object):
         :rtype: void Do not return anything, modify nums in-place instead.
         """
         n = len(nums)
-        k = n % n
+        k = k % n
         nums[:] = nums[-k:] + nums[:-k]
 
 
