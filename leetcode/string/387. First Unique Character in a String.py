@@ -46,3 +46,22 @@ class Solution2(object):
         index_list = [s.index(c) for c in set(s) if s.count(c) == 1]
         return min(index_list) if index_list else -1
 
+
+class Solution3(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        # d = collections.Counter(s)
+        d = {}
+        for c in s:
+            d[c] = d.get(c, 0) + 1
+
+        for i, v in enumerate(s):
+            if d[v] == 1:
+                return i
+
+        return -1
+
+
