@@ -28,7 +28,7 @@ class Solution1(object):
         :type k: int
         :rtype: int
 
-        现在打算只维护一个容量为k的最大堆，最终堆顶的值就是结果
+        现在打算只维护一个容量为k的小顶堆，最终堆顶的值就是结果
         https://love.ranshy.com/heapq-%E5%A0%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/
 
         """
