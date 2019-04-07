@@ -47,6 +47,11 @@ class Solution(object):
         """
         :type head: ListNode
         :rtype: ListNode
+
+        快慢指针
+
+        在 python 中，while … else 在循环条件为 false 时执行 else 语句块
+
         """
         fast = slow = head
         while fast and fast.next:
