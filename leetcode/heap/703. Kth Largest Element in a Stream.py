@@ -67,6 +67,9 @@ class KthLargest1(object):
         """
         :type k: int
         :type nums: List[int]
+
+        https://love.ranshy.com/heapq-%E5%A0%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/
+
         """
         self.k = k
         self.heap = nums
