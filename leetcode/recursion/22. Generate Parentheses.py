@@ -35,7 +35,7 @@ class Solution(object):
     def _gen(self, left, right, n, result):
         if left == n and right == n:
             self.l.append(result)
-        return
+            return
 
         if left < n:
             self._gen(left + 1, right, n, result + '(')
