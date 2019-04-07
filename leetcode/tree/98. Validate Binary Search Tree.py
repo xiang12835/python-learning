@@ -44,10 +44,10 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        return self.isValidBSTRecu(root, float("-inf"), float("inf"))
+        return self.isValidBSTRecur(root, float("-inf"), float("inf"))
 
-    def isValidBSTRecu(self, root, low, high):
+    def isValidBSTRecur(self, root, low, high):
         if root is None:
             return True
 
-        return low < root.val and root.val < high and self.isValidBSTRecu(root.left, low, root.val) and self.isValidBSTRecu(root.right, root.val, high)
+        return low < root.val < high and self.isValidBSTRecur(root.left, low, root.val) and self.isValidBSTRecur(root.right, root.val, high)
