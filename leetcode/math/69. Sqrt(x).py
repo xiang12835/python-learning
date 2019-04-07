@@ -37,6 +37,7 @@ class Solution(object):
         :rtype: int
 
         牛顿迭代法
+        时间复杂度: O(logN) | 空间复杂度: O(1)
         """
         r = x
         while r * r > x:
@@ -51,20 +52,23 @@ class Solution1(object):
         :rtype: int
 
         迭代中的二分法
+        时间复杂度: O(logN) | 空间复杂度: O(1)
         """
-        if x < 1:
+        if x == 0 or x == 1:
             return x
 
-        l, r = 1, x
+        l = 1
+        r = x
+
         while l <= r:
-            mid = l + (r - l) / 2
-            sqrt = x / mid  # 技巧：通过取整避免解的精度问题
-            if sqrt == mid:
-                return mid
-            elif sqrt < mid:
-                r = mid - 1
+            m = (l + r) / 2
+            if m * m == x:
+                return m
+            elif m * m > x:
+                r = m - 1
             else:
-                l = mid + 1
+                l = m + 1
+        return r  # 当无整数平方根时，取小值
 
 
 if __name__ == "__main__":
