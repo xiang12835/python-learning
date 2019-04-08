@@ -37,3 +37,20 @@ class Solution(object):
         for i in range(num+1):
         	res.append(hammingWeight(i))
         return res
+
+
+class Solution1(object):
+    def countBits(self, num):
+        """
+        :type num: int
+        :rtype: List[int]
+
+        状态方程为 P(x) = P(x&(x-1)) + 1
+
+        """
+
+        res = [0] * (num + 1)
+        for i in xrange(1, num + 1):
+            res[i] = res[i & (i - 1)] + 1
+
+        return res
