@@ -119,7 +119,7 @@ class Solution1(object):
         board[i][j] = tmp
 
 
-class Solution:
+class Solution3(object):
     def exist(self, board, word):
         """
         :type board: List[List[str]]
