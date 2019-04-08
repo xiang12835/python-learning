@@ -57,8 +57,8 @@ class Solution(object):
 
         self.row, self.col = len(board), len(board[0])
 
-        for i in xrange(self.col):
-            for j in xrange(self.row):
+        for i in xrange(self.row):
+            for j in xrange(self.col):
                 if board[i][j] in root:
                     self.dfs(board, i, j, '', root)
 
@@ -74,10 +74,6 @@ class Solution(object):
         tmp, board[i][j] = board[i][j], '@'
         for k in xrange(4):
             x, y = i + self.dx[k], j + self.dy[k]
-            if 0 <= x < self.col and 0 <= y < self.row and board[i][j] != '@' and board[i][j] in cur_dict:
+            if 0 <= x < self.row and 0 <= y < self.col and board[x][y] != '@' and board[x][y] in cur_dict:
                 self.dfs(board, x, y, cur_word, cur_dict)
         board[i][j] = tmp
-
-
-
-
