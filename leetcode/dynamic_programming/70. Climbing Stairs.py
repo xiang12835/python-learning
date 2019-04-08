@@ -48,3 +48,33 @@ class Solution(object):
             l.append(l[-2] + l[-1])
 
         return l[-1]
+
+
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+
+        dp[n] = dp[n-1] + dp[n+2]
+
+        dp[0] = 1
+        dp[1] = 1
+
+        fibnacci数列
+
+        """
+        if n == 1:
+            return 1
+
+        x = 1
+        y = 1
+
+        r = 0
+
+        for _ in xrange(2, n + 1):
+            r = x + y
+
+            x = y
+            y = r
+        return r
