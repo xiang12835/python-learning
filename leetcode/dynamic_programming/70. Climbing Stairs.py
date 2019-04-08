@@ -50,7 +50,7 @@ class Solution(object):
         return l[-1]
 
 
-class Solution(object):
+class Solution1(object):
     def climbStairs(self, n):
         """
         :type n: int
