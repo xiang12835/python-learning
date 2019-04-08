@@ -36,6 +36,10 @@ class Solution(object):
         :type board: List[List[str]]
         :type words: List[str]
         :rtype: List[str]
+
+        cur_word：现在整个单词已经组装到什么位置了
+        cur_dict：剩余层级的字典树
+
         """
         if not board or not board[0]:
             return []
