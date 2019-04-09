@@ -127,17 +127,17 @@ def quick_sort2(lists, left, right):
     """
     if left >= right:
         return lists
-    val = lists[left]
+    pivot = lists[left]
     low = left
     high = right
     while left != right:
-        while left < right and lists[right] >= val:
+        while left < right and lists[right] >= pivot:
             right -= 1
         lists[left] = lists[right]
-        while left < right and lists[left] <= val:
+        while left < right and lists[left] <= pivot:
             left += 1
         lists[right] = lists[left]
-    lists[right] = val
+    lists[right] = pivot
     quick_sort2(lists, low, left - 1)
     quick_sort2(lists, left + 1, high)
     return lists
