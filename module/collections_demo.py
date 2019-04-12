@@ -64,6 +64,28 @@ print list(od.keys()) # 按照插入的Key的顺序返回
 # ['z', 'y', 'x']
 
 
+""" OrderedDict.popitem()
+
+OrderedDict.popitem()有一个可选参数last（默认为True），当last为True时它从OrderedDict中删除最后一个键值对并返回该键值对，当last为False时它从OrderedDict中删除第一个键值对并返回该键值对。
+
+"""
+
+# 不指定last（即为True）
+d = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+print(d)
+print(d.popitem())
+print(d)
+
+
+# 指定last为False
+d = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+print(d)
+print(d.popitem(last=False))
+print(d)
+
+
+
+
 
 # Counter是一个简单的计数器，例如，统计字符出现的个数：
 from collections import Counter
