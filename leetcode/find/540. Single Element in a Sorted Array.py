@@ -40,9 +40,6 @@ class Solution1(object):
 
         Time:  O(logn)
         Space: O(1)
-
-        Input: [3,3,7,7,10,11,11]
-        Output: 10
         """
         left, right = 0, len(nums) - 1
         while left <= right:
