@@ -16,3 +16,15 @@ for key, group in itertools.groupby('AAABBBCCAAA'):
 
 for key, group in itertools.groupby('AaaBBbcCAAa', lambda c: c.upper()):
     print key, list(group)
+
+
+
+"""
+迭代工具 - 排列 / 组合 / 笛卡尔积
+"""
+a = itertools.permutations('ABCD')
+print list(a)
+b = itertools.combinations('ABCDE', 3)
+print list(b)
+c = itertools.product('ABCD', '123')
+print list(c)
