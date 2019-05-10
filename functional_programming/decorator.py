@@ -167,3 +167,20 @@ def foo(n):
 print foo(2)
 print foo(3)
 
+
+
+# 例子：输出函数执行时间的装饰器。
+import time
+def timeit(func):
+  def wrapper():
+    start = time.clock()
+    func()
+    end =time.clock()
+    print 'used:', end - start
+    return wrapper
+
+@timeit
+def foo():
+  print 'in foo()'
+
+
