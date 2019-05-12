@@ -32,7 +32,7 @@ class Programmer(Employee):
 
     def __init__(self, name, working_hour=0):
         self.working_hour = working_hour
-        super().__init__(name)
+        super(Programmer, self).__init__(name)
 
     def get_salary(self):
         return 200.0 * self.working_hour
@@ -43,7 +43,7 @@ class Salesman(Employee):
 
     def __init__(self, name, sales=0.0):
         self.sales = sales
-        super().__init__(name)
+        super(Salesman, self).__init__(name)
 
     def get_salary(self):
         return 1800.0 + self.sales * 0.05
