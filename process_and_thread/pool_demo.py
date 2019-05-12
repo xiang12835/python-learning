@@ -48,10 +48,10 @@ if __name__ == "__main__":
     pool = Pool(8)
     pool.map(test, lists)
     pool.close()
-pool.join()
+    pool.join()
 
 
-'''  异步进程池（非阻塞）
+"""  异步进程池（非阻塞）
 
 from multiprocessing import Pool
 
@@ -96,4 +96,4 @@ if __name__ == "__main__":
     pool.close()
     pool.join()
 
-'''
+"""
