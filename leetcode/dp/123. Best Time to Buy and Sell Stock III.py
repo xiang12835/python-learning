@@ -34,27 +34,30 @@ class Solution(object):
         """
         :type prices: List[int]
         :rtype: int
+
+        第一维表示第i天，第二维表示交易了多少次，第三维表示是否持有股票
+
         """
         if not prices:
             return 0
 
         n = len(prices)
         profit = [[[0 for _ in xrange(2)] for _ in xrange(3)] for _ in xrange(n)]
-        profit[0][0][0] = 0
-        profit[0][0][1] = -prices[0]
-        profit[0][1][0] = float("-inf")
-        profit[0][1][1] = float("-inf")
-        profit[0][2][0] = float("-inf")
+        profit[0][0][0] = 0  # 第0天不持有股票，无交易，收益为0
+        profit[0][0][1] = -prices[0]  # 第0天买入了一股，收益为-price[0]，注意，只有买了再卖了才算一笔交易
+        profit[0][1][0] = float("-inf")  # 第0天买了又卖，收益为0
+        profit[0][1][1] = float("-inf")  # 第0天买了又卖，再买
+        profit[0][2][0] = float("-inf")  # 第0天无论交易多少次，收益都为0
         profit[0][2][1] = float("-inf")
 
         for i in range(1, n):
-            profit[i][0][0] = profit[i-1][0][0]
+            profit[i][0][0] = profit[i-1][0][0]  # 不交易，不持有股票的情况下收益都是一样的
             profit[i][0][1] = max(profit[i-1][0][1], profit[i-1][0][0]-prices[i])
 
             profit[i][1][0] = max(profit[i-1][1][0], profit[i-1][0][1]+prices[i])
             profit[i][1][1] = max(profit[i-1][1][1], profit[i-1][1][0]-prices[i])
 
-            profit[i][2][0] = max(profit[i-1][2][0], profit[i-1][1][1]+prices[i])
+            profit[i][2][0] = max(profit[i-1][2][0], profit[i-1][1][1]+prices[i])  # 表示，要么不动，要么就是已经交易了一次，前一天还持有一只股，将它卖掉
 
         return max(profit[n-1][0][0], profit[n-1][1][0], profit[n-1][2][0])
 
