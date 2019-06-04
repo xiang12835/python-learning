@@ -31,3 +31,21 @@ class Solution(object):
                 count = 0
             r = max(r, count)
         return r
+
+
+class Solution1(object):
+    def findMaxConsecutiveOnes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        r = 0
+        counter = 0
+        for n in nums:
+            if n == 1:
+                counter += 1
+            else:
+                r = max(r, counter)
+                counter = 0
+
+        return max(r, counter)
