@@ -41,6 +41,20 @@ class Solution(object):
                 return i
 
 
+class Solution1(object):
+    def firstMissingPositive(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        r = 1
+        while True:
+            if r not in nums:
+                return r
+            else:
+                r += 1
+
+
 if __name__ == '__main__':
     s = Solution()
     l = [1]
