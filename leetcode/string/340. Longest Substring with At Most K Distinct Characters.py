@@ -27,18 +27,19 @@ class Solution(object):
         import collections
 
         lookup = collections.defaultdict(int)
-        l, r, counter, res = 0, 0, 0, 0
-        while r < len(s):
-            lookup[s[r]] += 1
-            if lookup[s[r]] == 1:
+        fast, slow, counter, res = 0, 0, 0, 0
+        n = len(s)
+        while fast < n:
+            lookup[s[fast]] += 1
+            if lookup[s[fast]] == 1:
                 counter += 1
-            r += 1   # end 永远指向下一个待处理的字符
-            while l < r and counter > k:
-                lookup[s[l]] -= 1
-                if lookup[s[l]] == 0:
+            fast += 1   # fast 永远指向下一个待处理的字符
+            while slow < fast and counter > k:
+                lookup[s[slow]] -= 1
+                if lookup[s[slow]] == 0:
                     counter -= 1
-                l += 1
-            res = max(res, r - l)  # 因此这里是r-l而不是r-l+1
+                slow += 1
+            res = max(res, fast - slow)  # 因此这里是 fast - slow 而不是 fast - slow + 1
         return res
 
 
