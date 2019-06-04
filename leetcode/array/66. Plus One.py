@@ -13,11 +13,12 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
-        sum = 0
-        for i in digits:
-            sum = sum * 10 + i
+        s = 0
+        for digit in digits:
+            s = s * 10 + digit
 
-        return [int(i) for i in str(sum + 1)]
+        s += 1
+        return [int(i) for i in str(s)]
 
 
 if __name__ == '__main__':
