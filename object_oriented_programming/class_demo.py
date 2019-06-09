@@ -26,3 +26,37 @@ p.set(0, 0)
 print p.x, p.y
 Point.set(p, 1, 1)
 print p.x, p.y
+
+
+
+########## 类 ##########
+
+
+class Document():
+    def __init__(self, title, author, context):  # 构造函数，意即一个对象生成时会被自动调用的函数
+        print('init function called')
+        self.title = title  # 属性
+        self.author = author  # 属性
+        self.__context = context  # __ 开头的属性是私有属性。私有属性，是指不希望在类的函数之外的地方被访问和修改的属性
+
+    def get_context_length(self):  # 类的普通函数，我们调用它来对对象的属性做一些事情
+        return len(self.__context)
+
+    def intercept_context(self, length):  # 类的普通函数，我们调用它来对对象的属性做一些事情
+        self.__context = self.__context[:length]
+
+harry_potter_book = Document('Harry Potter', 'J. K. Rowling', '... Forever Do not believe any thing is capable of thinking independently ...')
+
+print(harry_potter_book.title)
+print(harry_potter_book.author)
+print(harry_potter_book.get_context_length())
+
+harry_potter_book.intercept_context(10)
+
+print(harry_potter_book.get_context_length())
+
+# print(harry_potter_book.__context)
+
+
+
+

@@ -126,3 +126,45 @@ class Date2(object):
 month = '13'
 if not Date2.is_month_validate(month):
     print '{} is a invalidate month number'.format(month)
+
+
+########## 类函数 & 成员函数 & 静态函数 ##########
+
+# 如何在一个类中定义一些常量，每个对象都可以方便访问这些常量而不用重新构造？
+# 如果一个函数不涉及到访问修改这个类的属性，而放到类外面有点不恰当，怎么做才能更优雅呢？
+# 既然类是一群相似的对象的集合，那么可不可以是一群相似的类的集合呢？
+
+class Document():
+    WELCOME_STR = 'Welcome! The context for this book is {}.'  # 第一个问题，在 Python 的类里，你只需要和函数并列地声明并赋值，就可以实现这一点，例如这段代码中的 WELCOME_STR。一种很常规的做法，是用全大写来表示常量，因此我们可以在类中使用 self.WELCOME_STR ，或者在类外使用 Entity.WELCOME_STR ，来表达这个字符串。
+
+    def __init__(self, title, author, context):
+        print('init function called')
+        self.title = title
+        self.author = author
+        self.__context = context
+
+    # 类函数
+    @classmethod
+    def create_empty_book(cls, title, author):
+        # 而类函数的第一个参数一般为 cls，表示必须传一个类进来。类函数最常用的功能是实现不同的 init 构造函数，比如上文代码中，我们使用 create_empty_book 类函数，来创造新的书籍对象，其 context 一定为'nothing'。
+        return cls(title=title, author=author, context='nothing')
+
+    # 成员函数
+    def get_context_length(self):
+        # 成员函数则是我们最正常的类的函数，它不需要任何装饰器声明，第一个参数 self 代表当前对象的引用，可以通过此函数，来实现想要的查询 / 修改类的属性等功能。
+        return len(self.__context)
+
+    # 静态函数
+    @staticmethod
+    def get_welcome(context):
+        # 一般而言，静态函数可以用来做一些简单独立的任务，既方便测试，也能优化代码结构。静态函数还可以通过在函数前一行加上 @staticmethod 来表示，代码中也有相应的示例。
+        return Document.WELCOME_STR.format(context)
+
+
+empty_book = Document.create_empty_book('What Every Man Thinks About Apart from Sex', 'Professor Sheridan Simove')
+
+print(empty_book.get_context_length())
+print(empty_book.get_welcome('indeed nothing'))
+
+
+
