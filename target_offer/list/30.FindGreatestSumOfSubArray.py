@@ -22,10 +22,12 @@ class Solution:
         cur_sum = max_sum = array[0]
         for v in array[1:]:
             cur_sum = max(v, cur_sum+v)
+            print "cur_sum -->", cur_sum
             max_sum = max(max_sum, cur_sum)
+            print "max_sum -->", max_sum
         return max_sum
 
 
 if __name__ == "__main__":
     s = Solution()
-    print s.FindGreatestSumOfSubArray([6,-3,-4,7,15,1,2,2])
+    print s.FindGreatestSumOfSubArray([6,-3,-2,7,-15,1,2,2])
