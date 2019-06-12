@@ -46,13 +46,15 @@ class Solution3:
             return []
 
         stack = []
-        r = []
         p = listNode
         while p:
             stack.append(p.val)
             p = p.next
+
+        r = []
         while stack:
             r.append(stack.pop())
+
         return r
 
 
