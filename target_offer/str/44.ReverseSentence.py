@@ -11,12 +11,12 @@
 class Solution:
     def ReverseSentence(self, s):
         # write code here
-        r = []
         s = s[::-1]
-        l = s.split(" ")
-        for el in l:
-            r.append(el[::-1])
-        return " ".join(r)
+        l = s.split(' ')
+        r = []
+        for word in l:
+            r.append(word[::-1])
+        return ' '.join(r)
 
 
 if __name__ == "__main__":

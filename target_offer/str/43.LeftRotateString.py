@@ -18,3 +18,8 @@ class Solution:
             l.append(l.pop(0))
         return "".join(l)
 
+
+class Solution1:
+    def LeftRotateString(self, s, n):
+        # write code here
+        return s[n:len(s)] + s[:n]
