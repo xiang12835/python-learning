@@ -30,3 +30,19 @@ class Solution:
             l.append(l[-2] + l[-1])
         return l[-1]
 
+
+class Solution1:
+    def jumpFloor(self, number):
+        # write code here
+        if number < 3:
+            return number
+
+        first = 1
+        second = 2
+
+        r = 0
+        for _ in xrange(3, number + 1):
+            r = first + second
+            first = second
+            second = r
+        return r

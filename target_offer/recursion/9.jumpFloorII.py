@@ -87,3 +87,25 @@ class Solution1:
 
         if number > 1:
             return 2*self.jumpFloorII(number-1)
+
+
+"""
+
+我想说，这青蛙真变态，真能跳。
+
+当n=1时，结果为1；
+当n=2时，结果为2；
+当n=3时，结果为4；
+以此类推，我们使用数学归纳法不难发现，跳法f(n)=2^(n-1)。
+
+"""
+
+class Solution2:
+    def jumpFloorII(self, number):
+        # write code here
+        if number <= 2:
+            return number
+        r = 1
+        for _ in xrange(number-1):
+            r *= 2
+        return r
