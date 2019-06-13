@@ -30,6 +30,22 @@ class Solution:
         return True
 
 
+class Solution1:
+    def IsPopOrder(self, pushV, popV):
+        # write code here
+        if len(popV) == 0 or len(pushV) != len(popV):
+            return False
+        stack = []
+        for v in pushV:
+            stack.append(v)
+            while stack and stack[-1] == popV[0]:
+                stack.pop()
+                popV.pop(0)
+        if stack:
+            return False
+        return True
+
+
 if __name__ == "__main__":
     s = Solution()
     print s.IsPopOrder([1, 2, 3, 4, 5], [4, 5, 3, 2, 1])
