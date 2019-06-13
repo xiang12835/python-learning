@@ -44,3 +44,27 @@ class Solution:
         left_depth = self.TreeDepth(pRoot.left)
         right_depth = self.TreeDepth(pRoot.right)
         return max(left_depth, right_depth) + 1
+
+
+class Solution1:
+    def IsBalanced_Solution(self, pRoot):
+        # write code here
+        if not pRoot:
+            return True
+
+        left_depth = self.TreeDepth(pRoot.left)
+        right_depth = self.TreeDepth(pRoot.right)
+        if abs(left_depth - right_depth) > 1:
+            return False
+
+        return self.IsBalanced_Solution(pRoot.left) and self.IsBalanced_Solution(pRoot.right)
+
+    def TreeDepth(self, p):
+        if not p:
+            return 0
+
+        left_res = self.TreeDepth(p.left)
+        right_res = self.TreeDepth(p.right)
+
+        return max(left_res, right_res) + 1
+

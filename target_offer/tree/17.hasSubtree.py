@@ -24,7 +24,6 @@ class TreeNode:
 class Solution:
     def HasSubtree(self, pRoot1, pRoot2):
         # 判断根结点是否相等
-        # write code here
         if not pRoot1 or not pRoot2:
             return False
 
