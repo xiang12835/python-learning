@@ -21,28 +21,29 @@ class Solution:
         if not sequence:
             return False
 
-        length = len(sequence)
-        root = sequence[length-1]
+        n = len(sequence)
+        root = sequence[n - 1]
 
         # 在二叉搜索树中左子树节点小于根节点
-        for i in range(length):
-            if sequence[i] > root:
-                break
+        idx = 0
+        while sequence[idx] < root:
+            idx += 1
 
         # 二叉搜索树中右子树的节点都大于根节点
-        for j in range(i, length):
+        for j in xrange(idx, n):
             if sequence[j] < root:
                 return False
 
         # 判断左子树是否为二叉树
         left = True
-        if i > 0:
-            left = self.VerifySquenceOfBST(sequence[0:i])
+        if idx > 0:
+            left = self.VerifySquenceOfBST(sequence[:idx])
 
-        # 判断 右子树是否为二叉树
+        # 判断右子树是否为二叉树
         right = True
-        if i < length-1:
-            right = self.VerifySquenceOfBST(sequence[i:-1])
+        if idx < n - 1:
+            right = self.VerifySquenceOfBST(sequence[idx:-1])
+
         return left and right
 
 
