@@ -25,16 +25,16 @@ class Solution:
             return []
 
         r = []
-        node_stack = [pRoot]
-        while node_stack:
+        cur_stack = [pRoot]
+        while cur_stack:
             val_list = []
-            tmp_stack = []
-            for node in node_stack:
+            next_stack = []
+            for node in cur_stack:
                 val_list.append(node.val)
                 if node.left:
-                    tmp_stack.append(node.left)
+                    next_stack.append(node.left)
                 if node.right:
-                    tmp_stack.append(node.right)
-            node_stack = tmp_stack
+                    next_stack.append(node.right)
+            cur_stack = next_stack
             r.append(val_list)
         return r
