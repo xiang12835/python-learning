@@ -30,3 +30,4 @@ class Solution:
             self.d[char] += 1
         else:
             self.d[char] = 1
+s
