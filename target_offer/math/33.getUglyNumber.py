@@ -23,6 +23,6 @@ class Solution:
         while num % 3 == 0:
             num /= 3
         while num % 5 == 0:
-            num /=5
+            num /= 5
         return True if num == 1 else False
 
