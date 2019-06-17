@@ -32,16 +32,16 @@ class Solution1:
         if not array:
             return []
 
-        start = 0
-        end = len(array) - 1
+        left = 0
+        right = len(array) - 1
 
-        while start < end:
-            if sum([array[start], array[end]]) < tsum:
-                start += 1
-            elif sum([array[start], array[end]]) > tsum:
-                end -= 1
+        while left < right:
+            if sum([array[left], array[right]]) < tsum:
+                left += 1
+            elif sum([array[left], array[right]]) > tsum:
+                right -= 1
             else:
-                return [array[start], array[end]]
+                return [array[left], array[right]]
         return []
 
 
