@@ -20,29 +20,34 @@ class Solution:
         # write code here
         if not numbers:
             return False
+
         numbers = sorted(numbers)
-        gap_count = 0
+
         zero_count = 0
         for n in numbers:
             if n == 0:
                 zero_count += 1
 
         numbers = numbers[zero_count:]
-        if len(numbers) != len(set(numbers)):
+        if len(numbers) != len(set(numbers)):  # 有重复
             return False
+
         if len(numbers) == 1:
             return True
 
-        small = 0
-        big = 1
-        while big <= len(numbers) - 1:
-            diff = numbers[big] - numbers[small]
+        gap_count = 0
+        start = 0
+        end = 1
+        while end < len(numbers):
+            diff = numbers[end] - numbers[start]
             gap_count += diff - 1
-            small += 1
-            big += 1
+            start += 1
+            end += 1
 
         if gap_count == zero_count:
             return True
+        else:
+            return False
 
 
 if __name__ == "__main__":
