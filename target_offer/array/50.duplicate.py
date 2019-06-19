@@ -21,6 +21,33 @@ class Solution:
         return False
 
 
+
+"""
+还可以把当前序列当成是一个下标和下标对应值是相同的数组（时间复杂度为O(n),空间复杂度为O(1)）； 遍历数组，判断当前位的值和下标是否相等：
+"""
+
+class Solution1:
+    # 这里要特别注意~找到任意重复的一个值并赋值到duplication[0]
+    # 函数返回True/False
+    def duplicate(self, numbers, duplication):
+        # write code here
+        n = len(numbers)
+        if n == 0:
+            return False
+
+        for i in range(n):
+            if numbers[i] < 0 or numbers[i] > n - 1:
+                return False
+
+        for i in range(n):
+            while numbers[i] != i:
+                if numbers[i] == numbers[numbers[i]]:
+                    duplication[0] = numbers[i]
+                    return True
+                numbers[numbers[i]], numbers[i] = numbers[i], numbers[numbers[i]]
+        return False
+
+
 if __name__ == "__main__":
     s = Solution()
     print s.duplicate([2,1,3,1,4],duplication=[])
