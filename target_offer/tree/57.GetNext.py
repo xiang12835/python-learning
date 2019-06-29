@@ -14,7 +14,6 @@
 """
 
 
-# -*- coding:utf-8 -*-
 # class TreeLinkNode:
 #     def __init__(self, x):
 #         self.val = x
@@ -26,22 +25,22 @@
 class Solution:
     def GetNext(self, pNode):
         # write code here
-        if pNode == None:
-            return None
+        if not pNode:  # 二叉树为空，则返回空
+            return
 
-        if pNode.right:
-            pNode = pNode.right
-            while pNode:
-                if pNode.left == None:
+        if pNode.right:  # 节点右孩子存在
+            pNode = pNode.right  # 设置一个指针从该节点的右孩子出发
+            while pNode:  # 一直沿着指向左子结点的指针找到的叶子节点即为下一个节点
+                if not pNode.left:  # 叶子节点
                     return pNode
                 pNode = pNode.left
 
         while pNode:
-            if pNode.next:
-                if pNode.next.left == pNode:
+            if pNode.next:  # 没有右节点但有父节点
+                if pNode == pNode.next.left:  # 判断当前节点是否为父节点的左节点
                     return pNode.next
                 else:
-                    pNode = pNode.next
+                    pNode = pNode.next  # 若不是循环搜索父节点的父节点
             else:
                 break
 
