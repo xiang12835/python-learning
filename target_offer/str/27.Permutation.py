@@ -11,3 +11,26 @@
 
 
 """
+
+
+class Solution:
+    def Permutation(self, ss):
+        # write code here
+        if not ss:
+            return []
+
+        res = []
+        self.recursion(ss, res, '')
+        return sorted(set(res))
+
+    def recursion(self, ss, res, path):
+        if ss == '':
+            res.append(path)
+        else:
+            for i in xrange(len(ss)):
+                self.recursion(ss[:i] + ss[i + 1:], res, path + ss[i])
+
+
+if __name__ == '__main__':
+    ss = 'ab'
+    Solution().Permutation(ss)
