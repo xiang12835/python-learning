@@ -51,3 +51,5 @@ class Solution:
         if p.right:
             self.Mirror(p.right)
 
+        return root
+
