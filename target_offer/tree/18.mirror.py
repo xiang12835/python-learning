@@ -35,7 +35,7 @@ class TreeNode:
 
 
 class Solution:
-    # 返回镜像树的根节点
+    # 递归
     def Mirror(self, root):
         # write code here
         if not root:
