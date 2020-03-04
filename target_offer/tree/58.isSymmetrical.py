@@ -49,3 +49,57 @@ class Solution:
         if p1.val == p2.val and self.compare(p1.left, p2.right) and self.compare(p1.right, p2.left):
             return True
 
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution1(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        res = True
+        if root:
+            res = self.helper(root.left, root.right)
+        return res
+
+    def helper(self, A, B):
+        if A is None and B is None:
+            return True
+        if A is None or B is None:
+            return False
+        if A.val != B.val:
+            return False
+        return self.helper(A.left, B.right) and self.helper(A.right, B.left)
+
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution2(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root:
+            return True
+        return self.compare(root.left, root.right)
+
+    def compare(self, p1, p2):
+        if not p1 and not p2:
+            return True
+        if not p1 or not p2:
+            return False
+        if p1.val != p2.val:
+            return False
+        return self.compare(p1.left, p2.right) and self.compare(p1.right, p2.left)
