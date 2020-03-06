@@ -12,6 +12,37 @@
 """
 
 
+class Solution(object):
+    def findContinuousSequence(self, target):
+        """
+        :type target: int
+        :rtype: List[List[int]]
+
+        滑动窗口：只有 右边界向右移动（扩大窗口） 和 左边界向右移动（缩小窗口） 两个操作
+
+        左闭右开
+
+        T: O(n)
+        """
+        start = 1
+        end = 1
+        s = 0
+
+        ans = []
+        while start <= target / 2:
+            if s < target:  # 右移
+                s += end
+                end += 1
+            elif s > target:  # 左移
+                s -= start
+                start += 1
+            else:
+                ans.append(range(start, end))
+                s -= start
+                start += 1
+        return ans
+
+
 class Solution:
     def FindContinuousSequence(self, tsum):
         # write code here
