@@ -30,3 +30,19 @@ class Solution:
             self.d[char] += 1
         else:
             self.d[char] = 1
+
+
+class Solution1(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        ss = set()
+        for c in s:
+            if c not in ss and s.count(c) == 1:
+                return c
+
+            ss.add(c)
+
+        return ' '
