@@ -43,7 +43,7 @@ class Solution(object):
         return ans
 
 
-class Solution:
+class Solution0:
     def FindContinuousSequence(self, tsum):
         # write code here
         start = 1
