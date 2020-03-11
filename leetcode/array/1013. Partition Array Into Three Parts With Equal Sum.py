@@ -53,7 +53,7 @@ class Solution(object):
             return False
 
         j = i + 1
-        while j + 1 < n:  # 注意，为什么？
+        while j + 1 < n:  # 注意，因为只算前两个数组，第三个不用算，但是不能为空。
             cur_sum += A[j]
             if cur_sum == target_sum * 2:
                 return True
