@@ -10,6 +10,14 @@
 class Solution:
     # matrix类型为二维列表，需要返回列表
     def printMatrix(self, matrix):
+        """
+        思路：可以将矩阵看成若干层，首先打印最外层的元素，其次打印次外层的元素，直到打印最内层的元素。
+        T：O(mn)，其中 mm 和 nn 分别是输入矩阵的行数和列数。矩阵中的每个元素都要被访问一次。
+        S：O(1)。除了输出数组以外，空间复杂度是常数。
+
+        :param matrix:
+        :return:
+        """
         # write code here
         if not matrix:
             return []
