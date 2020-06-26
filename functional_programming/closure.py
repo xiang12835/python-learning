@@ -1,6 +1,6 @@
 # coding=utf-8
 
-'''
+''' 函数的嵌套 + 返回一个函数 + 内部函数引用外部函数的变量
 相关参数和变量都保存在返回的函数中，这种称为“闭包（Closure）”的程序结构拥有极大的威力
 
 返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。
@@ -9,6 +9,22 @@
 
 返回一个函数时，牢记该函数并未执行，返回函数中不要引用任何可能会变化的变量。
 '''
+
+
+def counter(a=0):
+    cnt = [a]
+    def add_one():
+        cnt[0] += 1
+        return cnt[0]
+    return add_one
+
+num5 = counter(5)
+print num5()
+print num5()
+print num5()
+
+
+
 
 # 一个闭包问题
 def count():
@@ -38,3 +54,6 @@ def count():
 f1, f2, f3 = count()
 
 print f1(), f2(), f3()
+
+
+
