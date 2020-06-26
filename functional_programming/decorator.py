@@ -2,6 +2,25 @@
 
 import functools
 
+import time
+
+def timer(func):
+    def wapper():
+        start_time = time.time()
+        func()
+        end_time = time.time()
+        print '运行时间是 %s 秒' % (end_time-start_time)
+    return wapper
+
+@timer
+def i_can_sleep():
+    time.sleep(3)
+
+
+i_can_sleep() # 相当于执行了语句 i_can_sleep = timer(i_can_sleep)
+
+
+
 def log(func):
     @functools.wraps(func) # 相当于wrapper.__name__ = func.__name__，否则，有些依赖函数签名的代码执行就会出错
     def wrapper(*args, **kw):  # wrapper()函数可以接受任意参数的调用
