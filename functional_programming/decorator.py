@@ -2,8 +2,10 @@
 
 import functools
 
-import time
 
+# 1.不带参数的函数添加装饰器
+print '=====1.不带参数的函数添加装饰器====='
+import time
 def timer(func):
     def wapper():
         start_time = time.time()
@@ -18,6 +20,52 @@ def i_can_sleep():
 
 
 i_can_sleep() # 相当于执行了语句 i_can_sleep = timer(i_can_sleep)
+
+
+
+# 2. 带参数的函数添加装饰器
+print '=====2. 带参数的函数添加装饰器====='
+def tips(func):
+    def wapper(a,b):
+        print 'start!'
+        func(a,b)
+        print 'end!'
+    return wapper
+
+@tips
+def add(a,b):
+    print a+b
+
+@tips
+def sub(a,b):
+    print a-b
+
+add(3,5)
+sub(3,5)
+
+
+# 3. 装饰器也带参数
+print "=====3. 装饰器也带参数====="
+def tips_new(args):
+    def tips(func):
+        def wapper(a,b):
+            print 'start!'
+            print 'args:', args
+            func(a,b)
+            print 'end!'
+        return wapper
+    return tips
+
+@tips_new('add')
+def add(a,b):
+    print a+b
+
+@tips_new('sub')
+def sub(a,b):
+    print a-b
+
+add(3,5)
+sub(3,5)
 
 
 
