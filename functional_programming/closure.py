@@ -11,6 +11,7 @@
 '''
 
 
+# 实现函数的计数器
 def counter(a=0):
     cnt = [a]
     def add_one():
@@ -24,6 +25,12 @@ print num5()
 print num5()
 
 
+# 实现 a * x + b = y
+def a_line(a, b):
+    return lambda x:a*x+b
+
+line1 = a_line(3,5)
+print line1(10)
 
 
 # 一个闭包问题
