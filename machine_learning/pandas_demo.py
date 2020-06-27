@@ -83,3 +83,23 @@ print frame3
 print frame3.T
 
 
+obj4 = Series([4.5, 7.2, -5.3, 3.6], index=['b', 'd', 'c', 'a'])
+
+obj5 = obj4.reindex(['a', 'b', 'c', 'd', 'e'])
+print obj5
+
+# 对缺失的值进行填充
+obj5 = obj4.reindex(['a', 'b', 'c', 'd', 'e'], fill_value=0)
+print obj5
+
+obj6 = Series(['blue', 'purple', 'yellow'], index=[0, 2, 4])
+print obj6
+
+# 将前面的值进行填充
+print obj6.reindex(range(6),method='ffill')
+
+# 将后面的值进行填充
+print obj6.reindex(range(6),method='bfill')
+
+
+
