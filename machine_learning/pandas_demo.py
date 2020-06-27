@@ -44,3 +44,42 @@ print obj3
 obj3.index = ['bj', 'gz', 'sh', 'sz']
 print obj3
 
+
+data = {'city': ['shanghai', 'shanghai', 'shanghai', 'beijing', 'beijing'],
+        'year': [2016, 2017, 2018, 2017, 2018],
+        'pop': [1.5, 1.7, 3.6, 2.4, 2.9]}
+
+frame = DataFrame(data)
+
+# 排序
+frame2 = DataFrame(data, columns=['year', 'city', 'pop'])
+
+
+print frame
+print frame2
+
+# 将二维转一维
+print frame2['city']
+print frame2.year
+
+# 增加新列
+frame2['new'] = 100
+print(frame2)
+
+
+# 通过计算，生成新列
+frame2['cap'] = frame2.city == 'beijing'
+print(frame2)
+
+
+pop = {'beijing': {2008: 1.5, 2009: 2.0},
+       'shanghai': {2008: 2.0, 2009: 3.6}
+       }
+
+frame3 = DataFrame(pop)
+print frame3
+
+# 行列互换，转置
+print frame3.T
+
+
