@@ -34,3 +34,19 @@ print np.ones((3,5))
 
 # 矩阵置为空值
 print np.empty((2,3,4))
+
+# 索引
+print np.arange(10)
+
+arr4 = np.arange(10)
+print arr4[5]
+
+# 切片
+arr4[5:8] = 10
+print arr4
+
+arr4_slice = arr4[5:8].copy()
+arr4_slice[:] = 15
+print arr4_slice
+print arr4
+
