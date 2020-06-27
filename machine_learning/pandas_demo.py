@@ -102,4 +102,4 @@ print obj6.reindex(range(6),method='ffill')
 print obj6.reindex(range(6),method='bfill')
 
 
-
+# 删除
