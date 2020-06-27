@@ -129,3 +129,22 @@ print data3
 print data2.fillna(0, inplace=True)  # 对原有的数据进行修改
 print data2
 
+
+# 层次化索引
+import numpy as np
+data3 = Series(np.random.randn(10),
+               index=[['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'd', 'd'],
+                      [1, 2, 3, 1, 2, 3, 1, 2, 2, 3]])
+
+print data3
+
+print data3['b']
+
+print data3['b':'c']
+
+
+# 一维转二维
+print data3.unstack()
+
+# 二维转一维
+print data3.unstack().stack()
