@@ -121,3 +121,11 @@ data2[4] = NA
 print data2
 print data2.dropna(axis=1, how='all')  # 删掉全是 NA 的列
 
+# 对缺失值进行填补
+data3 = data2.fillna(0)  # 修改的副本
+print data2
+print data3
+
+print data2.fillna(0, inplace=True)  # 对原有的数据进行修改
+print data2
+
