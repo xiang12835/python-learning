@@ -21,3 +21,16 @@ print arr1 * 10
 arr3 = np.array([[1,2,3],[2,3,4]])
 print arr3
 print arr3.dtype
+
+
+# 一维矩阵，默认值都为0
+print np.zeros(10)
+
+# 三行五列的矩阵，默认值都为0
+print np.zeros((3,5))
+
+# 三行五列的矩阵，默认值都为1
+print np.ones((3,5))
+
+# 矩阵置为空值
+print np.empty((2,3,4))
