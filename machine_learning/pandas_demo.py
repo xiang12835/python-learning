@@ -102,4 +102,22 @@ print obj6.reindex(range(6),method='ffill')
 print obj6.reindex(range(6),method='bfill')
 
 
-# 删除
+# 在 Series 中的删除缺失值
+from numpy import nan as NA
+data = Series([1, NA, 2])
+print data
+print data.dropna()
+
+
+#  在 DataFrame 中的删除缺失值
+data2 = DataFrame([[1., 6.5, 3], [1., NA, NA], [NA, NA, NA]])
+
+print data2
+print data2.dropna()  # 只要出现 NA，都会删掉
+
+print data2.dropna(how='all')  # 删掉全是 NA 的行
+
+data2[4] = NA
+print data2
+print data2.dropna(axis=1, how='all')  # 删掉全是 NA 的列
+
