@@ -20,12 +20,17 @@ Note:
 
 """
 
+
 class Solution(object):
     def findLength(self, A, B):
         """
         :type A: List[int]
         :type B: List[int]
         :rtype: int
+
+        令 dp[i][j] 表示 A[i:] 和 B[j:] 的最长公共前缀，那么答案即为所有 dp[i][j] 中的最大值。如果 A[i] == B[j]，那么 dp[i][j] = dp[i + 1][j + 1] + 1，否则 dp[i][j] = 0。
+
+        考虑到这里 dp[i][j] 的值从 dp[i + 1][j + 1] 转移得到，所以我们需要倒过来，首先计算 dp[len(A) - 1][len(B) - 1]，最后计算 dp[0][0]。
 
         T：O(N×M)
         S：O(N×M)
