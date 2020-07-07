@@ -27,6 +27,8 @@ class Solution(object):
         left 已经使用了的左括号的个数
         right 已经使用了的右括号的个数
 
+        T：O(2^n)
+
         """
         self.l = []
         self._gen(0, 0, n, "")
