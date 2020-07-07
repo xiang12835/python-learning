@@ -40,5 +40,34 @@ class Solution(object):
         if left < n:
             self._gen(left + 1, right, n, result + '(')
 
-        if right < n and right < left:
+        if right < n and right < left:  # 右括号没用完，右括号要比左括号少
             self._gen(left, right + 1, n, result + ')')
+
+
+class Solution1(object):
+    def generateParenthesis(self, n):
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        self.l = []
+        self._gen(0, 2*n, "")
+        return self.l
+
+    def _gen(self, level, max, s):
+        # terminator
+        if level >= max:
+            self.l.append(s)
+            return
+
+        # process current logic: left, right
+
+        # drill down
+        self._gen(level + 1, max, s + '(')
+        self._gen(level + 1, max, s + ')')
+
+        # reverse states
+
+
+if __name__ == "__main__":
+    print Solution1().generateParenthesis(3)
