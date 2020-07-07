@@ -39,7 +39,7 @@ class Solution(object):
             self.l.append(result)
             return
 
-        if left < n:
+        if left < n:  # left 随时可以加，只要别超标
             self._gen(left + 1, right, n, result + '(')
 
         if right < n and right < left:  # 右括号没用完，右括号要比左括号少
