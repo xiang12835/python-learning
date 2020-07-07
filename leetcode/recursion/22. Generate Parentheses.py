@@ -69,6 +69,7 @@ class Solution1(object):
         self._gen(level + 1, max, s + ')')
 
         # reverse states
+        # 局部变量，自己会清除，非全局变量，无需清除
 
 
 if __name__ == "__main__":
