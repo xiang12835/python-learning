@@ -994,8 +994,8 @@ python manage.py migrate content --db-dry-run --verbosity=2
 
 ### 添加非本地的SQL，手动添加
 ```bash
-$ ssh 10.100.27.174
-$ mysql -uwireless-admin -h10.100.56.81 -p1LytSCuf5tFZ
+$ ssh 10.xx.27.xx
+$ mysql -uwireless-admin -h10.xx.56.xx -p1LxxSCuxxtFZ
 ```
 
 ```sql
