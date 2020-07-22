@@ -39,3 +39,34 @@ class Solution1:
                 return rotateArray[i+1]
 
         return rotateArray[0]
+
+
+class Solution2(object):
+    def minArray(self, numbers):
+        """
+        :type numbers: List[int]
+        :rtype: int
+
+        二分查找
+
+        T：平均时间复杂度为 O(log n)
+        S：O(1)
+        """
+        l = 0
+        r = len(numbers) - 1
+
+        while l < r:
+            mid = l + (r - l) / 2
+            if numbers[mid] > numbers[r]:
+                l = mid + 1
+            elif numbers[mid] < numbers[r]:
+                r = mid
+            else:
+                r -= 1
+
+        return numbers[r]
+
+
+if __name__ == "__main__":
+    print Solution2().minArray([3,4,5,1,2])
+    print Solution2().minArray([2,2,2,0,1])
