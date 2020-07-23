@@ -1,3 +1,5 @@
+# coding=utf-8
+
 """
 Given a binary tree, find its minimum depth.
 
@@ -17,6 +19,13 @@ class Solution(object):
         """
         :type root: TreeNode
         :rtype: int
+
+
+        递归
+
+        时间复杂度：我们访问每个节点一次，时间复杂度为 O(N)，其中 N 是节点个数。
+        空间复杂度：最坏情况下，整棵树是非平衡的，例如每个节点都只有一个孩子，递归会调用 N（树的高度）次，因此栈的空间开销是 O(N) 。但在最好情况下，树是完全平衡的，高度只有 log(N)，因此在这种情况下空间复杂度只有 O(log(N)) 。
+
         """
         if not root:
             return 0
