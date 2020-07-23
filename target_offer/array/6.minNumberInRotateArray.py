@@ -49,7 +49,7 @@ class Solution2(object):
 
         二分查找
 
-        T：平均时间复杂度为 O(log n)
+        T：O(log n)
         S：O(1)
         """
         l = 0
