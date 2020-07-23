@@ -31,18 +31,3 @@ class Solution(object):
         else:
             return min(right, left) + 1
 
-
-class Solution1(object):
-    def minDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        if not root:
-            return 0
-
-        l = self.minDepth(root.left)
-        r = self.minDepth(root.right)
-
-        return min(l, r) + 1
-
