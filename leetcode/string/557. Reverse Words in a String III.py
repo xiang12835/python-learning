@@ -21,3 +21,10 @@ class Solution(object):
             l.append(word[::-1])
         return " ".join(l)
 
+
+
+
+class Solution1:
+    def reverseWords(self, s):
+        return ' '.join(s.split(' ')[::-1])[::-1]
+
