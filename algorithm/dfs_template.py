@@ -9,7 +9,7 @@ def dfs(node):
     # process current node here
 
     for next_node in node.children():
-        if not not next_node in visited:
+        if not next_node in visited:
             dfs(next_node)
 
 
