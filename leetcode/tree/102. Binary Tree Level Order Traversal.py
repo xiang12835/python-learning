@@ -69,6 +69,11 @@ class Solution1(object):
 		"""
 		:type root: TreeNode
 		:rtype: List[List[int]]
+
+
+        时间复杂度：每个点进队出队各一次，故渐进时间复杂度为 O(n)。
+        空间复杂度：队列中元素的个数不超过 n 个，故渐进空间复杂度为 O(n)。
+
 		"""
 		if not root:
 			return []
