@@ -26,18 +26,19 @@ class Solution1(object):
         """
         :type nums: List[int]
         :rtype: int
-        # nums[0,i]为非重复数列
+        nums[0,i]为非重复数列
+        快慢指针
+        T: O(n)
+        S: O(1)
         """
-        length = len(nums)
-        if length == 0 or length == 1:
-            return length
+        j = 0
+        n = len(nums)
+        for i in range(1, n):
+            if nums[i] != nums[j]:
+                j += 1
+                nums[j] = nums[i]
 
-        index = 0
-        for i in xrange(1, len(nums)):
-            if nums[i] != nums[index]:
-                index += 1
-                nums[index] = nums[i]
-        return index + 1
+        return j + 1
 
 
 if __name__ == '__main__':
