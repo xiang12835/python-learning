@@ -16,7 +16,7 @@ class Node(object):
         self.nxt = None
 
 
-class Solution(object):
+class Solution1(object):
     def mergeTwoLists(self, l1, l2):
         """
         :type l1: ListNode
@@ -43,3 +43,31 @@ class Solution(object):
             tmp.nxt = l2
 
         return head.nxt
+
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution2:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """
+        法二：递归
+        两个链表头部值较小的一个节点与剩下元素的 merge 操作结果合并。
+        T: O(m+n)
+        S: O(m+n)
+        """
+
+        if not l1:
+            return l2
+        if not l2:
+            return l1
+
+        if l1.val < l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
