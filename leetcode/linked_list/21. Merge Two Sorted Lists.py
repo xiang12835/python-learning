@@ -22,7 +22,9 @@ class Solution(object):
         :type l1: ListNode
         :type l2: ListNode
         :rtype: ListNode
-        哨兵
+        迭代法 + 哨兵
+        T: O(m+n)
+        S: O(1)
         """
         head = tmp = Node(-1)
 
