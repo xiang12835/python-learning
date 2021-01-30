@@ -34,6 +34,9 @@ class Solution1(object):
         :rtype: void Do not return anything, modify nums in-place instead.
         一旦遇到不是0的就把它往前移动，移动非0完成，剩下的全部填0，看例子
 
+        T: O(n)
+        S: O(1)
+
         """
         idx = 0
         for i in xrange(len(nums)):
@@ -53,6 +56,9 @@ class Solution2(object):
         :rtype: void Do not return anything, modify nums in-place instead.
 
         快慢指针
+
+        T: O(n)
+        S: O(1)
         """
         slow = 0
         fast = 0
