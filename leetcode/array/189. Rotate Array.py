@@ -29,3 +29,17 @@ class Solution1(object):
         """
         for i in xrange(k):
             nums.insert(0, nums.pop())
+
+
+class Solution2:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        T: O(n)
+        S: O(1)
+        """
+        if not nums:
+            return []
+
+        n = len(nums)
+        nums[:] = nums[n - k:] + nums[:n - k]
