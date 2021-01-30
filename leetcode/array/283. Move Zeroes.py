@@ -102,3 +102,14 @@ class Solution3(object):
             if nums[i] != 0:
                 nums[i], nums[j] = nums[j], nums[i]
                 j += 1
+
+class Solution4(object):
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        for n in nums[:]:
+            if n == 0:
+                nums.remove(n)
+                nums.append(n)
