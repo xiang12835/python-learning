@@ -30,17 +30,22 @@ class Solution(object):
         """
         :type root: TreeNode
         :rtype: List[int]
+
+        递归：树的中序遍历就是dfs
+
+        T: O(n)
+        S: O(h)
         """
         res = []
 
-        def helper(root):
+        def dfs(root):
             if not root:
                 return
-            helper(root.left)
+            dfs(root.left)
             res.append(root.val)
-            helper(root.right)
+            dfs(root.right)
 
-        helper(root)
+        dfs(root)
 
         return res
 
