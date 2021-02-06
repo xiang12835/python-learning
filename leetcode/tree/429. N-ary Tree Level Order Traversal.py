@@ -31,3 +31,28 @@ class Solution:
                 queue.extend(node.children)
             res.append(cur)
         return res
+
+
+class Solution1:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        """
+        双端队列
+
+        T: O(n)
+        S: O(n)
+        """
+        from collections import deque
+
+        if not root:
+            return
+
+        res = []
+        queue = deque([root])
+        while queue:
+            cur = []
+            for _ in range(len(queue)):
+                node = queue.popleft()
+                cur.append(node.val)
+                queue.extend(node.children)
+            res.append(cur)
+        return res
