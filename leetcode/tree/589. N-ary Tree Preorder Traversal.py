@@ -1,5 +1,3 @@
-# coding=utf-8
-
 """
 # Definition for a Node.
 class Node:
@@ -22,7 +20,7 @@ class Solution:
             if not root:
                 return
             res.append(root.val)
-            for child in root.childen:
+            for child in root.children:
                 dfs(child)
         dfs(root)
         return res
