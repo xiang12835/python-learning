@@ -13,9 +13,11 @@ class Solution:
         found = 0
         num = 0
         while found < index:
+            num += 1
             if self.isUgly(num):
                 found += 1
-            num += 1
+
+        return num
 
     def isUgly(self, num):
         while num % 2 == 0:
@@ -26,3 +28,6 @@ class Solution:
             num /= 5
         return True if num == 1 else False
 
+if __name__ == "__main__":
+    s = Solution()
+    print s.GetUglyNumber_Solution(10)
