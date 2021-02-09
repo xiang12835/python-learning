@@ -36,6 +36,17 @@ class Solution(object):
         """
         :type n: int
         :rtype: int
+
+        DP
+
+        dp[n] = dp[n-1] + dp[n-2]
+
+        dp[1] = 1
+        dp[2] = 2
+
+
+        T: O(n)
+        S: O(n)
         """
         if n == 1:
             return 1
@@ -56,23 +67,28 @@ class Solution1(object):
         :type n: int
         :rtype: int
 
-        dp[n] = dp[n-1] + dp[n+2]
-
-        dp[0] = 1
-        dp[1] = 1
-
         fibnacci数列
 
+        DP
+
+        dp[n] = dp[n-1] + dp[n-2]
+
+        dp[1] = 1
+        dp[2] = 2
+
+        T: O(n)
+        S: O(1)
+
         """
-        if n == 1:
-            return 1
+        if n < 3:
+            return n
 
         x = 1
-        y = 1
+        y = 2
 
         r = 0
 
-        for _ in xrange(2, n + 1):
+        for _ in xrange(3, n + 1):
             r = x + y
 
             x = y
