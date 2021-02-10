@@ -22,24 +22,37 @@ Output:
 """
 
 
-class Solution(object):
-    def subsets(self, nums):
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+
         """
-        :type nums: List[int]
-        :rtype: List[List[int]]
+        2.顺序考虑，仅考虑选择的元素
         """
 
-        res = []
-        self.helper(0, [], nums, res)
-        return res
+        self.res = []
+        self.backtrack([], 0, nums)
 
-    def helper(self, i, tmp, nums, res):
-        res.append(tmp)
-        for j in range(i, len(nums)):
-            self.helper(j + 1, tmp + [nums[j]], nums, res)
+        return self.res
+
+    def backtrack(self, sol, index, nums):
+        self.res.append(sol)
+
+        for i in range(index, len(nums)):
+            self.backtrack(sol + [nums[i]], i + 1, nums)
 
 
 class Solution1(object):
+
+    """
+    1.全部考虑，选或不选
+
+    以空集[]开始，从第一个元素开始考虑，它有三种选择，1,2,3，组成[1]，[2]，[3]
+    当第一个元素为1的时候，第二个元素可以选择的是1后面的元素2,3，组成[1,2]，[1,3]
+    当第二个元素为2的时候，此时[1,2]，第三个元素可以选择3，组成[1,2,3]
+    当第一个元素为2的时候，第二个元素可以选择3，组成[2,3]
+    结束遍历，获得组成的8个答案，这说明了有效结果是没有条件的，任何结果都是有效的
+
+    """
     def subsets(self, nums: List[int]) -> List[List[int]]:
         self.res = []
         self.backtrack([], 0, nums)
