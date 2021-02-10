@@ -31,19 +31,19 @@ class Solution(object):
 
         """
         self.l = []
-        self._gen(0, 0, n, "")
+        self._recursion(0, 0, n, "")
         return self.l
 
-    def _gen(self, left, right, n, result):
+    def _recursion(self, left, right, n, result):
         if left == n and right == n:
             self.l.append(result)
             return
 
         if left < n:  # left 随时可以加，只要别超标
-            self._gen(left + 1, right, n, result + '(')
+            self._recursion(left + 1, right, n, result + '(')
 
         if right < n and right < left:  # 右括号没用完，右括号要比左括号少
-            self._gen(left, right + 1, n, result + ')')
+            self._recursion(left, right + 1, n, result + ')')
 
 
 class Solution1(object):
