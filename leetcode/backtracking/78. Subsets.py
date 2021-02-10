@@ -39,6 +39,26 @@ class Solution(object):
             self.helper(j + 1, tmp + [nums[j]], nums, res)
 
 
+class Solution1(object):
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        self.res = []
+        self.backtrack([], 0, nums)
+        return self.res
+
+    def backtrack(self, l, index, nums):
+
+        # terminator
+        if index == len(nums):
+            self.res.append(l)
+            return
+
+        # pick the number at this index
+        self.backtrack(l + [nums[index]], index + 1, nums)
+
+        # not pick the number at this index
+        self.backtrack(l, index + 1, nums)
+
+
 if __name__ == "__main__":
     print Solution().subsets([1,2,3])
 
