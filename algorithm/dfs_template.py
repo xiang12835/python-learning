@@ -18,7 +18,7 @@ def dfs_stack(self, tree):
         return []
 
     visited = set()
-    stack = [tree.node]
+    stack = [tree.root]
 
     while stack:
         node = stack.pop()
