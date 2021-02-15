@@ -25,10 +25,10 @@ class Solution(object):
 
         used = [False for _ in range(size)]
         res = []
-        self.dfs(nums, size, 0, [], used, res)
+        self.backtrack(nums, size, 0, [], used, res)
         return res
 
-    def dfs(self, nums, size, depth, path, used, res):
+    def backtrack(self, nums, size, depth, path, used, res):
             if depth == size:
                 res.append(path[:])
                 return
@@ -39,7 +39,7 @@ class Solution(object):
                     path.append(nums[i])
 
                     print("  before => ", path)
-                    self.dfs(nums, size, depth + 1, path, used, res)
+                    self.backtrack(nums, size, depth + 1, path, used, res)
 
                     used[i] = False
                     path.pop()
