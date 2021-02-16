@@ -9,6 +9,13 @@
 #         self.right = right
 class Solution:
     def largestValues(self, root: TreeNode) -> List[int]:
+        """
+        bfs（队列）
+
+        T： O(N)，遍历树中所有节点。
+        S： DFS 是 O(Height)，为树的高度，最好完全二叉树 O(log(N))，最坏链表 O(N)；BFS 就是某层最大节点个数。
+
+        """
         if not root:
             return []
 
