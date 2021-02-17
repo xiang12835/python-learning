@@ -1,5 +1,7 @@
 # coding=utf-8
 
+import collections
+
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordList):
         """
@@ -16,7 +18,7 @@ class Solution(object):
         if beginWord in word_set:
             word_set.remove(beginWord)
         # 双端队列，图的广度优先遍历，必须使用队列和表示是否访问过的 visited 哈希表
-        queue = deque()
+        queue = collections.deque()
         queue.append(beginWord)
         visited = set(beginWord)
 
