@@ -21,6 +21,10 @@ class Solution(object):
         :type coins: List[int]
         :type amount: int
         :rtype: int
+
+        dp定义: 目标金额amount = i时， 至少需要dp[i]个硬币
+        T：O(N*amount) = O(N)
+        S：O(amount)
         """
         dp = [float('inf')] * (amount + 1)
         dp[0] = 0
