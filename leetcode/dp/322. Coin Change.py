@@ -25,10 +25,10 @@ class Solution(object):
         dp = [float('inf')] * (amount + 1)
         dp[0] = 0
 
-        for coin in coins:
-            for x in range(coin, amount + 1):
+        for coin in coins:  # 枚举硬币种数
+            for x in range(coin, amount + 1):  # 从小到大枚举金额，确保x - coin >= 0.
                 dp[x] = min(dp[x], dp[x - coin] + 1)
-        return dp[amount] if dp[amount] != float('inf') else -1
+        return dp[amount] if dp[amount] != float('inf') else -1  # 如果为inf说明状态不可达，返回-1即可。
 
 if __name__ == "__main__":
     print Solution().coinChange([1, 2, 5], 11)
