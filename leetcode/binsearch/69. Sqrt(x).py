@@ -52,6 +52,7 @@ class Solution1(object):
         :rtype: int
 
         二分查找
+        y = x ^ 2, (x>0): 抛物线，在y轴右侧，单调递增；上下界
 
         T: O(x)
         S: O(1)
