@@ -51,8 +51,10 @@ class Solution1(object):
         :type x: int
         :rtype: int
 
-        迭代中的二分法
-        时间复杂度: O(logN) | 空间复杂度: O(1)
+        二分查找
+
+        T: O(x)
+        S: O(1)
         """
         if x == 0 or x == 1:
             return x
