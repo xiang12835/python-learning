@@ -68,44 +68,7 @@ class Solution(object):
         return dummy.next
 
 
-class Solution1(object):
-    def mergeKLists(self, lists):
-        """
-        :type lists: List[ListNode]
-        :rtype: ListNode
-
-        n 是所有链表中元素的总和，k 是链表个数。
-
-        法二：类似归并排序/快排：分治 O(NlogK)
-        """
-        if not lists:
-            return None
-
-        # 通过mid将数组一分为二，并不断缩小规模，当规模为1时返回并开始合并
-        # 通过合并两个链表，不断增大其规模，整体看就是不断缩小-最后不断扩大的过程
-        def helper(begin, end):
-            if begin == end:
-                return lists[begin]
-            mid = begin + (end - begin) / 2
-            left = helper(begin, mid)
-            right = helper(mid + 1, end)
-            return merge(left, right)
-
-        # 合并两个有序链表
-        def merge(a, b):
-            if not (a and b):
-                return a if a else b
-            if a.val <= b.val:
-                a.next = merge(a.next, b)
-                return a
-            else:
-                b.next = merge(a, b.next)
-                return b
-
-        return helper(0, len(lists) - 1)
-
-
-class Solution2:
+class Solution1:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         """
         把三个链表一股脑的全放到堆里面，这是一个小根堆，我们只需要每次输出堆顶的元素，直到整个堆为空即可。
@@ -139,7 +102,7 @@ class Solution2:
 
 
 
-class Solution3(object):
+class Solution2(object):
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]
@@ -172,3 +135,50 @@ class Solution3(object):
         return dummy.next
 
 
+class Solution3(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+
+        n 是所有链表中元素的总和，k 是链表个数。
+
+        法二：类似归并排序/快排：分治 O(NlogK)
+
+        分治就是不断缩小其规模，再不断合并扩大的过程
+
+        https://pic.leetcode-cn.com/88d261465f1f21288dd23cef2f059297f5d053fc19805458a47ae1b05f3c0703-6.jpg
+        """
+        if not lists:
+            return None
+
+        # 通过mid将数组一分为二，并不断缩小规模，当规模为1时返回并开始合并
+        # 通过合并两个链表，不断增大其规模，整体看就是不断缩小-最后不断扩大的过程
+        def dc(begin, end):
+
+            # recursion terminator
+            if begin == end:
+                return lists[begin]
+
+            # divide
+            mid = begin + (end - begin) // 2
+
+            # conquer
+            left = dc(begin, mid)
+            right = dc(mid + 1, end)
+
+            # merge result
+            return merge(left, right)
+
+        # 合并两个有序链表
+        def merge(l1, l2):
+            if not (l1 and l2):
+                return l1 if l1 else l2
+            if l1.val <= l2.val:
+                l1.next = merge(l1.next, l2)
+                return l1
+            else:
+                l2.next = merge(l1, l2.next)
+                return l2
+
+        return dc(0, len(lists) - 1)
