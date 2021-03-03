@@ -105,39 +105,21 @@ class Solution1(object):
         return helper(0, len(lists) - 1)
 
 
-class Solution2(object):
-    def mergeKLists(self, lists):
-        """
-        :type lists: List[ListNode]
-        :rtype: ListNode
-
-        法三：堆、优先队列 O(NlogK)
-
-        哨兵；小顶堆
-        """
-        from heapq import heappush, heappop
-        nodes_pool = []
-        dummy = cur = ListNode(-1)
-        for head in lists:
-            if head:
-                heappush(nodes_pool, [head.val, head])
-        while nodes_pool:
-            smallest_node = heappop(nodes_pool)[1]
-            cur.next = smallest_node
-            cur = cur.next
-            if smallest_node.next:  # 将最小节点链表的下一个节点进堆
-                heappush(nodes_pool, [smallest_node.next.val, smallest_node.next])
-        return dummy.next
-
-
-class Solution3:
+class Solution2:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        """
+        把三个链表一股脑的全放到堆里面，这是一个小根堆，我们只需要每次输出堆顶的元素，直到整个堆为空即可。
+
+        T : O(NlogN)
+        S : O(N)
+
+        """
         if not lists:
             return
 
         import heapq
 
-        dummy = ListNode(None)
+        dummy = ListNode(-1)
         cur = dummy
 
         heap = []
@@ -154,5 +136,39 @@ class Solution3:
 
         return dummy.next
 
+
+
+
+class Solution3(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+
+        法三：堆排序的优化
+
+        T: O(NlogK)
+        S: O(K)
+
+        哨兵；小顶堆
+        """
+        import heapq
+
+        heap = []
+        dummy = cur = ListNode(-1)
+        # 这里不再是一股脑全部放到堆中，而是只把k个链表的第一个节点放入到堆中
+        for head in lists:
+            if head:
+                heapq.heappush(heap, [head.val, head])
+
+        # 之后不断从堆中取出节点
+        while heap:
+            smallest_node = heapq.heappop(heap)[1]
+            cur.next = smallest_node
+            cur = cur.next
+            # 如果这个节点还有下一个节点，将最小节点链表的下一个节点进堆
+            if smallest_node.next:
+                heapq.heappush(heap, [smallest_node.next.val, smallest_node.next])
+        return dummy.next
 
 
