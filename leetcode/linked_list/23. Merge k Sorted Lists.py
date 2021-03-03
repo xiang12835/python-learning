@@ -78,8 +78,31 @@ class Solution1(object):
 
         法二：类似归并排序/快排：分治 O(NlogK)
         """
+        if not lists:
+            return None
 
+        # 通过mid将数组一分为二，并不断缩小规模，当规模为1时返回并开始合并
+        # 通过合并两个链表，不断增大其规模，整体看就是不断缩小-最后不断扩大的过程
+        def helper(begin, end):
+            if begin == end:
+                return lists[begin]
+            mid = begin + (end - begin) / 2
+            left = helper(begin, mid)
+            right = helper(mid + 1, end)
+            return merge(left, right)
 
+        # 合并两个有序链表
+        def merge(a, b):
+            if not (a and b):
+                return a if a else b
+            if a.val <= b.val:
+                a.next = merge(a.next, b)
+                return a
+            else:
+                b.next = merge(a, b.next)
+                return b
+
+        return helper(0, len(lists) - 1)
 
 
 class Solution2(object):
@@ -105,5 +128,31 @@ class Solution2(object):
             if smallest_node.next:  # 将最小节点链表的下一个节点进堆
                 heappush(nodes_pool, [smallest_node.next.val, smallest_node.next])
         return dummy.next
+
+
+class Solution3:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        if not lists:
+            return
+
+        import heapq
+
+        dummy = ListNode(None)
+        cur = dummy
+
+        heap = []
+        # 首先 for 嵌套 while 就是将所有元素都取出放入堆中
+        for node in lists:
+            while node:
+                heapq.heappush(heap, node.val)
+                node = node.next
+
+        # 依次将堆中的元素取出(因为是小顶堆，所以每次出来的都是目前堆中值最小的元素），然后重新构建一个列表返回
+        while heap:
+            cur.next = ListNode(heapq.heappop(heap))
+            cur = cur.next
+
+        return dummy.next
+
 
 

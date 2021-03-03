@@ -26,21 +26,21 @@ class Solution1(object):
         T: O(m+n)
         S: O(1)
         """
-        head = tmp = Node(-1)
+        head = cur = Node(0)
 
         while l1 and l2:
             if l1.val < l2.val:
-                tmp.nxt = l1
+                cur.nxt = l1
                 l1 = l1.nxt
             else:
-                tmp.nxt = l2
+                cur.nxt = l2
                 l2 = l2.nxt
-            tmp = tmp.nxt
+            cur = cur.nxt
 
         if l1:
-            tmp.nxt = l1
+            cur.nxt = l1
         if l2:
-            tmp.nxt = l2
+            cur.nxt = l2
 
         return head.nxt
 
