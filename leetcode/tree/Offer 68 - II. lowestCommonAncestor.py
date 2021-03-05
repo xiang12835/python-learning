@@ -10,6 +10,13 @@
 class Solution:
     def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
         """
+        DFS
+
+        后序遍历
+
+        T: O(n)
+        S: O(n)
+
         先在找root的左子树的最近公共祖先得到返回值left， 再从右子树中查找最近公共祖先得到返回值right。
 
         若left为NULL，因为题目保证有解，所以答案必在右边
