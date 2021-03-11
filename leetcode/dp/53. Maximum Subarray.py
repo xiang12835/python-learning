@@ -31,14 +31,17 @@ class Solution1(object):
         """
         :type nums: List[int]
         :rtype: int
+
+        最大子序和 = 当前元素自身最大 or 加上之前后最大
+        dp[i] = max(nums[i], nums[i] + dp[i-1])
         """
         if len(nums) == 1:
             return nums[0]
 
         n = len(nums)
 
-        maxSum = [nums[0]] * n
+        dp = nums
         for i in xrange(1, n):
-            maxSum[i] = max(maxSum[i - 1] + nums[i], nums[i])
+            dp[i] = max(dp[i - 1] + nums[i], nums[i])
 
-        return max(maxSum)
+        return max(dp)
