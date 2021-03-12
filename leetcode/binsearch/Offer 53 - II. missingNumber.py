@@ -10,3 +10,13 @@ class Solution:
             else:
                 r = m - 1
         return l
+
+
+class Solution1(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        return sum(range(len(nums) + 1)) - sum(nums)
