@@ -67,30 +67,26 @@ class Solution1(object):
         :type n: int
         :rtype: int
 
-        fibnacci数列
-
         DP
-
-        dp[n] = dp[n-1] + dp[n-2]
-
-        dp[1] = 1
-        dp[2] = 2
 
         T: O(n)
         S: O(1)
 
+        fn = f1 + f2
+
+        思考：
+
+        1个，2个，3个台阶（easy)
+
+        相邻两步的步伐不能相同（medium）
         """
-        if n < 3:
-            return n
 
-        x = 1
-        y = 2
+        f1 = 1
+        f2 = 2
+        fn = 0
+        for i in range(3, n + 1):  # 易错
+            fn = f1 + f2
+            f1 = f2
+            f2 = fn
 
-        r = 0
-
-        for _ in xrange(3, n + 1):
-            r = x + y
-
-            x = y
-            y = r
-        return r
+        return fn
