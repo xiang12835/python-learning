@@ -84,7 +84,7 @@ class Solution1(object):
         f1 = 1
         f2 = 2
         fn = 0
-        for i in range(3, n + 1):  # 易错
+        for _ in range(3, n + 1):  # 易错
             fn = f1 + f2
             f1 = f2
             f2 = fn
