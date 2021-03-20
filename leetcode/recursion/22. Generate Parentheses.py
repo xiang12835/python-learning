@@ -73,4 +73,4 @@ class Solution1(object):
 
 
 if __name__ == "__main__":
-    print Solution1().generateParenthesis(3)
+    print Solution().generateParenthesis(2)
