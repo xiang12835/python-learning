@@ -15,6 +15,10 @@ class Solution(object):
         T：O(N * C^2)。其中 N 为 wordList 的长度，C 为列表中单词的平均长度。
         S：O(N * C^2)。其中 N 为 wordList 的长度，C 为列表中单词的平均长度。
 
+        法二：DFS
+
+        法三：Two-ended BFS
+
         """
         # 先将 wordList 放到哈希表里，便于判断某个单词是否在 wordList 里
         word_set = set(wordList)
