@@ -50,8 +50,8 @@ class Solution3(object):
 
         方法：栈
 
-        时间复杂度：O(n)O(n)，因为我们一次只遍历给定的字符串中的一个字符并在栈上进行 O(1)O(1) 的推入和弹出操作。
-空间复杂度：O(n)O(n)，当我们将所有的开括号都推到栈上时以及在最糟糕的情况下，我们最终要把所有括号推到栈上。例如 ((((((((((。
+        T：O(n)，因为我们一次只遍历给定的字符串中的一个字符并在栈上进行 O(1) 的推入和弹出操作。
+        S：O(n)，当我们将所有的开括号都推到栈上时以及在最糟糕的情况下，我们最终要把所有括号推到栈上。例如 (((((。
         """
         stack = []
         d = {')': '(', ']': '[', '}': '{'}
@@ -62,6 +62,25 @@ class Solution3(object):
                 val = stack.pop() if stack else '#'
                 if d[c] != val:
                     return False
+
+        return not stack
+
+
+class Solution4(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        d = {")": "(", "]": "[", "}": "{"}
+        for c in s:
+            if c in d:  # 右括号
+                if not stack or stack[-1] != d[c]:  # case1: ] case2: [}
+                    return False
+                stack.pop()
+            else:  # 左括号
+                stack.append(c)
 
         return not stack
 
