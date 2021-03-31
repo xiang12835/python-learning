@@ -28,6 +28,9 @@ import collections
 
 
 class LRUCache(object):
+    """
+    双向链表中，在后面的节点表示被最近访问
+    """
 
     def __init__(self, capacity):
         """
@@ -54,7 +57,6 @@ class LRUCache(object):
         :rtype: None
 
         OrderedDict.popitem()有一个可选参数last（默认为True），当last为True时它从OrderedDict中删除最后一个键值对并返回该键值对，当last为False时它从OrderedDict中删除第一个键值对并返回该键值对。
-
         """
         if key in self.dic:
             self.dic.pop(key)
