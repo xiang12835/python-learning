@@ -138,6 +138,25 @@ class Solution1(object):
         return r
 
 
+class Solution2:
+    def myAtoi(self, s: str) -> int:
+        s = s.strip()
+        if not s:
+            return 0
+
+        ls = list(s)
+        sign = -1 if ls[0] == '-' else 1
+        if ls[0] in ['-','+']:
+            del ls[0]
+
+        r, i = 0, 0
+        while i < len(ls) and ls[i].isdigit():
+            r = r * 10 + ord(ls[i]) - ord('0')
+            i += 1
+
+        return max(-2**31, min(sign * r,2**31-1))
+
+
 if __name__ == "__main__":
     s = Solution()
     print s.myAtoi("  -0012a42")
