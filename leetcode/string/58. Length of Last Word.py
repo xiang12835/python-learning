@@ -22,7 +22,7 @@ class Solution(object):
         return len(s.strip().split(" ")[-1])
 
 
-class Solution:
+class Solution1:
     def lengthOfLastWord(self, s: str) -> int:
         s = s.strip()
         if not s:
