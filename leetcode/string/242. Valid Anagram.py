@@ -8,9 +8,9 @@ class Solution(object):
         :rtype: bool
 
         排序
+
         T: O(NlogN)
         S: O(logN)
-
         """
         return sorted(s) == sorted(t)
 
