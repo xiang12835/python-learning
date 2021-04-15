@@ -21,15 +21,13 @@ class Solution1(object):
         :type s: str
         :rtype: str
 
-        return s[::-1]
+        递归
 
+        T：O(N)，执行了 N/2 次的交换。
+        S：O(N)，递归过程中使用的堆栈空间。
         """
 
         def recursion(left, right):
-            """
-            T：O(N)，执行了 N/2 次的交换。
-            S：O(N)，递归过程中使用的堆栈空间。
-            """
             if left >= right:
                 return
             s[left], s[right] = s[right], s[left]
@@ -38,8 +36,31 @@ class Solution1(object):
         recursion(0, len(s) - 1)
 
 
-
 class Solution2(object):
+    def reverseString(self, s):
+        """
+        :type s: str
+        :rtype: str
+
+        递归
+
+        T：O(N)，执行了 N/2 次的交换。
+        S：O(N)，递归过程中使用的堆栈空间。
+        """
+        self.s = s
+        return self.recursion(0, len(s) - 1)
+
+    def recursion(self, l, r):
+        # terminator
+        if l >= r:
+            return
+        # process current
+        self.s[l], self.s[r] = self.s[r], self.s[l]
+        # drill down
+        self.recursion(l + 1, r - 1)
+
+
+class Solution3(object):
     def reverseString(self, s):
         """
         :type s: str
