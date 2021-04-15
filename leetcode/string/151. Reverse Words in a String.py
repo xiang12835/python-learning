@@ -53,3 +53,25 @@ class Solution(object):
             ans.append(w[::-1])
 
         return ' '.join(ans)
+
+
+class Solution1:
+    def reverseWords(self, s: str) -> str:
+        s = s.strip()
+
+        words = s[::-1].split(' ')
+        r = []
+        for word in words:
+            if word:
+                r.append(word[::-1])
+
+        return ' '.join(r)
+
+
+class Solution2(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        return ' '.join(reversed(s.strip().split(' ')))
