@@ -81,3 +81,31 @@ class Solution1:
                     max_len = j - i + 1
                     begin = i
         return s[begin:begin + max_len]
+
+
+class Solution2(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+
+        中心扩散法
+
+        T: O(n**2)
+        S: O(1)
+        """
+        start, end = 0, 0
+        for i in range(len(s)):
+            left1, right1 = self.expandAroundCenter(s, i, i)  # 奇数
+            left2, right2 = self.expandAroundCenter(s, i, i + 1)  # 偶数
+            if right1 - left1 > end - start:
+                start, end = left1, right1
+            if right2 - left2 > end - start:
+                start, end = left2, right2
+        return s[start: end + 1]
+
+    def expandAroundCenter(self, s, left, right):
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+        return left + 1, right - 1
