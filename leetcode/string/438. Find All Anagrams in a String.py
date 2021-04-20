@@ -38,6 +38,9 @@ class Solution1(object):
 
 class Solution3:
     def findAnagrams(self, s, p):
+        """
+        滑动窗口，用数组比较是否相等
+        """
         # 记录p, s字母个数
         p_count = [0] * 26
         s_count = [0] * 26
