@@ -1,3 +1,5 @@
+# coding=utf-8
+
 """
  Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
 
@@ -51,6 +53,30 @@ class Solution1(object):
                 one, two = s[left:right], s[left + 1:right + 1]
                 return one == one[::-1] or two == two[::-1]
             left, right = left + 1, right - 1
+        return True
+
+
+class Solution2:
+    def validPalindrome(self, s: str) -> bool:
+        """
+        双指针+递归
+        """
+        l = 0
+        r = len(s) - 1
+        while l < r:
+            if s[l] == s[r]:
+                l += 1
+                r -= 1
+            else:
+                return self.isPalindrome(s, l, r - 1) or self.isPalindrome(s, l + 1, r)
+        return True
+
+    def isPalindrome(self, s, l, r):
+        while l < r:
+            if s[l] != s[r]:
+                return False
+            l += 1
+            r -= 1
         return True
 
 
