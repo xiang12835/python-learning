@@ -31,6 +31,36 @@ class Solution:
                 self.recursion(ss[:i] + ss[i + 1:], res, path + ss[i])
 
 
+class Solution1:
+    def permutation(self, s):
+        size = len(s)
+        if size == 0:
+            return ""
+
+        ss = list(s)
+        used = [False for _ in range(size)]
+        self.res = []
+        self.backtrack(ss, size, 0, [], used)
+        return self.res
+
+    def backtrack(self, ss, size, depth, path, used):
+        if depth == size:
+            data = "".join(path)
+            if data not in self.res:
+                self.res.append(data)
+                return
+
+        for i in range(size):
+            if not used[i]:
+                used[i] = True
+                path.append(ss[i])
+
+                self.backtrack(ss, size, depth + 1, path, used)
+
+                used[i] = False
+                path.pop()
+
+
 if __name__ == '__main__':
     ss = 'ab'
     Solution().Permutation(ss)
