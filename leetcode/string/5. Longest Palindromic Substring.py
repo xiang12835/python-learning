@@ -21,6 +21,8 @@ class Solution(object):
         :type s: str
         :rtype: str
 
+        BF
+
         T: O(n^2)
         S: O(1)
         """
