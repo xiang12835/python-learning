@@ -99,8 +99,7 @@ class Solution4(object):
         :type t: str
         :rtype: bool
 
-        哈希表：用字数统计，因为只可能是26个字母
-
+        字母个数数组charCount：用字数统计，因为只可能是26个字母
         T：O(n)，其中 n 为 s 的长度。
         S：O(S)，其中 S 为字符集大小，此处 S=26。
 
