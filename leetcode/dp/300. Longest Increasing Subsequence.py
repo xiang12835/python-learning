@@ -35,7 +35,18 @@ class Solution(object):
 
         loop一圈，求出最长的
 
-        时间复杂度为O(n^2)
+        1. subproblem
+
+        2. dp array
+
+        dp[i] 的值代表 nums 前 i 个数字的最长子序列长度
+
+        3. dp equation
+
+        当 nums[i]>nums[j] 时： nums[i] 可以接在 nums[j] 之后（此题要求严格递增），此情况下最长上升子序列长度为 dp[j] + 1；
+
+        T : O(n**2)
+        S : O(n)
 
         """
         if not nums or len(nums) == 0:
