@@ -77,17 +77,16 @@ class Solution(object):
 
 class Solution1:
     def detectCycle(self, head: ListNode) -> ListNode:
-        first = head
-        fast = head
+        fast = slow = head
         while fast and fast.next:
             fast = fast.next.next
-            head = head.next
-            if head ==fast:
+            slow = slow.next
+            if slow ==fast:
                 break
         if not fast or not fast.next: # 易错
             return None
-        head = first
-        while fast != head:
-            head = head.next
+        fast = head
+        while fast != slow:
+            slow = slow.next
             fast = fast.next
         return fast
