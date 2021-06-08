@@ -84,7 +84,7 @@ class Solution1:
             head = head.next
             if head ==fast:
                 break
-        if not fast or not fast.next:
+        if not fast or not fast.next: # 易错
             return None
         head = first
         while fast != head:
