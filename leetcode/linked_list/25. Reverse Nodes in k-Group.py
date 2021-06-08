@@ -37,6 +37,8 @@ class Solution:
         :type k: int
         :rtype: ListNode
 
+        https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/kge-yi-zu-fan-zhuan-lian-biao-by-powcai/
+
     时间复杂度: O(N)
     空间复杂度: O(1)
 
