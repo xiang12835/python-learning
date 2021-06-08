@@ -58,12 +58,12 @@ class Solution(object):
             fast = fast.next.next
             slow = slow.next
 
-            if fast == slow:
+            if fast == slow: # 双指针第一次相遇
                 break
         else:
             return None
 
-        while head != slow:
+        while head != slow: # 双指针第二次相遇
             head = head.next
             slow = slow.next
 
