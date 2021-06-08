@@ -44,6 +44,30 @@ class Solution(object):
                 ans = max(ans, i - (stack[-1] if stack else -1))
         return ans
 
+class Solution1(object):
+    def longestValidParentheses(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if not s:
+            return 0
+
+        stack = [-1]
+        ans = 0
+        n = len(s)
+        for i in range(n):
+            # 入栈条件
+            if s[i] == '(':
+                stack.append(i)
+            else:
+                stack.pop()
+                if not stack:
+                    stack.append(i)
+                else:
+                    ans = max(ans, i - stack[-1])
+        return ans
+
 
 if __name__ == "__main__":
     print Solution().longestValidParentheses(")()())")
