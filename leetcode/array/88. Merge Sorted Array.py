@@ -1,3 +1,5 @@
+# coding=utf-8
+
 """
 Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
 
@@ -41,3 +43,12 @@ class Solution1(object):
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
         return (nums1+nums2).sort()
+
+if __name__ == '__main__':
+    nums1 = [1,2,3,0,0,0]
+    m = 3
+    nums2 = [2,5,6]
+    n = 3
+    Solution().merge(nums1, m, nums2, n)
+
+    print nums1
