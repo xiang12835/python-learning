@@ -1,4 +1,4 @@
-# conding= utf-8
+# coding= utf-8
 
 """
 You are given an n x n 2D matrix representing an image.
@@ -79,6 +79,24 @@ class Solution2(object):
         """
         return [list(reversed(l)) for l in zip(*matrix)]
 
+
+
+class Solution:
+    def rotate(self, matrix):
+        """
+        对于矩阵中第 i 行的第 j 个元素，在旋转后，它出现在倒数第 i 列的第 j 个位置。
+
+        T：O(N**2)，其中 N 是 matrix 的边长。
+        S：O(N**2)。我们需要使用一个和 matrix 大小相同的辅助数组。
+        """
+        n = len(matrix)
+        # Python 这里不能 matrix_new = matrix 或 matrix_new = matrix[:] 因为是引用拷贝
+        matrix_new = [[0] * n for _ in range(n)]
+        for i in range(n):
+            for j in range(n):
+                matrix_new[j][n - i - 1] = matrix[i][j]
+        # 不能写成 matrix = matrix_new
+        matrix[:] = matrix_new
 
 
 
