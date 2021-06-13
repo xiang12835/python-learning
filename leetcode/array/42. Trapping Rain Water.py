@@ -16,6 +16,9 @@ class Solution(object):
         """
         :type height: List[int]
         :rtype: int
+
+        双指针计算每一[最低高度增加的面积]，累加可得接满雨水后的总面积数。
+
         """
         l, r, water, min_height = 0, len(height) - 1, 0, 0
         while l < r:
