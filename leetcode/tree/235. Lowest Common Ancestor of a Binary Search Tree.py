@@ -15,8 +15,10 @@ class Solution(object):
         """
         if not root:
             return root
-        if root.val > p.val and root.val > q.val:
+
+        if p.val < root.val and q.val < root.val:
             return self.lowestCommonAncestor(root.left, p, q)
-        if root.val < p.val and root.val < q.val:
+        elif p.val > root.val and q.val > root.val:
             return self.lowestCommonAncestor(root.right, p, q)
-        return root
+        else:
+            return root
