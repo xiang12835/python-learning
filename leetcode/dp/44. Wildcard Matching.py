@@ -17,6 +17,8 @@ class Solution(object):
 
         dp[i][j]，表示S从开始到下标i，P从开始到下标j是否匹配
 
+        使用状态表
+
         3. dp equation
 
         T: O(m*n)
