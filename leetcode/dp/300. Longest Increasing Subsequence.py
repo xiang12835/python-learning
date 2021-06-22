@@ -81,3 +81,7 @@ class Solution1(object):
                 lis[bisect.bisect_left(lis, nums[i])] = nums[i]
 
         return len(lis)
+
+if __name__ == "__main__":
+    s = Solution()
+    print s.lengthOfLIS([10,9,2,5,3,7,101,18])
