@@ -41,3 +41,26 @@ class Solution(object):
         r = self.maxDepth(root.right)
 
         return max(l, r) + 1
+
+
+
+class Solution1:
+    def maxDepth(self, root: TreeNode) -> int:
+        """
+        递归
+
+        T: O(n)
+        S: O(h)
+        """
+        if not root:
+            return 0
+        l = self.maxDepth(root.left)
+        r = self.maxDepth(root.right)
+        if not l and not r:
+            return 1
+        elif not l:
+            return r + 1
+        elif not r:
+            return l + 1
+        else:
+            return max(l, r) + 1
