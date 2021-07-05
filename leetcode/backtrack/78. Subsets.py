@@ -23,7 +23,25 @@ Output:
 
 
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums):
+        """
+        迭代法
+
+        """
+
+        results = [[]]
+
+        for num in nums:
+            l = []
+            for result in results:
+                l.append(result + [num])
+
+            results.extend(l)
+        return results
+
+
+class Solution1:
+    def subsets(self, nums):
 
         """
         2.顺序考虑，仅考虑选择的元素
@@ -48,7 +66,7 @@ class Solution:
             self.backtrack(sol + [nums[i]], i + 1, nums)
 
 
-class Solution1(object):
+class Solution2(object):
 
     """
     1.全部考虑，选或不选
@@ -56,7 +74,7 @@ class Solution1(object):
     1选或不选，有两种情况，2选或不选，有两种情况，3选或不选，有两种情况，那么总共就是2\*2\*2=8种情况：
 
     """
-    def subsets(self, nums: List[int]) -> List[List[int]]:
+    def subsets(self, nums):
         self.res = []
         self.backtrack([], 0, nums)
         return self.res
