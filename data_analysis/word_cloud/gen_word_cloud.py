@@ -9,11 +9,14 @@ import numpy as np
 def create_word_cloud(f):
      print('根据词频计算词云')
      text = " ".join(jieba.cut(f,cut_all=False, HMM=True))
+     image = np.array(Image.open('cloud.png'))
+
      wc = WordCloud(
            font_path="./SimHei.ttf",
            max_words=100,
            width=2000,
            height=1200,
+         mask=image,
          background_color='white'
     )
      wordcloud = wc.generate(text)
