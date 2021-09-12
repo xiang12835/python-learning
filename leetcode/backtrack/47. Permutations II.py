@@ -2,8 +2,9 @@
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        """
-        回溯 + 剪枝
+        """回溯 + 剪枝
+
+        https://pic.leetcode-cn.com/1600386643-uhkGmW-image.png
 
         path 变量是一个栈
 
