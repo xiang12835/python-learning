@@ -6,8 +6,9 @@ from typing import List
 class Solution(object):
     def permute(self, nums):
 
-        """
-        回溯
+        """回溯
+
+        https://pic.leetcode-cn.com/0bf18f9b86a2542d1f6aa8db6cc45475fce5aa329a07ca02a9357c2ead81eec1-image.png
 
         path 变量是一个栈
 
