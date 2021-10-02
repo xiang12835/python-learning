@@ -49,3 +49,29 @@ class Solution1:
             if len(end_set) < len(start_set):
                 start_set, end_set = end_set, start_set
         return -1
+
+
+class Solution2:
+    def minMutation(self, start: str, end: str, bank: List[str]) -> int:
+        """
+        BFS
+        """
+
+        if end not in bank:
+            return -1
+
+        queue = [(start, 0)] # 初始结点以及当前步数
+        change = ["A", "C", "G", "T"]
+        while queue: # 用队列实现广度优先
+            node, step = queue.pop(0)
+            if node == end: # 已经到达目标
+                return step
+
+            for i in range(len(node)):
+                for c in change:
+                    new = node[:i] + c + node[i + 1:] # 改变后的序列
+                    if new in bank:
+                        queue.append((new, step + 1)) # 入队，继续广度搜索
+                        bank.remove(new) # 避免重复遍历
+
+        return -1
