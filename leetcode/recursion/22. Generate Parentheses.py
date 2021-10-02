@@ -35,15 +35,22 @@ class Solution(object):
         return self.l
 
     def _recursion(self, left, right, n, result):
+
+        # terminator
         if left == n and right == n:
             self.l.append(result)
             return
 
+        # current
+
+        # drill down
         if left < n:  # left 随时可以加，只要别超标
             self._recursion(left + 1, right, n, result + '(')
 
         if right < n and right < left:  # 右括号没用完，右括号要比左括号少
             self._recursion(left, right + 1, n, result + ')')
+
+        # reverse
 
 
 class Solution1(object):
