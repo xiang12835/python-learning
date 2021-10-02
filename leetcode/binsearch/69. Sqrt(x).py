@@ -76,8 +76,8 @@ class Solution1(object):
 
 if __name__ == "__main__":
     s = Solution()
-    print s.mySqrt(100)
+    print(s.mySqrt(100))
 
     s1 = Solution1()
-    print s1.mySqrt(102)
+    print(s1.mySqrt(102))
 
