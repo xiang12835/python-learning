@@ -15,8 +15,8 @@ class Solution:
         g_length = len(g)
         s_length = len(s)
 
-        i = 0
-        j = 0
+        i = 0  # 孩子胃口
+        j = 0  # 饼干
 
         r = 0
         while (i < g_length and j < s_length):
