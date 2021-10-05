@@ -97,4 +97,46 @@ class Solution1:
         return 0
 
 
+class Solution2:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        """
+        广度优先搜索 + 建图
+
+        T：O(N * C^2)。其中 N 为 wordList 的长度，C 为列表中单词的平均长度。
+        S：O(N * C^2)。其中 N 为 wordList 的长度，C 为列表中单词的平均长度。
+
+        法二：DFS
+
+        法三：Two-ended BFS
+        """
+
+        # 先将 wordList 放到哈希表里，便于判断某个单词是否在 wordList 里
+        word_set = set(wordList)
+        if len(word_set) == 0 or endWord not in word_set:
+            return 0
+
+        if beginWord in word_set:
+            word_set.remove(beginWord)
+
+        # 队列，图的广度优先遍历，必须使用队列和表示是否访问过的 visited 哈希表
+        queue = [(beginWord, 1)]
+        visited = set(beginWord)
+
+        word_len = len(beginWord)
+
+        # 开始广度优先遍历，包含起点，因此初始化的时候步数为 1
+        while queue:
+            word, step = queue.pop(0)
+            if word == endWord:
+                return step
+            # 如果 currentWord 能够修改 1 个字符与 endWord 相同，则返回 step + 1
+            for j in range(word_len):
+                for k in range(26):
+                    next_word = word[:j] + chr(ord('a') + k) + word[j+1:]
+                    if next_word in word_set and next_word not in visited:
+                        queue.append((next_word, step+1))
+                        # 添加到队列以后，必须马上标记为已经访问
+                        visited.add(next_word)
+        return 0
+
 
