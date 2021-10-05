@@ -24,8 +24,8 @@ class Solution(object):
 
         length = len(nums)
 
-        for i in xrange(length-1):
-            for j in xrange(i+1, length):
+        for i in range(length-1):
+            for j in range(i+1, length):
                 if nums[i] + nums[j] == target:
                     r = [i, j]
                     break
@@ -51,7 +51,7 @@ class Solution1(object):
 
 if __name__ == "__main__":
     s = Solution()
-    print s.twoSum([3, 2, 4], 6)
+    print(s.twoSum([3, 2, 4], 6))
 
     s1 = Solution1()
-    print s1.twoSum([3, 2, 4], 6)
+    print(s1.twoSum([3, 2, 4], 6))
