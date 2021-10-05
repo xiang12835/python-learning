@@ -126,17 +126,21 @@ class Solution2:
 
         # 开始广度优先遍历，包含起点，因此初始化的时候步数为 1
         while queue:
-            word, step = queue.pop(0)
-            if word == endWord:
-                return step
-            # 如果 currentWord 能够修改 1 个字符与 endWord 相同，则返回 step + 1
-            for j in range(word_len):
-                for k in range(26):
-                    next_word = word[:j] + chr(ord('a') + k) + word[j+1:]
-                    if next_word in word_set and next_word not in visited:
-                        queue.append((next_word, step+1))
-                        # 添加到队列以后，必须马上标记为已经访问
-                        visited.add(next_word)
+
+            cur_size = len(queue)
+            for _ in range(cur_size):
+
+                word, step = queue.pop(0)
+                if word == endWord:
+                    return step
+                # 如果 currentWord 能够修改 1 个字符与 endWord 相同，则返回 step + 1
+                for j in range(word_len):
+                    for k in range(26):
+                        next_word = word[:j] + chr(ord('a') + k) + word[j+1:]
+                        if next_word in word_set and next_word not in visited:
+                            queue.append((next_word, step+1))
+                            # 添加到队列以后，必须马上标记为已经访问
+                            visited.add(next_word)
         return 0
 
 
