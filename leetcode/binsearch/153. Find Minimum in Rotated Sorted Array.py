@@ -29,7 +29,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums = [11, 13, 15, 17]
+    nums = [2,4,5,6,7,0,1]
 
     s = Solution()
     print(s.findMin(nums))
