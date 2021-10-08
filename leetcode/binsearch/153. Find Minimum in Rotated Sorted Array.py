@@ -1,7 +1,7 @@
 # coding=utf-8
 
 class Solution:
-    def findMin(self, nums: List[int]) -> int:
+    def findMin(self, nums):
         """
         二分查找
 
@@ -26,3 +26,11 @@ class Solution:
                 l = mid + 1
             else:
                 r = mid - 1
+
+
+if __name__ == "__main__":
+    nums = [11, 13, 15, 17]
+
+    s = Solution()
+    print(s.findMin(nums))
+
