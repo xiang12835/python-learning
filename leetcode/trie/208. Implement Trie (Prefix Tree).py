@@ -87,6 +87,6 @@ if __name__ == '__main__':
     param_2 = obj.search("app")
     param_3 = obj.startsWith("app")
 
-    print param_1
-    print param_2
-    print param_3
+    print(param_1)
+    print(param_2)
+    print(param_3)
