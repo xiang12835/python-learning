@@ -14,10 +14,10 @@ def gen_word_cloud():
         data = f.read()
 
     text = " ".join(jieba.cut(data, cut_all=False, HMM=True))
-    image = np.array(Image.open('wenhao1.jpeg'))
+    image = np.array(Image.open('./images/wenhao1.jpeg'))
 
     wc = WordCloud(
-        font_path="./SimHei.ttf",
+        font_path="./fonts/SimHei.ttf",
         max_words=100,
         width=1200,
         height=1580,
