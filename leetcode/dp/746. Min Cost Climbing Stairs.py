@@ -1,7 +1,7 @@
 # coding=utf-8
 
 class Solution:
-    def minCostClimbingStairs(self, cost: List[int]) -> int:
+    def minCostClimbingStairs(self, cost):
         """
         1. subproblem
         假设数组 cost 的长度为 n，则 n 个阶梯分别对应下标 0 到 n−1，楼层顶部对应下标 n，问题等价于计算达到下标 n 的最小花费
@@ -24,3 +24,11 @@ class Solution:
         for i in range(2, n + 1):
             dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
         return dp[-1]
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.minCostClimbingStairs([10,15,20]))
+
+
+
+
