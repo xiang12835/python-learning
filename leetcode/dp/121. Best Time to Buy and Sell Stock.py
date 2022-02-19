@@ -92,3 +92,52 @@ class Solution3:
         return max_profit
 
 
+class Solution4:
+    def maxProfit(self, prices: List[int]) -> int:
+        """ dp
+
+        1. subproblem
+
+
+        2. dp arr
+
+        dp[i][0] 表示第i天持有股票所得最多现金
+        dp[i][1] 表示第i天不持有股票所得最多现金
+
+
+        3. dp equation
+
+        如果第i天持有股票即dp[i][0]， 那么可以由两个状态推出来
+
+        第i-1天就持有股票，那么就保持现状，所得现金就是昨天持有股票的所得现金 即：dp[i - 1][0]
+        第i天买入股票，所得现金就是买入今天的股票后所得现金即：-prices[i]
+
+        那么dp[i][0]应该选所得现金最大的，所以dp[i][0] = max(dp[i - 1][0], -prices[i]);
+
+
+        如果第i天不持有股票即dp[i][1]， 也可以由两个状态推出来
+
+        第i-1天就不持有股票，那么就保持现状，所得现金就是昨天不持有股票的所得现金 即：dp[i - 1][1]
+        第i天卖出股票，所得现金就是按照今天股票佳价格卖出后所得现金即：prices[i] + dp[i - 1][0]
+
+        同样dp[i][1]取最大的，dp[i][1] = max(dp[i - 1][1], prices[i] + dp[i - 1][0]);
+
+        T: O(N)
+        S: O(N)
+
+        """
+
+        length = len(prices)
+        if len == 0:
+            return 0
+
+        dp = [[0] * 2 for _ in range(length)]
+
+        dp[0][0] = -prices[0]
+        dp[0][1] = 0
+
+        for i in range(1, length):
+            dp[i][0] = max(dp[i-1][0], -prices[i])
+            dp[i][1] = max(dp[i-1][1], prices[i] + dp[i-1][0])
+
+        return dp[-1][1]
