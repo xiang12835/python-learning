@@ -143,3 +143,10 @@ class Solution4:
             dp[i][1] = max(dp[i-1][1], prices[i] + dp[i-1][0])
 
         return dp[-1][1]
+
+
+
+# 股票买卖问题
+
+# 方法：dp + 滚动数组
+# https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/solution/5xing-dai-ma-gao-ding-suo-you-gu-piao-ma-j6zo/
