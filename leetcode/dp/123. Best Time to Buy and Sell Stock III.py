@@ -132,6 +132,8 @@ dp[i][4] = max(dp[i - 1][4], dp[i - 1][3] + prices[i]);
 
         T：O(n)
         S：O(n * 5)
+
+        交易两次
         """
         if len(prices) == 0:
             return 0

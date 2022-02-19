@@ -6,6 +6,8 @@ class Solution:
 
         T：O(n * k)
         S：O(n * k)
+
+        交易k次
         """
 
         if len(prices) == 0:

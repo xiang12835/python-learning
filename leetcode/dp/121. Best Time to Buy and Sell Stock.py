@@ -125,6 +125,8 @@ class Solution4:
         T: O(N)
         S: O(N)
 
+        交易1次
+
         """
 
         length = len(prices)

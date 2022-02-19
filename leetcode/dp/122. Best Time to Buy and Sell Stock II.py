@@ -80,6 +80,8 @@ class Solution2(object):
         T: O(N)
         S: O(N)
 
+        交易n次
+
         """
 
         length = len(prices)
