@@ -61,3 +61,34 @@ class Solution(object):
         self.dfs(root, sum, 0, self.res)
         self.helper(root.left, sum)
         self.helper(root.right, sum)
+
+
+class Solution1:
+    def pathSum(self, root: TreeNode, targetSum: int) -> int:
+        """ dfs
+
+        我们首先想到的解法是穷举所有的可能，我们访问每一个节点 node，检测以 node 为起始节点且向下延深的路径有多少种。
+        我们递归遍历每一个节点的所有可能的路径，然后将这些路径数目加起来即为返回结果。
+
+        T: O(N^2)
+        S: O(N)
+        """
+        def dfs(root, targetSum):
+            if root is None:
+                return 0
+
+            ret = 0
+            if root.val == targetSum:
+                ret += 1
+
+            ret += dfs(root.left, targetSum - root.val)
+            ret += dfs(root.right, targetSum - root.val)
+            return ret
+
+        if root is None:
+            return 0
+
+        ret = dfs(root, targetSum)
+        ret += self.pathSum(root.left, targetSum)
+        ret += self.pathSum(root.right, targetSum)
+        return ret
