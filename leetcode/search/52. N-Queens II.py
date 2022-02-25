@@ -24,7 +24,30 @@ n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并
 """
 
 
-class Solution(object):
+class Solution:
+    def totalNQueens(self, n: int) -> int:
+        """
+        T: O(N!)
+        S: O(N)
+        """
+        self.res = 0
+
+        def dfs(queens, xy_diff, xy_sum):
+            p = len(queens)
+            if p == n:
+                self.res += 1
+                return
+
+            for q in range(n):
+                if q not in queens and p-q not in xy_diff and p+q not in xy_sum:
+                    dfs(queens + [q], xy_diff+[p-q], xy_sum+[p+q])
+
+        dfs([], [], [])
+
+        return self.res
+
+
+class Solution1(object):
     def totalNQueens(self, n):
         """
         :type n: int
@@ -48,4 +71,9 @@ class Solution(object):
             p = bits & -bits  # 取到最低位的1
             self.dfs(n, row + 1, col | p, (pie | p) << 1, (na | p) >> 1)
             bits = bits & (bits - 1)  # 去掉最低位的1
+
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.totalNQueens(4))
 
