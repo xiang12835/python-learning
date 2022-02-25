@@ -79,5 +79,37 @@ class Solution1(object):
         # 局部变量，自己会清除，非全局变量，无需清除
 
 
+class Solution2:
+    def generateParenthesis(self, n: int) -> List[str]:
+        """
+        DFS + 剪枝
+
+        left 已经使用了的左括号的个数
+        right 已经使用了的右括号的个数
+
+        T: O(2^n)
+        """
+
+        res = []
+
+        def recursion(l, r, path):
+            # terminator
+            if l == n and r == n:
+                res.append(path)
+
+            # process current
+
+            # drill down
+            if l < n:
+                recursion(l+1, r, path+"(")
+            if r < l and r < n:
+                recursion(l, r+1, path+")")
+
+            # reverse if
+
+        recursion(0, 0, "")
+
+        return res
+
 if __name__ == "__main__":
     print Solution().generateParenthesis(2)
