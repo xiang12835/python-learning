@@ -61,22 +61,23 @@ class Solution2:
         :type s: str
         :rtype: int
 
-        快慢指针
+        滑动窗口 + 字典
         """
-        lookup = collections.defaultdict(int)
-        fast, slow, counter, res = 0, 0, 0, 0
-        while fast < len(s):
-            lookup[s[fast]] += 1
-            if lookup[s[fast]] == 1: # 唯一
+        d = collections.defaultdict(int)
+        end, start, counter, res = 0, 0, 0, 0
+        while end < len(s):
+            d[s[end]] += 1
+            if d[s[end]] == 1: # 唯一
                 counter += 1
-            fast += 1
-            # counter < fast - slow 说明有重复字符出现，正常为counter == fast - slow
-            while slow < fast and counter < fast - slow: # 有重复
-                lookup[s[slow]] -= 1
-                if lookup[s[slow]] == 0:
+            end += 1
+            # counter < end - start 说明有重复字符出现，正常为counter == end - start
+            while start < end and counter < end - start: # 有重复
+                d[s[start]] -= 1
+                if d[s[start]] == 0:
                     counter -= 1
-                slow += 1
-            res = max(res, fast - slow)
+                start += 1
+            res = max(res, end - start)
+
         return res
 
 
