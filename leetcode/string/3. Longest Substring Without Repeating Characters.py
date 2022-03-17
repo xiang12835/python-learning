@@ -81,34 +81,40 @@ class Solution1:
         return res
 
 
-class Solution2(object):
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-
+class Solution2:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        """ 滑动窗口 + 字典
         思路：找出从每一个字符开始的，不包含重复字符的最长子串
 
         T：O(N)，其中 N 是字符串的长度。左指针和右指针分别会遍历整个字符串一次。
-        S：O(∣Σ∣)
+        S：O(∣Σ∣)。 Σ 为所有 ASCII 码在 [0,128) 内的字符，即 ∣Σ∣=128
         """
-        lookup = collections.defaultdict(int)
-        start = 0
-        end = 0
-        max_len = 0
+
+        d = collections.defaultdict(int)
+
+        start, end = 0, 0
         counter = 0
-        while end < len(s):
-            if lookup[s[end]] > 0:
+        res = 0
+
+        n = len(s)
+
+        while end < n:
+            ch = s[end]
+            if d[ch] > 0:
                 counter += 1
-            lookup[s[end]] += 1
+            d[ch] += 1
             end += 1
-            while counter > 0:
-                if lookup[s[start]] > 1:
+
+            while counter > 0: # 遇到重复，处理左边界
+                ch = s[start]
+                if d[ch] > 1:
                     counter -= 1
-                lookup[s[start]] -= 1
+                d[ch] -= 1
                 start += 1
-            max_len = max(max_len, end - start)
-        return max_len
+
+            res = max(res, end - start)
+
+        return res
 
 
 if __name__ == '__main__':
