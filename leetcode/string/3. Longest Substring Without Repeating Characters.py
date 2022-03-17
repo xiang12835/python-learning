@@ -25,28 +25,32 @@ Explanation: The answer is "wke", with the length of 3.
 
 
 class Solution:
-    def lengthOfLongestSubstring(self, s):
+    def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        :type s: str
-        :rtype: int
+        滑动窗口 + 字典
+
+        T: O(N)
+        S: O(1)
         """
-        if not s or len(s) == 0:
+        if not s:
             return 0
 
-        slow, fast = 0, 0
-        res, lookup = 0, set()
-        while slow < len(s) and fast < len(s):
-            if s[fast] not in lookup:
-                lookup.add(s[fast])
-                res = max(res, fast - slow + 1)
-                fast += 1
+        n = len(s)
+
+        start, end = 0, 0
+        r = 0
+        lookup = set()
+
+        while start < n and end < n:
+            if s[end] not in lookup:
+                lookup.add(s[end])
+                r = max(r, end - start + 1)
+                end += 1
             else:
-                lookup.discard(s[slow])
-                slow += 1
-        return res
+                lookup.discard(s[start])
+                start += 1
 
-
-
+        return r
 
 import collections
 
@@ -77,8 +81,8 @@ class Solution2:
 
 
 if __name__ == '__main__':
-    s = "abcabcbb"
+    s = "pwwkew"
     r = Solution().lengthOfLongestSubstring(s)
-    print r
+    print(r)
 
 
