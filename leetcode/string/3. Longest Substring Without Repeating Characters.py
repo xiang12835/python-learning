@@ -55,7 +55,7 @@ class Solution:
 import collections
 
 
-class Solution2:
+class Solution1:
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str
@@ -79,6 +79,36 @@ class Solution2:
             res = max(res, end - start)
 
         return res
+
+
+class Solution2(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+
+        思路：找出从每一个字符开始的，不包含重复字符的最长子串
+
+        T：O(N)，其中 N 是字符串的长度。左指针和右指针分别会遍历整个字符串一次。
+        S：O(∣Σ∣)
+        """
+        lookup = collections.defaultdict(int)
+        start = 0
+        end = 0
+        max_len = 0
+        counter = 0
+        while end < len(s):
+            if lookup[s[end]] > 0:
+                counter += 1
+            lookup[s[end]] += 1
+            end += 1
+            while counter > 0:
+                if lookup[s[start]] > 1:
+                    counter -= 1
+                lookup[s[start]] -= 1
+                start += 1
+            max_len = max(max_len, end - start)
+        return max_len
 
 
 if __name__ == '__main__':
