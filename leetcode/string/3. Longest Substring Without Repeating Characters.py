@@ -67,11 +67,11 @@ class Solution2:
         fast, slow, counter, res = 0, 0, 0, 0
         while fast < len(s):
             lookup[s[fast]] += 1
-            if lookup[s[fast]] == 1:
+            if lookup[s[fast]] == 1: # 唯一
                 counter += 1
             fast += 1
             # counter < fast - slow 说明有重复字符出现，正常为counter == fast - slow
-            while slow < fast and counter < fast - slow:
+            while slow < fast and counter < fast - slow: # 有重复
                 lookup[s[slow]] -= 1
                 if lookup[s[slow]] == 0:
                     counter -= 1
@@ -82,7 +82,7 @@ class Solution2:
 
 if __name__ == '__main__':
     s = "pwwkew"
-    r = Solution().lengthOfLongestSubstring(s)
+    r = Solution2().lengthOfLongestSubstring(s)
     print(r)
 
 
