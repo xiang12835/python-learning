@@ -90,3 +90,35 @@ class Solution1:
             slow = slow.next
             fast = fast.next
         return fast
+
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution2(object):
+    def detectCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+
+        快慢指针
+
+        https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/linked-list-cycle-ii-kuai-man-zhi-zhen-shuang-zhi-/
+
+        """
+
+        fast, slow = head, head
+        while True:
+            if not (fast and fast.next): # 不相交
+                return
+            fast, slow = fast.next.next, slow.next
+            if fast == slow:  # 第一次相遇
+                break
+        fast = head
+        while fast != slow: # 第二次相遇
+            fast, slow = fast.next, slow.next
+        return fast
