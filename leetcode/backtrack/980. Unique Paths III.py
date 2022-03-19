@@ -2,28 +2,42 @@
 
 class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
-        m, n = len(grid), len(grid[0])
+        """
+        回溯
+        """
+
+        if not grid:
+            return 0
+
+        m = len(grid)
+        n = len(grid[0])
 
         self.res = 0
-        sr, sc = 0, 0                     #起点，终点
-        er, ec = 0, 0
-        step = 0                        #非障碍的个数
 
-        for r in range(m):
-            for c in range(n):
-                if grid[r][c] == 1:
-                    sr, sc = r, c
-                if grid[r][c] == 2:
-                    er, ec = r, c
-                if grid[r][c] != -1:
+        sx, sy = 0, 0 # 起始位置
+        ex, ey = 0, 0 # 结束位置
+        step = 0 # 非障碍物
+
+        # 找位置
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    sx = i
+                    sy = j
+                if grid[i][j] == 2:
+                    ex = i
+                    ey = j
+
+                if grid[i][j] != -1:
                     step += 1
 
+        # 函数：四个方向回溯
         def backtrack(x, y, step):
-            if not 0 <= x < m or not 0 <= y < n or not grid[x][y] != -1:
+            if not 0 <= x < m or not 0 <= y < n or grid[x][y] == -1:
                 return
 
             step -= 1
-            if x == er and y == ec:
+            if x == ex and y == ey:
                 if step == 0:
                     self.res += 1
                 return
@@ -35,11 +49,9 @@ class Solution:
             backtrack(x, y-1, step)
             backtrack(x, y+1, step)
 
-            grid[x][y] = 0 #回溯算法
+            grid[x][y] = 0
 
-        backtrack(sr, sc, step)
+        # 开始查找不同路径的数目
+        backtrack(sx, sy, step)
 
         return self.res
-
-
-
