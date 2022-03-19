@@ -77,21 +77,33 @@ class Solution(object):
 
 
 class Solution1:
-    def solveNQueens(self, n):
-        def dfs(queens, xy_diff, xy_sum):
-            p = len(queens)
-            if p == n:
-                res.append(queens)
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        """
+        回溯 + 剪枝
+
+        x: 递归的深度
+        y: 枚举每一列的位置，检查能否放皇后
+
+        写一个DFS，按照每一层（x）进行遍历，在当前层去循环每一列（y）的位置
+
+        时间复杂度：O(N!)
+        空间复杂度：O(N)
+        """
+        res = [] # 记录所有可能的列位置 [[1,3,0,2],[2,0,3,1]]
+
+        def backtrack(cols, xy_dif, xy_sum):
+            x = len(cols) # 当前层
+            if x == n:
+                res.append(cols)
                 return
 
-            for q in range(n):
-                if q not in queens and p-q not in xy_diff and p+q not in xy_sum:
-                    dfs(queens + [q], xy_diff+[p-q], xy_sum+[p+q])
+            for y in range(n): # 当前列位置
+                if y not in cols and x - y not in xy_dif and x + y not in xy_sum:
+                    backtrack(cols+[y], xy_dif+[x-y], xy_sum+[x+y])
 
-        res = []
-        dfs([], [], [])
+        backtrack([], [], [])
+
         return [['.' * i + 'Q' + '.' * (n-i-1) for i in sol] for sol in res]
-
 
 if __name__ == "__main__":
     s = Solution1()

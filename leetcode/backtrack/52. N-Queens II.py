@@ -27,22 +27,29 @@ n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并
 class Solution:
     def totalNQueens(self, n: int) -> int:
         """
-        T: O(N!)
-        S: O(N)
+        回溯 + 剪枝
+
+        x: 递归的深度
+        y: 枚举每一列的位置，检查能否放皇后
+
+        写一个DFS，按照每一层（x）进行遍历，在当前层去循环每一列（y）的位置
+
+        时间复杂度：O(N!)
+        空间复杂度：O(N)
         """
         self.res = 0
 
-        def dfs(queens, xy_diff, xy_sum):
-            p = len(queens)
-            if p == n:
+        def backtrack(cols, xy_diff, xy_sum):
+            x = len(cols)
+            if x == n:
                 self.res += 1
                 return
 
-            for q in range(n):
-                if q not in queens and p-q not in xy_diff and p+q not in xy_sum:
-                    dfs(queens + [q], xy_diff+[p-q], xy_sum+[p+q])
+            for y in range(n):
+                if y not in cols and x-y not in xy_diff and x+y not in xy_sum:
+                    backtrack(cols+[y], xy_diff+[x-y], xy_sum+[x+y])
 
-        dfs([], [], [])
+        backtrack([], [], [])
 
         return self.res
 
