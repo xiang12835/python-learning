@@ -6,6 +6,9 @@ class Solution:
         """
         https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/bao-li-jie-fa-zhan-by-liweiwei1419/
 
+        动画演示
+        https://leetcode-cn.com/problems/largest-rectangle-in-histogram/solution/dong-hua-yan-shi-dan-diao-zhan-84zhu-zhu-03w3/
+
         时间复杂度：O(N)，输入数组里的每一个元素入栈一次，出栈一次。
         空间复杂度：O(N)，栈的空间最多为 N。
 
