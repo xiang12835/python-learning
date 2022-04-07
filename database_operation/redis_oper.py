@@ -40,3 +40,26 @@ print keys
 
 
 # r.delete("del1")
+
+
+# ==========
+
+# 1. 连接 Redis
+
+import redis
+
+
+def redis_conn_pool():
+    pool = redis.ConnectionPool(host='localhost', port=6379, decode_responses=True)
+    rd = redis.Redis(connection_pool=pool)
+    return rd
+
+# 2. 写入 Redis
+
+# from redis_conn import redis_conn_pool
+
+
+rd = redis_conn_pool()
+rd.set('test_data', 'mytest')
+
+
