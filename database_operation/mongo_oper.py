@@ -1,6 +1,6 @@
 # coding=utf-8
 
-# 连接 MongoDB
+# 1. 连接 MongoDB
 from pymongo import MongoClient
 
 
@@ -9,7 +9,7 @@ db = conn.mydb
 mongo_collection = db.mydata
 
 
-# 批量插入数据
+# 2. 批量插入数据
 
 res = requests.get(url, params=query).json()
 commentList = res['data']['commentList']
