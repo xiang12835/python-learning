@@ -60,3 +60,44 @@ class Solution1:
                 else:
                     r = mid - 1
         return -1
+
+
+class Solution2:
+    def search(self, nums: List[int], target: int) -> int:
+        """
+        五遍刷题；四步做题
+
+        法1. 暴力：还原-可以用二分查找去还原 O(logN) -> 升序 -> 二分：O(logN)
+        法2. 二分查找：a) 单调 b) 边界 c) index
+
+        第一段有序：[l,mid]
+        第二段有序：(mid+1, n-1]
+        """
+
+        if not nums:
+            return -1
+
+        n = len(nums)
+
+        l = 0
+        r = n - 1
+
+        while l <= r:
+            m = l + (r - l) // 2
+            if nums[m] == target:
+                return m
+
+            if nums[l] <= nums[m]: # [l, mid]有序
+                if nums[l] <= target < nums[m]:
+                    r = m - 1
+                else:
+                    l = m + 1
+
+            else: # (mid+1, n-1] 有序
+
+                if nums[m] < target <= nums[n-1]:
+                    l = m + 1
+                else:
+                    r = m -1
+
+        return -1
