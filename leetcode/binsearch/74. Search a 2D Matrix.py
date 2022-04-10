@@ -8,17 +8,18 @@ class Solution:
         T: O(logMN)
         S: O(1)
         """
-        m = len(matrix)
-        if m == 0:
+        if not matrix:
             return False
+
+        m = len(matrix)
         n = len(matrix[0])
 
         l = 0
-        r = m * n - 1
+        r = m*n - 1
 
         while l <= r:
             mid = l + (r - l) // 2
-            mid_val = matrix[mid // n][mid % n]
+            mid_val = matrix[mid//n][mid%n]
             if target == mid_val:
                 return True
             elif target > mid_val:
