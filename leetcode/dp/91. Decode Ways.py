@@ -32,3 +32,22 @@ class Solution:
             if i > 1 and s[i - 2] != '0' and int(s[i - 2:i]) <= 26:  # 如果前一个+当前组合的数字，在有效范围内
                 dp[i] += dp[i - 2]
         return dp[-1]
+
+
+class Solution1:
+    def numDecodings(self, s: str) -> int:
+        legalstr = set(str(i) for i in range(1, 27))
+        self.ans = 0
+        def dfs(s):
+            if len(s)==0:
+                self.ans += 1
+                return
+                # 对于任何一个字符串，我们每次可以读取一到两个
+            if s[0] in legalstr:
+                dfs(s[1 : ])
+            if len(s)>1 and s[ : 2] in legalstr:
+                dfs(s[2 : ])
+            return
+        dfs(s)
+        return self.ans
+
