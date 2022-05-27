@@ -2,7 +2,7 @@
 
 class Solution:
     def findClosest(self, words: List[str], word1: str, word2: str) -> int:
-        """ 遍历
+        """ 迭代法
 
         一次遍历，记录单词的下标，同时计算最小下标差
 
