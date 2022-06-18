@@ -36,7 +36,7 @@ class Solution3:
             if nums[left] % 2 == 0: # (0, 1) or (0, 0)
                 left += 1
 
-            if nums[right] % 2 == 1: # (1, 0)
+            if nums[right] % 2 == 1: # (0, 1) or (1, 1)
                 right -= 1
 
         return nums
