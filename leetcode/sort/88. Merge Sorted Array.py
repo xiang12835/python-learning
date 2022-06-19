@@ -41,19 +41,18 @@ class Solution:
         if n:
             nums1[:n] = nums2[:n]
 
-        return nums1
 
-
-class Solution1(object):
+class Solution(object):
     def merge(self, nums1, m, nums2, n):
         """
         :type nums1: List[int]
         :type m: int
         :type nums2: List[int]
         :type n: int
-        :rtype: void Do not return anything, modify nums1 in-place instead.
+        :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        return (nums1+nums2).sort()
+        nums1[m:] = nums2
+        nums1.sort()
 
 if __name__ == '__main__':
     nums1 = [1,2,3,0,0,0]
