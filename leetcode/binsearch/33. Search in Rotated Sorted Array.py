@@ -41,6 +41,8 @@ class Solution1:
 
         法1. 暴力：还原-可以用二分查找去还原 O(logN) -> 升序 -> 二分：O(logN)
         法2. 二分查找：a) 单调 b) 边界 c) index
+
+        无重复
         """
         if not nums:
             return -1
