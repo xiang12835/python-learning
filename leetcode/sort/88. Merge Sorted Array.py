@@ -12,25 +12,36 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
 """
 
 
-class Solution(object):
-    def merge(self, nums1, m, nums2, n):
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-        :type nums1: List[int]
-        :type m: int
-        :type nums2: List[int]
-        :type n: int
-        :rtype: void Do not return anything, modify nums1 in-place instead.
+        Do not return anything, modify nums1 in-place instead.
+
+        法一：排序
+        T: O((M+N)log(M+N))
+        S: O(log(M+N))
+
+        法二：正向双指针，但是移动元素较多
+        T: O(M+N)
+        S: O(M+N)
+
+        方法三：双指针 + 从后往前
+        思路：由于两个数组有序，考虑从后往前比较
+        T: O(M+N)
+        S: O(1)
         """
-        while m > 0 and n > 0:
-            if nums1[m - 1] > nums2[n - 1]:
-                nums1[m + n - 1] = nums1[m - 1]
+        while m and n:
+            if nums1[m-1] > nums2[n-1]:
+                nums1[m+n-1] = nums1[m-1]
                 m -= 1
             else:
-                nums1[m + n - 1] = nums2[n - 1]
+                nums1[m+n-1] = nums2[n-1]
                 n -= 1
 
-        if n > 0:
+        if n:
             nums1[:n] = nums2[:n]
+
+        return nums1
 
 
 class Solution1(object):
