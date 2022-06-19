@@ -28,7 +28,7 @@ class Solution(object):
 class Solution:
     def sortArrayByParityII(self, nums: List[int]) -> List[int]:
         """
-        双指针 + 双指针
+        双指针
 
         T: O(N)
         S: O(1)
